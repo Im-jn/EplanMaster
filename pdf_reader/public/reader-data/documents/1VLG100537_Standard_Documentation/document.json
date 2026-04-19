@@ -1,0 +1,522 @@
+{
+  "id": "1VLG100537_Standard_Documentation",
+  "title": "1VLG100537_Standard_Documentation.pdf",
+  "pdf_url": "/reader-data/pdfs/1VLG100537_Standard_Documentation.pdf",
+  "page_count": 32,
+  "pages": [
+    {
+      "page_number": 1,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 156,
+        "text": 116,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0001.json"
+    },
+    {
+      "page_number": 2,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 222,
+        "text": 115,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0002.json"
+    },
+    {
+      "page_number": 3,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 8,
+        "vector_path": 156,
+        "text": 72,
+        "image": 1,
+        "link": 8
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0003.json"
+    },
+    {
+      "page_number": 4,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 125,
+        "text": 141,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0004.json"
+    },
+    {
+      "page_number": 5,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 128,
+        "text": 134,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0005.json"
+    },
+    {
+      "page_number": 6,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 18,
+        "vector_path": 533,
+        "text": 149,
+        "image": 1,
+        "link": 18
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0006.json"
+    },
+    {
+      "page_number": 7,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 12,
+        "vector_path": 1671,
+        "text": 103,
+        "image": 1,
+        "link": 12
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0007.json"
+    },
+    {
+      "page_number": 8,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 12,
+        "vector_path": 573,
+        "text": 105,
+        "image": 1,
+        "link": 12
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0008.json"
+    },
+    {
+      "page_number": 9,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 985,
+        "text": 126,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0009.json"
+    },
+    {
+      "page_number": 10,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 6,
+        "vector_path": 911,
+        "text": 184,
+        "image": 1,
+        "link": 6
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0010.json"
+    },
+    {
+      "page_number": 11,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 4115,
+        "text": 100,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0011.json"
+    },
+    {
+      "page_number": 12,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 14810,
+        "text": 89,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0012.json"
+    },
+    {
+      "page_number": 13,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 109,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0013.json"
+    },
+    {
+      "page_number": 14,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 167,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0014.json"
+    },
+    {
+      "page_number": 15,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 167,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0015.json"
+    },
+    {
+      "page_number": 16,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 169,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0016.json"
+    },
+    {
+      "page_number": 17,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 122,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0017.json"
+    },
+    {
+      "page_number": 18,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 111,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0018.json"
+    },
+    {
+      "page_number": 19,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 141,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0019.json"
+    },
+    {
+      "page_number": 20,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 122,
+        "text": 102,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0020.json"
+    },
+    {
+      "page_number": 21,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 0,
+        "vector_path": 335,
+        "text": 140,
+        "image": 1,
+        "link": 0
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0021.json"
+    },
+    {
+      "page_number": 22,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 2,
+        "vector_path": 217,
+        "text": 92,
+        "image": 1,
+        "link": 2
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0022.json"
+    },
+    {
+      "page_number": 23,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 45,
+        "vector_path": 443,
+        "text": 151,
+        "image": 1,
+        "link": 45
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0023.json"
+    },
+    {
+      "page_number": 24,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 222,
+        "vector_path": 1135,
+        "text": 298,
+        "image": 1,
+        "link": 222
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0024.json"
+    },
+    {
+      "page_number": 25,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 303,
+        "vector_path": 1923,
+        "text": 327,
+        "image": 1,
+        "link": 303
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0025.json"
+    },
+    {
+      "page_number": 26,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 142,
+        "vector_path": 759,
+        "text": 224,
+        "image": 1,
+        "link": 142
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0026.json"
+    },
+    {
+      "page_number": 27,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 55,
+        "vector_path": 332,
+        "text": 150,
+        "image": 1,
+        "link": 55
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0027.json"
+    },
+    {
+      "page_number": 28,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 130,
+        "vector_path": 6062,
+        "text": 152,
+        "image": 1,
+        "link": 130
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0028.json"
+    },
+    {
+      "page_number": 29,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 16,
+        "vector_path": 346,
+        "text": 78,
+        "image": 1,
+        "link": 16
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0029.json"
+    },
+    {
+      "page_number": 30,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 45,
+        "vector_path": 476,
+        "text": 130,
+        "image": 1,
+        "link": 45
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0030.json"
+    },
+    {
+      "page_number": 31,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 117,
+        "vector_path": 939,
+        "text": 165,
+        "image": 1,
+        "link": 117
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0031.json"
+    },
+    {
+      "page_number": 32,
+      "page_size": {
+        "width_pt": 1207.0,
+        "height_pt": 843.0
+      },
+      "item_counts": {
+        "component": 57,
+        "vector_path": 554,
+        "text": 130,
+        "image": 1,
+        "link": 57
+      },
+      "warnings": [],
+      "data_url": "/reader-data/documents/1VLG100537_Standard_Documentation/pages/page-0032.json"
+    }
+  ],
+  "resolved_object_count": 2921,
+  "header": "%PDF-1.7"
+}

@@ -1,0 +1,5433 @@
+{
+  "page_number": 238,
+  "page_object_ref": "17946 0 R",
+  "page_size": {
+    "width_pt": 592.0,
+    "height_pt": 842.0
+  },
+  "content_streams": [
+    "34927 0 R"
+  ],
+  "item_counts": {
+    "component": 23,
+    "vector_path": 0,
+    "text": 0,
+    "image": 0,
+    "link": 48
+  },
+  "warnings": [
+    "Could not decode content stream 34927 0 R: error: Error -5 while decompressing data: incomplete or truncated stream"
+  ],
+  "object_details": {
+    "34928 0 R": {
+      "object_ref": "34928 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[266 776 326 796]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34979 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "17946 0 R": {
+      "object_ref": "17946 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42211 0 R/Annots 34976 0 R/Contents 34927 0 R/Resources 34977 0 R/MediaBox[0 0 592 842]>>",
+      "decoded_stream_preview": null
+    },
+    "34979 0 R": {
+      "object_ref": "34979 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34978 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "337 0 R": {
+      "object_ref": "337 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42200 0 R/Annots 18022 0 R/Contents 17869 0 R/Resources 18023 0 R/MediaBox[0 0 1191 842]>>",
+      "decoded_stream_preview": null
+    },
+    "34978 0 R": {
+      "object_ref": "34978 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [537.109, 549.567, 640.984, 682.393]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34929 0 R": {
+      "object_ref": "34929 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 646.5 239.56 656.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34981 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34981 0 R": {
+      "object_ref": "34981 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34980 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34980 0 R": {
+      "object_ref": "34980 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [537.109, 549.567, 640.984, 682.393]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34930 0 R": {
+      "object_ref": "34930 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 646.5 490.12 656.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34983 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34983 0 R": {
+      "object_ref": "34983 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34982 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34982 0 R": {
+      "object_ref": "34982 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [537.109, 549.567, 640.984, 682.393]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34931 0 R": {
+      "object_ref": "34931 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 631.5 239.56 641.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34985 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34985 0 R": {
+      "object_ref": "34985 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34984 0 R/D[ 394 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "394 0 R": {
+      "object_ref": "394 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42202 0 R/Annots 21115 0 R/Contents 21051 0 R/Resources 21116 0 R/Group<</S/Transparency/CS 5101 0 R>>/MediaBox[0 0 1191 842]>>",
+      "decoded_stream_preview": null
+    },
+    "34984 0 R": {
+      "object_ref": "34984 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(148, [183.444, 289.134, 247.422, 448.228]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34932 0 R": {
+      "object_ref": "34932 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 631.5 495.12 641.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34987 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34987 0 R": {
+      "object_ref": "34987 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34986 0 R/D[ 394 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34986 0 R": {
+      "object_ref": "34986 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(148, [183.444, 289.134, 247.422, 448.228]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34933 0 R": {
+      "object_ref": "34933 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 616.5 239.56 626.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34989 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34989 0 R": {
+      "object_ref": "34989 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34988 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "358 0 R": {
+      "object_ref": "358 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42201 0 R/Annots 19127 0 R/Contents 19029 0 R/Resources 19128 0 R/Group<</S/Transparency/CS 5101 0 R>>/MediaBox[0 0 1191 842]>>",
+      "decoded_stream_preview": null
+    },
+    "34988 0 R": {
+      "object_ref": "34988 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [118.701, 457.398, 414.213, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34934 0 R": {
+      "object_ref": "34934 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 616.5 495.12 626.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34991 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34991 0 R": {
+      "object_ref": "34991 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34990 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34990 0 R": {
+      "object_ref": "34990 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [118.701, 457.398, 414.213, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34935 0 R": {
+      "object_ref": "34935 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 601.5 289.56 611.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34993 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34993 0 R": {
+      "object_ref": "34993 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34992 0 R/D[ 383 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "383 0 R": {
+      "object_ref": "383 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42202 0 R/Annots 20321 0 R/Contents 20281 0 R/Resources 20322 0 R/MediaBox[0 0 1191 842]>>",
+      "decoded_stream_preview": null
+    },
+    "34992 0 R": {
+      "object_ref": "34992 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(144, [596.636, 419.173, 692.008, 471.341]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34936 0 R": {
+      "object_ref": "34936 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 601.5 490.12 611.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34995 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34995 0 R": {
+      "object_ref": "34995 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34994 0 R/D[ 383 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34994 0 R": {
+      "object_ref": "34994 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(144, [596.636, 419.173, 692.008, 471.341]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34937 0 R": {
+      "object_ref": "34937 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 586.5 249.56 596.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34997 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34997 0 R": {
+      "object_ref": "34997 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34996 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34996 0 R": {
+      "object_ref": "34996 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [536.846, 588.969, 559.524, 604.008]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34938 0 R": {
+      "object_ref": "34938 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 586.5 490.12 596.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34999 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "34999 0 R": {
+      "object_ref": "34999 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 34998 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "34998 0 R": {
+      "object_ref": "34998 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [536.846, 588.969, 559.524, 604.008]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34939 0 R": {
+      "object_ref": "34939 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 571.5 249.56 581.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35001 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35001 0 R": {
+      "object_ref": "35001 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35000 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35000 0 R": {
+      "object_ref": "35000 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [133.596, 585, 156.274, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34940 0 R": {
+      "object_ref": "34940 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 571.5 495.12 581.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35003 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35003 0 R": {
+      "object_ref": "35003 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35002 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35002 0 R": {
+      "object_ref": "35002 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [133.596, 585, 156.274, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34941 0 R": {
+      "object_ref": "34941 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 556.5 249.56 566.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35005 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35005 0 R": {
+      "object_ref": "35005 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35004 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35004 0 R": {
+      "object_ref": "35004 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [620.247, 649.058, 642.924, 664.097]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34942 0 R": {
+      "object_ref": "34942 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 556.5 490.12 566.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35007 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35007 0 R": {
+      "object_ref": "35007 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35006 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35006 0 R": {
+      "object_ref": "35006 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [620.247, 649.058, 642.924, 664.097]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34943 0 R": {
+      "object_ref": "34943 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 541.5 249.56 551.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35009 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35009 0 R": {
+      "object_ref": "35009 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35008 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35008 0 R": {
+      "object_ref": "35008 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [623.336, 588.6, 646.013, 603.64]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34944 0 R": {
+      "object_ref": "34944 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 541.5 490.12 551.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35011 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35011 0 R": {
+      "object_ref": "35011 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35010 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35010 0 R": {
+      "object_ref": "35010 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [623.336, 588.6, 646.013, 603.64]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34945 0 R": {
+      "object_ref": "34945 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 526.5 249.56 536.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35013 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35013 0 R": {
+      "object_ref": "35013 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35012 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35012 0 R": {
+      "object_ref": "35012 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [298.006, 585, 320.683, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34946 0 R": {
+      "object_ref": "34946 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 526.5 495.12 536.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35015 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35015 0 R": {
+      "object_ref": "35015 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35014 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35014 0 R": {
+      "object_ref": "35014 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [298.006, 585, 320.683, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34947 0 R": {
+      "object_ref": "34947 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 511.5 249.56 521.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35017 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35017 0 R": {
+      "object_ref": "35017 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35016 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35016 0 R": {
+      "object_ref": "35016 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [551.807, 549.036, 574.484, 564.076]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34948 0 R": {
+      "object_ref": "34948 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 511.5 490.12 521.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35019 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35019 0 R": {
+      "object_ref": "35019 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35018 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35018 0 R": {
+      "object_ref": "35018 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [551.807, 549.036, 574.484, 564.076]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34949 0 R": {
+      "object_ref": "34949 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 496.5 249.56 506.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35021 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35021 0 R": {
+      "object_ref": "35021 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35020 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35020 0 R": {
+      "object_ref": "35020 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [122.258, 585, 144.935, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34950 0 R": {
+      "object_ref": "34950 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 496.5 495.12 506.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35023 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35023 0 R": {
+      "object_ref": "35023 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35022 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35022 0 R": {
+      "object_ref": "35022 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [122.258, 585, 144.935, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34951 0 R": {
+      "object_ref": "34951 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 481.5 249.56 491.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35025 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35025 0 R": {
+      "object_ref": "35025 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35024 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35024 0 R": {
+      "object_ref": "35024 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [207.297, 585, 229.974, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34952 0 R": {
+      "object_ref": "34952 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 481.5 495.12 491.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35027 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35027 0 R": {
+      "object_ref": "35027 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35026 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35026 0 R": {
+      "object_ref": "35026 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [207.297, 585, 229.974, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34953 0 R": {
+      "object_ref": "34953 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 466.5 249.56 476.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35029 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35029 0 R": {
+      "object_ref": "35029 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35028 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35028 0 R": {
+      "object_ref": "35028 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [144.935, 585, 167.612, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34954 0 R": {
+      "object_ref": "34954 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 466.5 495.12 476.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35031 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35031 0 R": {
+      "object_ref": "35031 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35030 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35030 0 R": {
+      "object_ref": "35030 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [144.935, 585, 167.612, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34955 0 R": {
+      "object_ref": "34955 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 451.5 269.56 461.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35033 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35033 0 R": {
+      "object_ref": "35033 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35032 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35032 0 R": {
+      "object_ref": "35032 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [383.045, 574.724, 405.722, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34956 0 R": {
+      "object_ref": "34956 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 451.5 495.12 461.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35035 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35035 0 R": {
+      "object_ref": "35035 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35034 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35034 0 R": {
+      "object_ref": "35034 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [383.045, 574.724, 405.722, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34957 0 R": {
+      "object_ref": "34957 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 436.5 269.56 446.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35037 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35037 0 R": {
+      "object_ref": "35037 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35036 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35036 0 R": {
+      "object_ref": "35036 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [371.707, 574.724, 394.384, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34958 0 R": {
+      "object_ref": "34958 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 436.5 495.12 446.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35041 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35041 0 R": {
+      "object_ref": "35041 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35039 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35039 0 R": {
+      "object_ref": "35039 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [371.707, 574.724, 394.384, 595.63]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34959 0 R": {
+      "object_ref": "34959 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 421.5 239.56 431.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35043 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35043 0 R": {
+      "object_ref": "35043 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35042 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35042 0 R": {
+      "object_ref": "35042 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [566.575, 577.913, 612.638, 632.126]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34960 0 R": {
+      "object_ref": "34960 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 421.5 490.12 431.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35045 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35045 0 R": {
+      "object_ref": "35045 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35044 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35044 0 R": {
+      "object_ref": "35044 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [566.575, 577.913, 612.638, 632.126]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34961 0 R": {
+      "object_ref": "34961 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[246 353.5 346 373.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35047 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35047 0 R": {
+      "object_ref": "35047 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35046 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35046 0 R": {
+      "object_ref": "35046 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [552.699, 640.276, 589.961, 657.992]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34962 0 R": {
+      "object_ref": "34962 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 206 259.56 216]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35049 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35049 0 R": {
+      "object_ref": "35049 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35048 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35048 0 R": {
+      "object_ref": "35048 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [552.699, 640.276, 589.961, 657.992]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34963 0 R": {
+      "object_ref": "34963 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 206 490.12 216]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35051 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35051 0 R": {
+      "object_ref": "35051 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35050 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35050 0 R": {
+      "object_ref": "35050 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [552.699, 640.276, 589.961, 657.992]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34964 0 R": {
+      "object_ref": "34964 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 191 259.56 201]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35053 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35053 0 R": {
+      "object_ref": "35053 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35052 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "328 0 R": {
+      "object_ref": "328 0 R",
+      "kind_label": "Page object",
+      "description": "Owns page-level dictionaries such as /MediaBox, /Resources, /Contents, and /Annots.",
+      "raw_source": "<</Type/Page/Parent 42200 0 R/Annots 17636 0 R/Contents 17611 0 R/Resources 17637 0 R/MediaBox[0 0 1191 842]>>",
+      "decoded_stream_preview": null
+    },
+    "35052 0 R": {
+      "object_ref": "35052 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [66.5008, 203.74, 227.126, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34965 0 R": {
+      "object_ref": "34965 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 191 475.12 201]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35055 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35055 0 R": {
+      "object_ref": "35055 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35054 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35054 0 R": {
+      "object_ref": "35054 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [66.5008, 203.74, 227.126, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34966 0 R": {
+      "object_ref": "34966 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 176 269.56 186]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35057 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35057 0 R": {
+      "object_ref": "35057 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35056 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35056 0 R": {
+      "object_ref": "35056 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [123.732, 257.724, 146.409, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34967 0 R": {
+      "object_ref": "34967 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 176 475.12 186]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35059 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35059 0 R": {
+      "object_ref": "35059 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35058 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35058 0 R": {
+      "object_ref": "35058 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [123.732, 257.724, 146.409, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34968 0 R": {
+      "object_ref": "34968 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 161 269.56 171]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35061 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35061 0 R": {
+      "object_ref": "35061 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35060 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35060 0 R": {
+      "object_ref": "35060 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [157.748, 257.724, 180.425, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34969 0 R": {
+      "object_ref": "34969 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 161 475.12 171]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35063 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35063 0 R": {
+      "object_ref": "35063 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35062 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35062 0 R": {
+      "object_ref": "35062 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [157.748, 257.724, 180.425, 283.819]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34970 0 R": {
+      "object_ref": "34970 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 146 289.56 156]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35065 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35065 0 R": {
+      "object_ref": "35065 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35064 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35064 0 R": {
+      "object_ref": "35064 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [69.9148, 223.087, 169.016, 264.455]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34971 0 R": {
+      "object_ref": "34971 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 146 475.12 156]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35067 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35067 0 R": {
+      "object_ref": "35067 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35066 0 R/D[ 328 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35066 0 R": {
+      "object_ref": "35066 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [69.9148, 223.087, 169.016, 264.455]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34972 0 R": {
+      "object_ref": "34972 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 131 289.56 141]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35069 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35069 0 R": {
+      "object_ref": "35069 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35068 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35068 0 R": {
+      "object_ref": "35068 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [541.797, 637.892, 595.585, 671.6]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34973 0 R": {
+      "object_ref": "34973 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 131 490.12 141]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35071 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35071 0 R": {
+      "object_ref": "35071 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35070 0 R/D[ 337 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35070 0 R": {
+      "object_ref": "35070 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [541.797, 637.892, 595.585, 671.6]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34974 0 R": {
+      "object_ref": "34974 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 116 259.56 126]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35073 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35073 0 R": {
+      "object_ref": "35073 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35072 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35072 0 R": {
+      "object_ref": "35072 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [175.748, 441.81, 198.78, 550.276]\\);\\n)>>",
+      "decoded_stream_preview": null
+    },
+    "34975 0 R": {
+      "object_ref": "34975 0 R",
+      "kind_label": "Link annotation",
+      "description": "Defines the clickable rectangle, border behavior, and the action or destination triggered by the selected hyperlink.",
+      "raw_source": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 116 495.12 126]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35075 0 R>>",
+      "decoded_stream_preview": null
+    },
+    "35075 0 R": {
+      "object_ref": "35075 0 R",
+      "kind_label": "Action object (/GoTo)",
+      "description": "Defines an internal jump action. Its /D entry points to the destination page or named destination.",
+      "raw_source": "<</Type/Action/S/GoTo/Next 35074 0 R/D[ 358 0 R/Fit]>>",
+      "decoded_stream_preview": null
+    },
+    "35074 0 R": {
+      "object_ref": "35074 0 R",
+      "kind_label": "Action object (/JavaScript)",
+      "description": "Defines what happens when the annotation is activated. The /S entry is /JavaScript.",
+      "raw_source": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [175.748, 441.81, 198.78, 550.276]\\);\\n)>>",
+      "decoded_stream_preview": null
+    }
+  },
+  "items": [
+    {
+      "id": "page-0238-component-00001",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 537.109,
+        "y0": 549.567,
+        "x1": 640.984,
+        "y1": 682.393,
+        "width": 103.875,
+        "height": 132.826
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34928 0 R",
+          "34929 0 R",
+          "34930 0 R"
+        ],
+        "action_refs": [
+          "34978 0 R",
+          "34979 0 R",
+          "34980 0 R",
+          "34981 0 R",
+          "34982 0 R",
+          "34983 0 R"
+        ],
+        "duplicate_count": 3
+      },
+      "source": {
+        "object_ref": "34978 0 R",
+        "context_chain": [
+          "34928 0 R",
+          "34979 0 R",
+          "34978 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [537.109, 549.567, 640.984, 682.393]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34928 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34979 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "34978 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00002",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 541.797,
+        "y0": 637.892,
+        "x1": 595.585,
+        "y1": 671.6,
+        "width": 53.788,
+        "height": 33.708
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34972 0 R",
+          "34973 0 R"
+        ],
+        "action_refs": [
+          "35068 0 R",
+          "35069 0 R",
+          "35070 0 R",
+          "35071 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35068 0 R",
+        "context_chain": [
+          "34972 0 R",
+          "35069 0 R",
+          "35068 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [541.797, 637.892, 595.585, 671.6]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 89
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34972 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35069 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35068 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00003",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 620.247,
+        "y0": 649.058,
+        "x1": 642.924,
+        "y1": 664.097,
+        "width": 22.677,
+        "height": 15.039
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34941 0 R",
+          "34942 0 R"
+        ],
+        "action_refs": [
+          "35004 0 R",
+          "35005 0 R",
+          "35006 0 R",
+          "35007 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35004 0 R",
+        "context_chain": [
+          "34941 0 R",
+          "35005 0 R",
+          "35004 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [620.247, 649.058, 642.924, 664.097]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34941 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35005 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35004 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00004",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 552.699,
+        "y0": 640.276,
+        "x1": 589.961,
+        "y1": 657.992,
+        "width": 37.262,
+        "height": 17.716
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34961 0 R",
+          "34962 0 R",
+          "34963 0 R"
+        ],
+        "action_refs": [
+          "35046 0 R",
+          "35047 0 R",
+          "35048 0 R",
+          "35049 0 R",
+          "35050 0 R",
+          "35051 0 R"
+        ],
+        "duplicate_count": 3
+      },
+      "source": {
+        "object_ref": "35046 0 R",
+        "context_chain": [
+          "34961 0 R",
+          "35047 0 R",
+          "35046 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [552.699, 640.276, 589.961, 657.992]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34961 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35047 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35046 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00005",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 566.575,
+        "y0": 577.913,
+        "x1": 612.638,
+        "y1": 632.126,
+        "width": 46.063,
+        "height": 54.213
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34959 0 R",
+          "34960 0 R"
+        ],
+        "action_refs": [
+          "35042 0 R",
+          "35043 0 R",
+          "35044 0 R",
+          "35045 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35042 0 R",
+        "context_chain": [
+          "34959 0 R",
+          "35043 0 R",
+          "35042 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [566.575, 577.913, 612.638, 632.126]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34959 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35043 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35042 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00006",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 536.846,
+        "y0": 588.969,
+        "x1": 559.524,
+        "y1": 604.008,
+        "width": 22.678,
+        "height": 15.039
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34937 0 R",
+          "34938 0 R"
+        ],
+        "action_refs": [
+          "34996 0 R",
+          "34997 0 R",
+          "34998 0 R",
+          "34999 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "34996 0 R",
+        "context_chain": [
+          "34937 0 R",
+          "34997 0 R",
+          "34996 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [536.846, 588.969, 559.524, 604.008]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34937 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34997 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "34996 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00007",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 623.336,
+        "y0": 588.6,
+        "x1": 646.013,
+        "y1": 603.64,
+        "width": 22.677,
+        "height": 15.04
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34943 0 R",
+          "34944 0 R"
+        ],
+        "action_refs": [
+          "35008 0 R",
+          "35009 0 R",
+          "35010 0 R",
+          "35011 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35008 0 R",
+        "context_chain": [
+          "34943 0 R",
+          "35009 0 R",
+          "35008 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [623.336, 588.6, 646.013, 603.64]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 88
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34943 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35009 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35008 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00008",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 118.701,
+        "y0": 457.398,
+        "x1": 414.213,
+        "y1": 595.63,
+        "width": 295.512,
+        "height": 138.232
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34933 0 R",
+          "34934 0 R"
+        ],
+        "action_refs": [
+          "34988 0 R",
+          "34989 0 R",
+          "34990 0 R",
+          "34991 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "34988 0 R",
+        "context_chain": [
+          "34933 0 R",
+          "34989 0 R",
+          "34988 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [118.701, 457.398, 414.213, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 90
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34933 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34989 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "34988 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00009",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 122.258,
+        "y0": 585.0,
+        "x1": 144.935,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 10.63
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34949 0 R",
+          "34950 0 R"
+        ],
+        "action_refs": [
+          "35020 0 R",
+          "35021 0 R",
+          "35022 0 R",
+          "35023 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35020 0 R",
+        "context_chain": [
+          "34949 0 R",
+          "35021 0 R",
+          "35020 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [122.258, 585, 144.935, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 86
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34949 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35021 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35020 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00010",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 133.596,
+        "y0": 585.0,
+        "x1": 156.274,
+        "y1": 595.63,
+        "width": 22.678,
+        "height": 10.63
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34939 0 R",
+          "34940 0 R"
+        ],
+        "action_refs": [
+          "35000 0 R",
+          "35001 0 R",
+          "35002 0 R",
+          "35003 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35000 0 R",
+        "context_chain": [
+          "34939 0 R",
+          "35001 0 R",
+          "35000 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [133.596, 585, 156.274, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 86
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34939 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35001 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35000 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00011",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 144.935,
+        "y0": 585.0,
+        "x1": 167.612,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 10.63
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34953 0 R",
+          "34954 0 R"
+        ],
+        "action_refs": [
+          "35028 0 R",
+          "35029 0 R",
+          "35030 0 R",
+          "35031 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35028 0 R",
+        "context_chain": [
+          "34953 0 R",
+          "35029 0 R",
+          "35028 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [144.935, 585, 167.612, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 86
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34953 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35029 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35028 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00012",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 207.297,
+        "y0": 585.0,
+        "x1": 229.974,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 10.63
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34951 0 R",
+          "34952 0 R"
+        ],
+        "action_refs": [
+          "35024 0 R",
+          "35025 0 R",
+          "35026 0 R",
+          "35027 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35024 0 R",
+        "context_chain": [
+          "34951 0 R",
+          "35025 0 R",
+          "35024 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [207.297, 585, 229.974, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 86
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34951 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35025 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35024 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00013",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 298.006,
+        "y0": 585.0,
+        "x1": 320.683,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 10.63
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34945 0 R",
+          "34946 0 R"
+        ],
+        "action_refs": [
+          "35012 0 R",
+          "35013 0 R",
+          "35014 0 R",
+          "35015 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35012 0 R",
+        "context_chain": [
+          "34945 0 R",
+          "35013 0 R",
+          "35012 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [298.006, 585, 320.683, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 86
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34945 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35013 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35012 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00014",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 371.707,
+        "y0": 574.724,
+        "x1": 394.384,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 20.906
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34957 0 R",
+          "34958 0 R"
+        ],
+        "action_refs": [
+          "35036 0 R",
+          "35037 0 R",
+          "35039 0 R",
+          "35041 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35036 0 R",
+        "context_chain": [
+          "34957 0 R",
+          "35037 0 R",
+          "35036 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [371.707, 574.724, 394.384, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 90
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34957 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35037 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35036 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00015",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 383.045,
+        "y0": 574.724,
+        "x1": 405.722,
+        "y1": 595.63,
+        "width": 22.677,
+        "height": 20.906
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34955 0 R",
+          "34956 0 R"
+        ],
+        "action_refs": [
+          "35032 0 R",
+          "35033 0 R",
+          "35034 0 R",
+          "35035 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35032 0 R",
+        "context_chain": [
+          "34955 0 R",
+          "35033 0 R",
+          "35032 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [383.045, 574.724, 405.722, 595.63]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 90
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34955 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35033 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35032 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00016",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 551.807,
+        "y0": 549.036,
+        "x1": 574.484,
+        "y1": 564.076,
+        "width": 22.677,
+        "height": 15.04
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34947 0 R",
+          "34948 0 R"
+        ],
+        "action_refs": [
+          "35016 0 R",
+          "35017 0 R",
+          "35018 0 R",
+          "35019 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35016 0 R",
+        "context_chain": [
+          "34947 0 R",
+          "35017 0 R",
+          "35016 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(129, [551.807, 549.036, 574.484, 564.076]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34947 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35017 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35016 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00017",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 175.748,
+        "y0": 441.81,
+        "x1": 198.78,
+        "y1": 550.276,
+        "width": 23.032,
+        "height": 108.466
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34974 0 R",
+          "34975 0 R"
+        ],
+        "action_refs": [
+          "35072 0 R",
+          "35073 0 R",
+          "35074 0 R",
+          "35075 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35072 0 R",
+        "context_chain": [
+          "34974 0 R",
+          "35073 0 R",
+          "35072 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(136, [175.748, 441.81, 198.78, 550.276]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 89
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34974 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35073 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35072 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00018",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 596.636,
+        "y0": 419.173,
+        "x1": 692.008,
+        "y1": 471.341,
+        "width": 95.372,
+        "height": 52.168
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "383 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34935 0 R",
+          "34936 0 R"
+        ],
+        "action_refs": [
+          "34992 0 R",
+          "34993 0 R",
+          "34994 0 R",
+          "34995 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "34992 0 R",
+        "context_chain": [
+          "34935 0 R",
+          "34993 0 R",
+          "34992 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(144, [596.636, 419.173, 692.008, 471.341]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34935 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34993 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "34992 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00019",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 183.444,
+        "y0": 289.134,
+        "x1": 247.422,
+        "y1": 448.228,
+        "width": 63.978,
+        "height": 159.094
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "394 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34931 0 R",
+          "34932 0 R"
+        ],
+        "action_refs": [
+          "34984 0 R",
+          "34985 0 R",
+          "34986 0 R",
+          "34987 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "34984 0 R",
+        "context_chain": [
+          "34931 0 R",
+          "34985 0 R",
+          "34984 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(148, [183.444, 289.134, 247.422, 448.228]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34931 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34985 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "34984 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00020",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 66.501,
+        "y0": 203.74,
+        "x1": 227.126,
+        "y1": 283.819,
+        "width": 160.625,
+        "height": 80.079
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34964 0 R",
+          "34965 0 R"
+        ],
+        "action_refs": [
+          "35052 0 R",
+          "35053 0 R",
+          "35054 0 R",
+          "35055 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35052 0 R",
+        "context_chain": [
+          "34964 0 R",
+          "35053 0 R",
+          "35052 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [66.5008, 203.74, 227.126, 283.819]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 90
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34964 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35053 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35052 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00021",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 123.732,
+        "y0": 257.724,
+        "x1": 146.409,
+        "y1": 283.819,
+        "width": 22.677,
+        "height": 26.095
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34966 0 R",
+          "34967 0 R"
+        ],
+        "action_refs": [
+          "35056 0 R",
+          "35057 0 R",
+          "35058 0 R",
+          "35059 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35056 0 R",
+        "context_chain": [
+          "34966 0 R",
+          "35057 0 R",
+          "35056 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [123.732, 257.724, 146.409, 283.819]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34966 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35057 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35056 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00022",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 157.748,
+        "y0": 257.724,
+        "x1": 180.425,
+        "y1": 283.819,
+        "width": 22.677,
+        "height": 26.095
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34968 0 R",
+          "34969 0 R"
+        ],
+        "action_refs": [
+          "35060 0 R",
+          "35061 0 R",
+          "35062 0 R",
+          "35063 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35060 0 R",
+        "context_chain": [
+          "34968 0 R",
+          "35061 0 R",
+          "35060 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [157.748, 257.724, 180.425, 283.819]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34968 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35061 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35060 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-component-00023",
+      "kind": "component",
+      "page_number": 238,
+      "bbox": {
+        "x0": 69.915,
+        "y0": 223.087,
+        "x1": 169.016,
+        "y1": 264.455,
+        "width": 99.101,
+        "height": 41.368
+      },
+      "component": {
+        "label": null,
+        "nearby_text": [],
+        "detection_source": "javascript_highlight",
+        "link_kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "annotation_refs": [
+          "34970 0 R",
+          "34971 0 R"
+        ],
+        "action_refs": [
+          "35064 0 R",
+          "35065 0 R",
+          "35066 0 R",
+          "35067 0 R"
+        ],
+        "duplicate_count": 2
+      },
+      "source": {
+        "object_ref": "35064 0 R",
+        "context_chain": [
+          "34970 0 R",
+          "35065 0 R",
+          "35064 0 R"
+        ],
+        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [69.9148, 223.087, 169.016, 264.455]\\);\\n)>>",
+        "highlight_start": 0,
+        "highlight_end": 91
+      },
+      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
+      "reference_chain": [
+        {
+          "object_ref": "34970 0 R",
+          "role": "Source annotation"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35065 0 R",
+          "role": "Action chain 1"
+        },
+        {
+          "object_ref": "35064 0 R",
+          "role": "Highlight action"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00001",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 266.0,
+        "y0": 776.0,
+        "x1": 326.0,
+        "y1": 796.0,
+        "width": 60.0,
+        "height": 20.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34978 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34928 0 R",
+        "context_chain": [
+          "34928 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[266 776 326 796]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34979 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 107
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34928 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34979 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34978 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00002",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 646.5,
+        "x1": 239.56,
+        "y1": 656.5,
+        "width": 30.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34980 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34929 0 R",
+        "context_chain": [
+          "34929 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 646.5 239.56 656.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34981 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34929 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34981 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34980 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00003",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 646.5,
+        "x1": 490.12,
+        "y1": 656.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34982 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34930 0 R",
+        "context_chain": [
+          "34930 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 646.5 490.12 656.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34983 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34930 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34983 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34982 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00004",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 631.5,
+        "x1": 239.56,
+        "y1": 641.5,
+        "width": 30.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "394 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "394 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34984 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34931 0 R",
+        "context_chain": [
+          "34931 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 631.5 239.56 641.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34985 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34931 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34985 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "394 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34984 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00005",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 631.5,
+        "x1": 495.12,
+        "y1": 641.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "394 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "394 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34986 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34932 0 R",
+        "context_chain": [
+          "34932 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 631.5 495.12 641.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34987 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34932 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34987 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "394 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34986 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00006",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 616.5,
+        "x1": 239.56,
+        "y1": 626.5,
+        "width": 30.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34988 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34933 0 R",
+        "context_chain": [
+          "34933 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 616.5 239.56 626.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34989 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34933 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34989 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34988 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00007",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 616.5,
+        "x1": 495.12,
+        "y1": 626.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34990 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34934 0 R",
+        "context_chain": [
+          "34934 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 616.5 495.12 626.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34991 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34934 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34991 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34990 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00008",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 601.5,
+        "x1": 289.56,
+        "y1": 611.5,
+        "width": 80.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "383 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "383 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34992 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34935 0 R",
+        "context_chain": [
+          "34935 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 601.5 289.56 611.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34993 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34935 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34993 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "383 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34992 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00009",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 601.5,
+        "x1": 490.12,
+        "y1": 611.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "383 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "383 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34994 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34936 0 R",
+        "context_chain": [
+          "34936 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 601.5 490.12 611.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34995 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34936 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34995 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "383 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34994 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00010",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 586.5,
+        "x1": 249.56,
+        "y1": 596.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34996 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34937 0 R",
+        "context_chain": [
+          "34937 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 586.5 249.56 596.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34997 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34937 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34997 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34996 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00011",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 586.5,
+        "x1": 490.12,
+        "y1": 596.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "34998 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34938 0 R",
+        "context_chain": [
+          "34938 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 586.5 490.12 596.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 34999 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34938 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "34999 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "34998 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00012",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 571.5,
+        "x1": 249.56,
+        "y1": 581.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35000 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34939 0 R",
+        "context_chain": [
+          "34939 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 571.5 249.56 581.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35001 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34939 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35001 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35000 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00013",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 571.5,
+        "x1": 495.12,
+        "y1": 581.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35002 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34940 0 R",
+        "context_chain": [
+          "34940 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 571.5 495.12 581.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35003 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34940 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35003 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35002 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00014",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 556.5,
+        "x1": 249.56,
+        "y1": 566.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35004 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34941 0 R",
+        "context_chain": [
+          "34941 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 556.5 249.56 566.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35005 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34941 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35005 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35004 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00015",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 556.5,
+        "x1": 490.12,
+        "y1": 566.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35006 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34942 0 R",
+        "context_chain": [
+          "34942 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 556.5 490.12 566.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35007 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34942 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35007 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35006 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00016",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 541.5,
+        "x1": 249.56,
+        "y1": 551.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35008 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34943 0 R",
+        "context_chain": [
+          "34943 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 541.5 249.56 551.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35009 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34943 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35009 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35008 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00017",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 541.5,
+        "x1": 490.12,
+        "y1": 551.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35010 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34944 0 R",
+        "context_chain": [
+          "34944 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 541.5 490.12 551.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35011 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34944 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35011 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35010 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00018",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 526.5,
+        "x1": 249.56,
+        "y1": 536.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35012 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34945 0 R",
+        "context_chain": [
+          "34945 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 526.5 249.56 536.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35013 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34945 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35013 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35012 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00019",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 526.5,
+        "x1": 495.12,
+        "y1": 536.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35014 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34946 0 R",
+        "context_chain": [
+          "34946 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 526.5 495.12 536.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35015 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34946 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35015 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35014 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00020",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 511.5,
+        "x1": 249.56,
+        "y1": 521.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35016 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34947 0 R",
+        "context_chain": [
+          "34947 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 511.5 249.56 521.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35017 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34947 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35017 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35016 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00021",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 511.5,
+        "x1": 490.12,
+        "y1": 521.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35018 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34948 0 R",
+        "context_chain": [
+          "34948 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 511.5 490.12 521.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35019 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34948 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35019 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35018 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00022",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 496.5,
+        "x1": 249.56,
+        "y1": 506.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35020 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34949 0 R",
+        "context_chain": [
+          "34949 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 496.5 249.56 506.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35021 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34949 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35021 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35020 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00023",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 496.5,
+        "x1": 495.12,
+        "y1": 506.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35022 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34950 0 R",
+        "context_chain": [
+          "34950 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 496.5 495.12 506.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35023 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34950 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35023 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35022 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00024",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 481.5,
+        "x1": 249.56,
+        "y1": 491.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35024 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34951 0 R",
+        "context_chain": [
+          "34951 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 481.5 249.56 491.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35025 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34951 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35025 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35024 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00025",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 481.5,
+        "x1": 495.12,
+        "y1": 491.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35026 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34952 0 R",
+        "context_chain": [
+          "34952 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 481.5 495.12 491.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35027 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34952 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35027 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35026 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00026",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 466.5,
+        "x1": 249.56,
+        "y1": 476.5,
+        "width": 40.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35028 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34953 0 R",
+        "context_chain": [
+          "34953 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 466.5 249.56 476.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35029 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34953 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35029 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35028 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00027",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 466.5,
+        "x1": 495.12,
+        "y1": 476.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35030 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34954 0 R",
+        "context_chain": [
+          "34954 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 466.5 495.12 476.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35031 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34954 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35031 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35030 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00028",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 451.5,
+        "x1": 269.56,
+        "y1": 461.5,
+        "width": 60.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35032 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34955 0 R",
+        "context_chain": [
+          "34955 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 451.5 269.56 461.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35033 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34955 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35033 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35032 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00029",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 451.5,
+        "x1": 495.12,
+        "y1": 461.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35034 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34956 0 R",
+        "context_chain": [
+          "34956 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 451.5 495.12 461.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35035 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34956 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35035 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35034 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00030",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 436.5,
+        "x1": 269.56,
+        "y1": 446.5,
+        "width": 60.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35036 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34957 0 R",
+        "context_chain": [
+          "34957 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 436.5 269.56 446.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35037 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34957 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35037 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35036 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00031",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 436.5,
+        "x1": 495.12,
+        "y1": 446.5,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35039 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34958 0 R",
+        "context_chain": [
+          "34958 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 436.5 495.12 446.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35041 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34958 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35041 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35039 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00032",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 421.5,
+        "x1": 239.56,
+        "y1": 431.5,
+        "width": 30.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35042 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34959 0 R",
+        "context_chain": [
+          "34959 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 421.5 239.56 431.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35043 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34959 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35043 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35042 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00033",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 421.5,
+        "x1": 490.12,
+        "y1": 431.5,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35044 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34960 0 R",
+        "context_chain": [
+          "34960 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 421.5 490.12 431.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35045 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 117
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34960 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35045 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35044 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00034",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 246.0,
+        "y0": 353.5,
+        "x1": 346.0,
+        "y1": 373.5,
+        "width": 100.0,
+        "height": 20.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35046 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34961 0 R",
+        "context_chain": [
+          "34961 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[246 353.5 346 373.5]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35047 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 111
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34961 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35047 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35046 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00035",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 206.0,
+        "x1": 259.56,
+        "y1": 216.0,
+        "width": 50.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35048 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34962 0 R",
+        "context_chain": [
+          "34962 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 206 259.56 216]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35049 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34962 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35049 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35048 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00036",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 206.0,
+        "x1": 490.12,
+        "y1": 216.0,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35050 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34963 0 R",
+        "context_chain": [
+          "34963 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 206 490.12 216]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35051 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34963 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35051 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35050 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00037",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 191.0,
+        "x1": 259.56,
+        "y1": 201.0,
+        "width": 50.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35052 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34964 0 R",
+        "context_chain": [
+          "34964 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 191 259.56 201]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35053 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34964 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35053 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35052 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00038",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 191.0,
+        "x1": 475.12,
+        "y1": 201.0,
+        "width": 90.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35054 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34965 0 R",
+        "context_chain": [
+          "34965 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 191 475.12 201]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35055 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34965 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35055 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35054 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00039",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 176.0,
+        "x1": 269.56,
+        "y1": 186.0,
+        "width": 60.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35056 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34966 0 R",
+        "context_chain": [
+          "34966 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 176 269.56 186]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35057 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34966 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35057 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35056 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00040",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 176.0,
+        "x1": 475.12,
+        "y1": 186.0,
+        "width": 90.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35058 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34967 0 R",
+        "context_chain": [
+          "34967 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 176 475.12 186]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35059 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34967 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35059 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35058 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00041",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 161.0,
+        "x1": 269.56,
+        "y1": 171.0,
+        "width": 60.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35060 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34968 0 R",
+        "context_chain": [
+          "34968 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 161 269.56 171]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35061 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34968 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35061 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35060 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00042",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 161.0,
+        "x1": 475.12,
+        "y1": 171.0,
+        "width": 90.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35062 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34969 0 R",
+        "context_chain": [
+          "34969 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 161 475.12 171]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35063 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34969 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35063 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35062 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00043",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 146.0,
+        "x1": 289.56,
+        "y1": 156.0,
+        "width": 80.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35064 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34970 0 R",
+        "context_chain": [
+          "34970 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 146 289.56 156]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35065 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34970 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35065 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35064 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00044",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 146.0,
+        "x1": 475.12,
+        "y1": 156.0,
+        "width": 90.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "328 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "328 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35066 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34971 0 R",
+        "context_chain": [
+          "34971 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 146 475.12 156]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35067 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34971 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35067 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "328 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35066 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00045",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 131.0,
+        "x1": 289.56,
+        "y1": 141.0,
+        "width": 80.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35068 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34972 0 R",
+        "context_chain": [
+          "34972 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 131 289.56 141]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35069 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34972 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35069 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35068 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00046",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 131.0,
+        "x1": 490.12,
+        "y1": 141.0,
+        "width": 105.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "337 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "337 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35070 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34973 0 R",
+        "context_chain": [
+          "34973 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 131 490.12 141]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35071 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34973 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35071 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "337 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35070 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00047",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 209.56,
+        "y0": 116.0,
+        "x1": 259.56,
+        "y1": 126.0,
+        "width": 50.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35072 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34974 0 R",
+        "context_chain": [
+          "34974 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[209.56 116 259.56 126]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35073 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34974 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35073 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35072 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    },
+    {
+      "id": "page-0238-link-00048",
+      "kind": "link",
+      "page_number": 238,
+      "bbox": {
+        "x0": 385.12,
+        "y0": 116.0,
+        "x1": 495.12,
+        "y1": 126.0,
+        "width": 110.0,
+        "height": 10.0
+      },
+      "link": {
+        "kind": "internal_goto_action",
+        "target": {
+          "page_ref": "358 0 R",
+          "fit_mode": "/Fit"
+        },
+        "action": {
+          "type": "/GoTo",
+          "destination": {
+            "page_ref": "358 0 R",
+            "fit_mode": "/Fit"
+          },
+          "next_action_ref": "35074 0 R"
+        }
+      },
+      "source": {
+        "object_ref": "34975 0 R",
+        "context_chain": [
+          "34975 0 R"
+        ],
+        "snippet": "<</Type/Annot/Subtype/Link/P 17946 0 R/Rect[385.12 116 495.12 126]/F 4/BS<</W 0/S/S>>/Border[0 0 0]/A 35075 0 R>>",
+        "highlight_start": 0,
+        "highlight_end": 113
+      },
+      "source_comment": "This excerpt is the raw link annotation dictionary. /Rect defines the clickable area, /P points to the owning page, and /A or /Dest determines the navigation target.",
+      "reference_chain": [
+        {
+          "object_ref": "34975 0 R",
+          "role": "Selected annotation object"
+        },
+        {
+          "object_ref": "17946 0 R",
+          "role": "Owning page (/P)"
+        },
+        {
+          "object_ref": "35075 0 R",
+          "role": "Action object (/A)"
+        },
+        {
+          "object_ref": "358 0 R",
+          "role": "Destination page from action /D"
+        },
+        {
+          "object_ref": "35074 0 R",
+          "role": "Next action (/Next)"
+        }
+      ]
+    }
+  ]
+}

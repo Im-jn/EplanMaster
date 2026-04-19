@@ -1,0 +1,5 @@
+name: Eplan
+channels:
+  - defaults
+dependencies:
+  - python=3.13

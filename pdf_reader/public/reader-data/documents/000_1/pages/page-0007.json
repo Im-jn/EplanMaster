@@ -1,0 +1,23 @@
+{
+  "page_number": 7,
+  "page_object_ref": "24 0 R",
+  "page_size": {
+    "width_pt": 1191.0,
+    "height_pt": 842.0
+  },
+  "content_streams": [
+    "497 0 R"
+  ],
+  "item_counts": {
+    "component": 0,
+    "vector_path": 0,
+    "text": 0,
+    "image": 0,
+    "link": 0
+  },
+  "warnings": [
+    "Could not decode content stream 497 0 R: error: Error -5 while decompressing data: incomplete or truncated stream"
+  ],
+  "object_details": {},
+  "items": []
+}
