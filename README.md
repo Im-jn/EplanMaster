@@ -14,10 +14,17 @@
 
 - `pdfjs-dist`
 
+## Frontend Preview
+
+下面这张图用于展示 `pdf_reader` 的前端界面效果：
+
+![pdf_reader frontend preview](docs/images/pdf-reader-overview.png)
+
 ## 仓库结构
 
 ```text
 EplanMaster/
+├─ docs/                     # README 用到的图片与附加文档
 ├─ scripts/                  # PDF 解析、检查、前端数据生成脚本
 ├─ pdf_reader/               # Vite + TypeScript 前端阅读器
 ├─ data/                     # 放原始 PDF，默认不提交
