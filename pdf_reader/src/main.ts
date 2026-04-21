@@ -1,6 +1,13 @@
 import './style.css'
 import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs'
 import workerUrl from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url'
+import {
+  commandsToPolylines,
+  parseSnippetToPathCommands,
+  pathCommandsToQueryRecords,
+  searchSimilarVectorPaths,
+  type ShapeSearchHit,
+} from './shapeSearch'
 
 function installPdfJsCollectionPolyfills(): void {
   const mapPrototype = Map.prototype as Map<unknown, unknown> & {
@@ -96,6 +103,26 @@ type VectorItem = {
     command_count: number
     point_count: number
   }
+}
+
+type ComponentItem = {
+  id: string
+  kind: 'component'
+  page_number: number
+  bbox: BBox
+  component: {
+    label?: string
+    nearby_text?: string[]
+    detection_source?: string
+    link_kind?: string | null
+    target?: unknown
+    annotation_refs?: string[]
+    action_refs?: string[]
+    duplicate_count?: number
+  }
+  source: ReaderSource
+  source_comment: string
+  reference_chain: RelatedObjectReference[]
 }
 
 type LinkItem = {
@@ -199,6 +226,10 @@ function isReaderItem(item: { kind: string }): item is ReaderItem {
   )
 }
 
+function isComponentItem(item: { kind: string }): item is ComponentItem {
+  return item.kind === 'component'
+}
+
 function isLayerVisible(kind: ReaderItem['kind']): boolean {
   return layerVisibility[kind]
 }
@@ -210,6 +241,7 @@ type PageManifest = {
     height_pt: number
   }
   item_counts: {
+    component?: number
     vector_path: number
     text: number
     image: number
@@ -242,6 +274,7 @@ type PageData = {
   }
   content_streams: string[]
   item_counts: {
+    component?: number
     vector_path: number
     text: number
     image: number
@@ -250,6 +283,7 @@ type PageData = {
   warnings: string[]
   object_details: Record<string, ObjectDetail>
   items: ReaderItem[]
+  components: ComponentItem[]
 }
 
 type PageState = {
@@ -270,6 +304,34 @@ type ZoomAnchor = {
 type RenderPageOptions = {
   preserveSelection?: boolean
   anchor?: ZoomAnchor | null
+}
+
+type PlaygroundBounds = {
+  minX: number
+  minY: number
+  maxX: number
+  maxY: number
+  width: number
+  height: number
+}
+
+type PlaygroundData = {
+  bounds: PlaygroundBounds
+  polylines: Array<{
+    points: [number, number][]
+    closed: boolean
+  }>
+}
+
+type PlaygroundView = {
+  scale: number
+  offsetX: number
+  offsetY: number
+}
+
+type PlaygroundHover = {
+  x: number
+  y: number
 }
 
 function mustQuery<T extends Element>(selector: string): T {
@@ -344,26 +406,101 @@ app.innerHTML = `
           Uncheck a layer to hide its highlights on the page. Click a visible region to inspect PDF source on the right.
         </p>
       </div>
+
+      <div class="panel shape-search-panel">
+        <p class="field-label">Vector Shape Search</p>
+        <p class="muted small">
+          Match by geometric shape while ignoring translation, uniform scaling, and rotation (with optional mirror).
+          Paste a path snippet using <code>m</code>/<code>l</code>/<code>c</code>/<code>re</code>, or select a vector on the page and search from selection.
+        </p>
+        <textarea
+          id="shape-search-snippet"
+          class="shape-search-textarea"
+          rows="4"
+          spellcheck="false"
+          placeholder="Example: 19.724 841.89 m&#10;319.724 830.551 l&#10;S"
+        ></textarea>
+        <div class="shape-search-row">
+          <label class="shape-search-tolerance" for="shape-search-tolerance">
+            Tolerance (higher = looser)
+            <input id="shape-search-tolerance" type="range" min="5" max="35" value="15" />
+            <span id="shape-search-tolerance-label">15%</span>
+          </label>
+        </div>
+        <label class="legend-item shape-search-mirror">
+          <input type="checkbox" id="shape-search-mirror" checked />
+          <span>Allow mirror (flip)</span>
+        </label>
+        <div class="shape-search-actions">
+          <button id="shape-search-from-snippet" class="button" type="button">Search From Snippet</button>
+          <button id="shape-search-from-selection" class="button" type="button" disabled>Search From Selection</button>
+        </div>
+        <div id="shape-search-status" class="shape-search-status muted small"></div>
+        <div id="shape-search-results" class="shape-search-results"></div>
+      </div>
     </aside>
 
     <main class="workspace">
-      <section class="viewer-shell">
-        <div class="viewer-topbar">
-          <div id="viewer-status" class="status">Loading manifest...</div>
-          <div class="viewer-toolbar">
-            <label class="zoom-control" for="zoom-input">
-              <span>Zoom</span>
-              <input id="zoom-input" class="zoom-input" type="number" min="50" max="400" step="5" value="100" />
-              <span>%</span>
-            </label>
-            <span id="zoom-label" class="zoom-label">Fit width</span>
-            <span class="viewer-hint">Wheel to zoom, drag with left mouse button to pan</span>
+      <div class="workspace-main">
+        <section class="viewer-shell">
+          <div class="viewer-topbar">
+            <div id="viewer-status" class="status">Loading manifest...</div>
+            <div class="viewer-toolbar">
+              <button
+                id="area-select-toggle"
+                class="button icon-button"
+                type="button"
+                title="Select multiple components by dragging a rectangle"
+                aria-pressed="false"
+              >
+                <span class="icon-button-glyph" aria-hidden="true">[]</span>
+                <span>Area Select</span>
+              </button>
+              <label class="zoom-control" for="zoom-input">
+                <span>Zoom</span>
+                <input id="zoom-input" class="zoom-input" type="number" min="50" max="400" step="5" value="100" />
+                <span>%</span>
+              </label>
+              <span id="zoom-label" class="zoom-label">Fit width</span>
+              <span class="viewer-hint">Wheel to zoom, drag with left mouse button to pan</span>
+            </div>
           </div>
-        </div>
-        <div id="viewer-scroll" class="viewer-scroll">
-          <div id="viewer-stage" class="viewer-stage"></div>
-        </div>
-      </section>
+          <div id="viewer-scroll" class="viewer-scroll">
+            <div id="viewer-stage" class="viewer-stage"></div>
+          </div>
+        </section>
+
+        <section class="playground-shell">
+          <div class="playground-topbar">
+            <div>
+              <p class="eyebrow">PDF Play Ground</p>
+              <h2 class="section-title">Vector Whiteboard</h2>
+            </div>
+            <div class="playground-toolbar">
+              <button id="playground-render" class="button" type="button">Render</button>
+              <button id="playground-fit" class="button" type="button">Fit View</button>
+              <button id="playground-reset" class="button" type="button">Reset</button>
+            </div>
+          </div>
+          <div class="playground-content">
+            <div class="playground-editor-pane">
+              <label class="field-label" for="playground-code">PDF vector code block</label>
+              <textarea
+                id="playground-code"
+                class="playground-code"
+                spellcheck="false"
+                placeholder="Paste PDF vector commands here, for example:&#10;19.724 841.89 m&#10;319.724 830.551 l&#10;S"
+              ></textarea>
+              <p id="playground-status" class="muted small">Paste vector path code to draw it on the whiteboard below.</p>
+            </div>
+            <div id="playground-board" class="playground-board">
+              <canvas id="playground-canvas" class="playground-canvas"></canvas>
+              <div id="playground-empty" class="playground-empty">Vector preview will appear here.</div>
+              <div id="playground-coords" class="playground-coords">x: -, y: -</div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <aside class="inspector">
         <div class="panel inspector-panel">
@@ -389,6 +526,16 @@ const pageMeta = mustQuery<HTMLDivElement>('#page-meta')
 const viewerStatus = mustQuery<HTMLDivElement>('#viewer-status')
 const viewerScroll = mustQuery<HTMLDivElement>('#viewer-scroll')
 const viewerStage = mustQuery<HTMLDivElement>('#viewer-stage')
+const playgroundCode = mustQuery<HTMLTextAreaElement>('#playground-code')
+const playgroundStatus = mustQuery<HTMLParagraphElement>('#playground-status')
+const playgroundBoard = mustQuery<HTMLDivElement>('#playground-board')
+const playgroundCanvas = mustQuery<HTMLCanvasElement>('#playground-canvas')
+const playgroundEmpty = mustQuery<HTMLDivElement>('#playground-empty')
+const playgroundCoords = mustQuery<HTMLDivElement>('#playground-coords')
+const playgroundRenderBtn = mustQuery<HTMLButtonElement>('#playground-render')
+const playgroundFitBtn = mustQuery<HTMLButtonElement>('#playground-fit')
+const playgroundResetBtn = mustQuery<HTMLButtonElement>('#playground-reset')
+const areaSelectToggleBtn = mustQuery<HTMLButtonElement>('#area-select-toggle')
 const zoomInput = mustQuery<HTMLInputElement>('#zoom-input')
 const zoomLabel = mustQuery<HTMLSpanElement>('#zoom-label')
 const selectionTitle = mustQuery<HTMLHeadingElement>('#selection-title')
@@ -397,6 +544,36 @@ const sourceComment = mustQuery<HTMLDivElement>('#source-comment')
 const sourceCode = mustQuery<HTMLPreElement>('#source-code')
 const referenceChain = mustQuery<HTMLDivElement>('#reference-chain')
 const warningsEl = mustQuery<HTMLDivElement>('#warnings')
+const shapeSearchSnippet = mustQuery<HTMLTextAreaElement>('#shape-search-snippet')
+const shapeSearchTolerance = mustQuery<HTMLInputElement>('#shape-search-tolerance')
+const shapeSearchToleranceLabel = mustQuery<HTMLSpanElement>('#shape-search-tolerance-label')
+const shapeSearchMirror = mustQuery<HTMLInputElement>('#shape-search-mirror')
+const shapeSearchFromSnippetBtn = mustQuery<HTMLButtonElement>('#shape-search-from-snippet')
+const shapeSearchFromSelectionBtn = mustQuery<HTMLButtonElement>('#shape-search-from-selection')
+const shapeSearchStatus = mustQuery<HTMLDivElement>('#shape-search-status')
+const shapeSearchResults = mustQuery<HTMLDivElement>('#shape-search-results')
+
+type ShapeSearchCandidate = {
+  id: string
+  page_number: number
+  commands: Array<Record<string, unknown>>
+  bbox: BBox
+  item_ids: string[]
+  kind: 'component' | 'vector'
+  label?: string
+}
+
+type EnrichedShapeSearchHit = ShapeSearchHit & {
+  candidate: ShapeSearchCandidate
+}
+
+type ComponentGroupSelection = {
+  pageNumber: number
+  candidates: ShapeSearchCandidate[]
+  itemIds: string[]
+  commands: Array<Record<string, unknown>>
+  bbox: BBox
+}
 
 const pageCache = new Map<string, PageData>()
 const pdfDocumentCache = new Map<string, Promise<Awaited<ReturnType<typeof loadPdfDocument>>>>()
@@ -404,7 +581,17 @@ let manifest: Manifest | null = null
 let activeDocument: ReaderDocument | null = null
 let activePageNumber = 1
 let activeSelectionId: string | null = null
+let activeComponentGroupSelection: ComponentGroupSelection | null = null
+let activeShapeSearchResultId: string | null = null
 let currentPageState: PageState | null = null
+let shapeSearchHitMap = new Map<string, EnrichedShapeSearchHit>()
+let searchHighlightItemIds: Set<string> | null = null
+let searchHighlightTimer: number | null = null
+let componentGroupHighlightItemIds: Set<string> | null = null
+let isAreaSelectMode = false
+let areaSelectionBox: HTMLDivElement | null = null
+let areaDragStart: { x: number; y: number } | null = null
+let areaDragPointerId: number | null = null
 let zoomFactor = 1
 let fitScale = 1
 let renderSequence = 0
@@ -414,9 +601,19 @@ let panStartX = 0
 let panStartY = 0
 let panScrollLeft = 0
 let panScrollTop = 0
+let playgroundData: PlaygroundData | null = null
+let playgroundView: PlaygroundView = { scale: 1, offsetX: 0, offsetY: 0 }
+let playgroundHover: PlaygroundHover | null = null
+let playgroundPanPointerId: number | null = null
+let playgroundPanStartX = 0
+let playgroundPanStartY = 0
+let playgroundPanOffsetX = 0
+let playgroundPanOffsetY = 0
 
 const MIN_ZOOM_FACTOR = 0.5
 const MAX_ZOOM_FACTOR = 4
+const PLAYGROUND_MIN_SCALE = 0.02
+const PLAYGROUND_MAX_SCALE = 200
 
 function escapeHtml(text: string): string {
   return text
@@ -481,23 +678,28 @@ async function loadPdfDocument(url: string) {
   return await task.promise
 }
 
-function normalizePageItems(data: PageData): PageData {
+function normalizePageItems(
+  data: Omit<PageData, 'items' | 'components'> & { items: Array<ReaderItem | ComponentItem> },
+): PageData {
   return {
     ...data,
     items: data.items.filter((item): item is ReaderItem => isReaderItem(item)),
+    components: data.items.filter((item): item is ComponentItem => isComponentItem(item)),
   }
 }
 
 async function loadPageData(documentId: string, page: PageManifest): Promise<PageData> {
   const key = pageKey(documentId, page.page_number)
   if (pageCache.has(key)) {
-    return normalizePageItems(pageCache.get(key) as PageData)
+    return pageCache.get(key) as PageData
   }
   const response = await fetch(page.data_url)
   if (!response.ok) {
     throw new Error(`Failed to load page data: ${response.status}`)
   }
-  const raw = (await response.json()) as PageData
+  const raw = (await response.json()) as Omit<PageData, 'items' | 'components'> & {
+    items: Array<ReaderItem | ComponentItem>
+  }
   const data = normalizePageItems(raw)
   pageCache.set(key, data)
   return data
@@ -598,6 +800,379 @@ function applyAnchorScroll(anchor: ZoomAnchor | null, scale: number): void {
   viewerScroll.scrollTop = Math.max(anchor.documentY * scale - anchor.viewportY, 0)
 }
 
+function setPlaygroundStatus(message: string): void {
+  playgroundStatus.textContent = message
+}
+
+function getPlaygroundCanvasSize() {
+  return {
+    width: Math.max(playgroundBoard.clientWidth, 320),
+    height: Math.max(playgroundBoard.clientHeight, 240),
+  }
+}
+
+function computePlaygroundBounds(polylines: PlaygroundData['polylines']): PlaygroundBounds | null {
+  const points = polylines.flatMap((polyline) => polyline.points)
+  if (!points.length) {
+    return null
+  }
+
+  let minX = Number.POSITIVE_INFINITY
+  let minY = Number.POSITIVE_INFINITY
+  let maxX = Number.NEGATIVE_INFINITY
+  let maxY = Number.NEGATIVE_INFINITY
+
+  for (const [x, y] of points) {
+    minX = Math.min(minX, x)
+    minY = Math.min(minY, y)
+    maxX = Math.max(maxX, x)
+    maxY = Math.max(maxY, y)
+  }
+
+  return {
+    minX,
+    minY,
+    maxX,
+    maxY,
+    width: Math.max(maxX - minX, 1),
+    height: Math.max(maxY - minY, 1),
+  }
+}
+
+function parsePlaygroundSnippet(snippet: string): PlaygroundData | null {
+  const commands = parseSnippetToPathCommands(snippet)
+  const polylines = commandsToPolylines(commands).filter((polyline) => polyline.points.length >= 2)
+  if (!polylines.length) {
+    return null
+  }
+
+  const bounds = computePlaygroundBounds(polylines)
+  if (!bounds) {
+    return null
+  }
+
+  return { polylines, bounds }
+}
+
+function fitPlaygroundView(): void {
+  if (!playgroundData) {
+    playgroundView = { scale: 1, offsetX: 0, offsetY: 0 }
+    renderPlayground()
+    return
+  }
+
+  const { width, height } = getPlaygroundCanvasSize()
+  const padding = 32
+  const fitScale = Math.min(
+    Math.max((width - padding * 2) / playgroundData.bounds.width, PLAYGROUND_MIN_SCALE),
+    Math.max((height - padding * 2) / playgroundData.bounds.height, PLAYGROUND_MIN_SCALE),
+  )
+  const scale = clamp(fitScale, PLAYGROUND_MIN_SCALE, PLAYGROUND_MAX_SCALE)
+  playgroundView = {
+    scale,
+    offsetX: (width - playgroundData.bounds.width * scale) / 2 - playgroundData.bounds.minX * scale,
+    offsetY: (height - playgroundData.bounds.height * scale) / 2 - playgroundData.bounds.minY * scale,
+  }
+  renderPlayground()
+}
+
+function screenToPlaygroundWorld(screenX: number, screenY: number): { x: number; y: number } {
+  const { height } = getPlaygroundCanvasSize()
+  return {
+    x: (screenX - playgroundView.offsetX) / playgroundView.scale,
+    y: ((height - screenY) - playgroundView.offsetY) / playgroundView.scale,
+  }
+}
+
+function worldToPlaygroundScreen(x: number, y: number): { x: number; y: number } {
+  const { height } = getPlaygroundCanvasSize()
+  return {
+    x: x * playgroundView.scale + playgroundView.offsetX,
+    y: height - (y * playgroundView.scale + playgroundView.offsetY),
+  }
+}
+
+function getPlaygroundStep(scale: number): number {
+  const targetPx = 88
+  const rawStep = targetPx / scale
+  const exponent = Math.floor(Math.log10(Math.max(rawStep, 1e-6)))
+  const base = 10 ** exponent
+  const multiples = [1, 2, 5, 10]
+  for (const multiple of multiples) {
+    const step = base * multiple
+    if (step >= rawStep) {
+      return step
+    }
+  }
+  return base * 10
+}
+
+function renderPlayground(): void {
+  const context = playgroundCanvas.getContext('2d')
+  if (!context) {
+    return
+  }
+
+  const { width, height } = getPlaygroundCanvasSize()
+  const dpr = window.devicePixelRatio || 1
+  const pixelWidth = Math.max(1, Math.round(width * dpr))
+  const pixelHeight = Math.max(1, Math.round(height * dpr))
+  if (playgroundCanvas.width !== pixelWidth || playgroundCanvas.height !== pixelHeight) {
+    playgroundCanvas.width = pixelWidth
+    playgroundCanvas.height = pixelHeight
+  }
+  playgroundCanvas.style.width = `${width}px`
+  playgroundCanvas.style.height = `${height}px`
+
+  context.setTransform(dpr, 0, 0, dpr, 0, 0)
+  context.clearRect(0, 0, width, height)
+
+  const background = context.createLinearGradient(0, 0, 0, height)
+  background.addColorStop(0, '#08101f')
+  background.addColorStop(1, '#0b172a')
+  context.fillStyle = background
+  context.fillRect(0, 0, width, height)
+
+  const scale = Math.max(playgroundView.scale, PLAYGROUND_MIN_SCALE)
+  const step = getPlaygroundStep(scale)
+  const majorStep = step * 5
+  const worldTopLeft = screenToPlaygroundWorld(0, 0)
+  const worldBottomRight = screenToPlaygroundWorld(width, height)
+  const minX = Math.min(worldTopLeft.x, worldBottomRight.x)
+  const maxX = Math.max(worldTopLeft.x, worldBottomRight.x)
+  const minY = Math.min(worldTopLeft.y, worldBottomRight.y)
+  const maxY = Math.max(worldTopLeft.y, worldBottomRight.y)
+
+  const drawGrid = (gridStep: number, strokeStyle: string, lineWidth: number) => {
+    context.beginPath()
+    for (let x = Math.floor(minX / gridStep) * gridStep; x <= maxX + gridStep; x += gridStep) {
+      const screen = worldToPlaygroundScreen(x, 0)
+      context.moveTo(screen.x, 0)
+      context.lineTo(screen.x, height)
+    }
+    for (let y = Math.floor(minY / gridStep) * gridStep; y <= maxY + gridStep; y += gridStep) {
+      const screen = worldToPlaygroundScreen(0, y)
+      context.moveTo(0, screen.y)
+      context.lineTo(width, screen.y)
+    }
+    context.strokeStyle = strokeStyle
+    context.lineWidth = lineWidth
+    context.stroke()
+  }
+
+  drawGrid(step, 'rgba(96, 165, 250, 0.12)', 1)
+  drawGrid(majorStep, 'rgba(148, 163, 184, 0.24)', 1)
+
+  const axisX = worldToPlaygroundScreen(0, 0).x
+  const axisY = worldToPlaygroundScreen(0, 0).y
+  context.beginPath()
+  if (axisX >= 0 && axisX <= width) {
+    context.moveTo(axisX, 0)
+    context.lineTo(axisX, height)
+  }
+  if (axisY >= 0 && axisY <= height) {
+    context.moveTo(0, axisY)
+    context.lineTo(width, axisY)
+  }
+  context.strokeStyle = 'rgba(250, 204, 21, 0.85)'
+  context.lineWidth = 1.5
+  context.stroke()
+
+  if (playgroundData) {
+    context.save()
+    context.strokeStyle = '#34d399'
+    context.lineWidth = Math.max(1.5, Math.min(3, 2.2 / Math.sqrt(scale / 2)))
+    context.lineJoin = 'round'
+    context.lineCap = 'round'
+
+    for (const polyline of playgroundData.polylines) {
+      const first = polyline.points[0]
+      if (!first) {
+        continue
+      }
+      const start = worldToPlaygroundScreen(first[0], first[1])
+      context.beginPath()
+      context.moveTo(start.x, start.y)
+      for (let index = 1; index < polyline.points.length; index += 1) {
+        const point = polyline.points[index]
+        const screen = worldToPlaygroundScreen(point[0], point[1])
+        context.lineTo(screen.x, screen.y)
+      }
+      if (polyline.closed) {
+        context.closePath()
+      }
+      context.stroke()
+    }
+    context.restore()
+  }
+
+  if (playgroundHover) {
+    const hoverScreen = worldToPlaygroundScreen(playgroundHover.x, playgroundHover.y)
+    context.save()
+    context.setLineDash([6, 6])
+    context.beginPath()
+    context.moveTo(hoverScreen.x, 0)
+    context.lineTo(hoverScreen.x, height)
+    context.moveTo(0, hoverScreen.y)
+    context.lineTo(width, hoverScreen.y)
+    context.strokeStyle = 'rgba(248, 250, 252, 0.35)'
+    context.lineWidth = 1
+    context.stroke()
+    context.restore()
+  }
+}
+
+function updatePlaygroundHover(event: PointerEvent | MouseEvent): void {
+  const rect = playgroundBoard.getBoundingClientRect()
+  const x = clamp(event.clientX - rect.left, 0, rect.width)
+  const y = clamp(event.clientY - rect.top, 0, rect.height)
+  const world = screenToPlaygroundWorld(x, y)
+  playgroundHover = world
+  playgroundCoords.textContent = `x: ${world.x.toFixed(2)}, y: ${world.y.toFixed(2)}`
+  renderPlayground()
+}
+
+function clearPlaygroundHover(): void {
+  playgroundHover = null
+  playgroundCoords.textContent = 'x: -, y: -'
+  renderPlayground()
+}
+
+function refreshPlayground(autoFit = true): void {
+  const nextData = parsePlaygroundSnippet(playgroundCode.value)
+  playgroundData = nextData
+  playgroundEmpty.hidden = Boolean(nextData)
+
+  if (!playgroundCode.value.trim()) {
+    playgroundData = null
+    playgroundEmpty.hidden = false
+    setPlaygroundStatus('Paste vector path code to draw it on the whiteboard below.')
+    renderPlayground()
+    return
+  }
+
+  if (!nextData) {
+    setPlaygroundStatus('Unable to parse vector commands. Use PDF path operators such as m, l, c, re, h.')
+    renderPlayground()
+    return
+  }
+
+  setPlaygroundStatus(
+    `Rendered ${nextData.polylines.length} path${nextData.polylines.length === 1 ? '' : 's'} with auto-scaled coordinates.`,
+  )
+  if (autoFit) {
+    fitPlaygroundView()
+  } else {
+    renderPlayground()
+  }
+}
+
+function zoomPlaygroundAt(clientX: number, clientY: number, factor: number): void {
+  const rect = playgroundBoard.getBoundingClientRect()
+  const screenX = clamp(clientX - rect.left, 0, rect.width)
+  const screenY = clamp(clientY - rect.top, 0, rect.height)
+  const anchor = screenToPlaygroundWorld(screenX, screenY)
+  const nextScale = clamp(playgroundView.scale * factor, PLAYGROUND_MIN_SCALE, PLAYGROUND_MAX_SCALE)
+  playgroundView.scale = nextScale
+  playgroundView.offsetX = screenX - anchor.x * nextScale
+  playgroundView.offsetY = (rect.height - screenY) - anchor.y * nextScale
+  renderPlayground()
+}
+
+function initPlayground(): void {
+  const resizeObserver = new ResizeObserver(() => {
+    if (playgroundData) {
+      fitPlaygroundView()
+      return
+    }
+    renderPlayground()
+  })
+  resizeObserver.observe(playgroundBoard)
+
+  let inputTimer: number | null = null
+  playgroundCode.addEventListener('input', () => {
+    if (inputTimer !== null) {
+      window.clearTimeout(inputTimer)
+    }
+    inputTimer = window.setTimeout(() => {
+      inputTimer = null
+      refreshPlayground(true)
+    }, 220)
+  })
+
+  playgroundRenderBtn.addEventListener('click', () => {
+    refreshPlayground(true)
+  })
+
+  playgroundFitBtn.addEventListener('click', () => {
+    fitPlaygroundView()
+  })
+
+  playgroundResetBtn.addEventListener('click', () => {
+    playgroundView = { scale: 1, offsetX: 0, offsetY: 0 }
+    if (playgroundData) {
+      fitPlaygroundView()
+      return
+    }
+    renderPlayground()
+  })
+
+  playgroundBoard.addEventListener(
+    'wheel',
+    (event) => {
+      event.preventDefault()
+      const factor = Math.exp(-event.deltaY * 0.0015)
+      zoomPlaygroundAt(event.clientX, event.clientY, factor)
+      updatePlaygroundHover(event)
+    },
+    { passive: false },
+  )
+
+  playgroundBoard.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) {
+      return
+    }
+    playgroundPanPointerId = event.pointerId
+    playgroundPanStartX = event.clientX
+    playgroundPanStartY = event.clientY
+    playgroundPanOffsetX = playgroundView.offsetX
+    playgroundPanOffsetY = playgroundView.offsetY
+    playgroundBoard.classList.add('is-panning')
+    playgroundBoard.setPointerCapture(event.pointerId)
+  })
+
+  playgroundBoard.addEventListener('pointermove', (event) => {
+    updatePlaygroundHover(event)
+    if (playgroundPanPointerId !== event.pointerId) {
+      return
+    }
+    const deltaX = event.clientX - playgroundPanStartX
+    const deltaY = event.clientY - playgroundPanStartY
+    playgroundView.offsetX = playgroundPanOffsetX + deltaX
+    playgroundView.offsetY = playgroundPanOffsetY - deltaY
+    renderPlayground()
+  })
+
+  const stopPlaygroundPan = (event: PointerEvent) => {
+    if (playgroundPanPointerId !== event.pointerId) {
+      return
+    }
+    playgroundPanPointerId = null
+    playgroundBoard.classList.remove('is-panning')
+  }
+
+  playgroundBoard.addEventListener('pointerup', stopPlaygroundPan)
+  playgroundBoard.addEventListener('pointercancel', stopPlaygroundPan)
+  playgroundBoard.addEventListener('pointerleave', () => {
+    clearPlaygroundHover()
+  })
+  playgroundBoard.addEventListener('mouseenter', () => {
+    renderPlayground()
+  })
+
+  renderPlayground()
+}
+
 function renderReferenceChain(item: ReaderItem, pageData: PageData): void {
   if (!item.reference_chain.length) {
     referenceChain.innerHTML = ''
@@ -638,7 +1213,150 @@ function renderReferenceChain(item: ReaderItem, pageData: PageData): void {
   ].join('')
 }
 
+function formatCommandNumber(value: unknown): string {
+  const n = typeof value === 'number' ? value : Number(value)
+  if (!Number.isFinite(n)) {
+    return '0'
+  }
+  return n.toFixed(3).replace(/\.?0+$/, '')
+}
+
+function commandKey(command: Record<string, unknown>): string {
+  const op = String(command.op ?? '').toUpperCase()
+  const pts = Array.isArray(command.points) ? (command.points as unknown[]) : []
+  const nums = pts
+    .flatMap((pair) => (Array.isArray(pair) ? pair : []))
+    .map((v) => formatCommandNumber(v))
+    .join(',')
+  return `${op}|${nums}`
+}
+
+function extractCommonCommands(groups: Array<Array<Record<string, unknown>>>): Array<Record<string, unknown>> {
+  if (!groups.length) {
+    return []
+  }
+  const first = groups[0]
+  const common = new Set(first.map((cmd) => commandKey(cmd)))
+  for (let i = 1; i < groups.length; i++) {
+    const set = new Set(groups[i].map((cmd) => commandKey(cmd)))
+    for (const key of [...common]) {
+      if (!set.has(key)) {
+        common.delete(key)
+      }
+    }
+    if (!common.size) {
+      break
+    }
+  }
+  return first.filter((cmd) => common.has(commandKey(cmd)))
+}
+
+function formatCommandsAsSnippet(commands: Array<Record<string, unknown>>, maxLines = 320): string {
+  const lines: string[] = []
+  for (const command of commands) {
+    const op = String(command.op ?? '').toUpperCase()
+    const points = Array.isArray(command.points) ? (command.points as unknown[]) : []
+    if ((op === 'M' || op === 'L') && Array.isArray(points[0])) {
+      const [x, y] = points[0] as [unknown, unknown]
+      lines.push(`${formatCommandNumber(x)} ${formatCommandNumber(y)} ${op.toLowerCase()}`)
+      continue
+    }
+    if (op === 'C' && Array.isArray(points[0]) && Array.isArray(points[1]) && Array.isArray(points[2])) {
+      const [x1, y1] = points[0] as [unknown, unknown]
+      const [x2, y2] = points[1] as [unknown, unknown]
+      const [x3, y3] = points[2] as [unknown, unknown]
+      lines.push(
+        `${formatCommandNumber(x1)} ${formatCommandNumber(y1)} ${formatCommandNumber(x2)} ${formatCommandNumber(y2)} ${formatCommandNumber(x3)} ${formatCommandNumber(y3)} c`,
+      )
+      continue
+    }
+    if (op === 'Z') {
+      lines.push('h')
+      continue
+    }
+  }
+  if (!lines.length) {
+    return '// No path commands were extracted from the current selection.'
+  }
+  const clipped = lines.slice(0, maxLines)
+  if (lines.length > maxLines) {
+    clipped.push(`... (${lines.length - maxLines} more lines)`)
+  }
+  return clipped.join('\n')
+}
+
+function clearComponentGroupSelectionVisuals(): void {
+  activeComponentGroupSelection = null
+  componentGroupHighlightItemIds = null
+}
+
+function setComponentGroupSelection(group: ComponentGroupSelection | null, pageData: PageData | null): void {
+  if (!group || !pageData) {
+    clearComponentGroupSelectionVisuals()
+    syncSelectionClasses()
+    updateShapeSearchSelectionButton()
+    return
+  }
+
+  activeSelectionId = null
+  activeComponentGroupSelection = group
+  componentGroupHighlightItemIds = new Set(group.itemIds)
+
+  const labels = group.candidates
+    .map((candidate) => {
+      if (candidate.kind === 'component') {
+        if (candidate.label) {
+          return candidate.label
+        }
+        const componentId = candidate.id.replace(/^component:/, '')
+        const component = pageData.components.find((item) => item.id === componentId)
+        return component?.component?.label?.trim() || componentId
+      }
+      return candidate.id.replace(/^vector:/, '')
+    })
+    .filter((label): label is string => Boolean(label))
+
+  const commonCommands = extractCommonCommands(group.candidates.map((c) => c.commands))
+  const codeToShow = commonCommands.length ? commonCommands : group.commands
+  const allVectors = group.candidates.every((candidate) => candidate.kind === 'vector')
+  const subjectLabel = allVectors ? 'vectors' : 'objects'
+  const codeTitle = commonCommands.length
+    ? `Common code across ${group.candidates.length} selected ${subjectLabel}`
+    : `Merged code from ${group.candidates.length} selected ${subjectLabel}`
+
+  selectionTitle.textContent = `${group.candidates.length} ${allVectors ? 'Vectors' : 'Objects'} Selected`
+  sourceCode.classList.remove('empty')
+  sourceCode.textContent = `${codeTitle}\n\n${formatCommandsAsSnippet(codeToShow)}`
+  sourceComment.innerHTML =
+    '<div class="source-note">This code block is generated from the current area selection and can be used directly for shape search.</div>'
+  warningsEl.innerHTML = ''
+
+  renderMeta(selectionMeta, [
+    ['Page', String(group.pageNumber)],
+    [allVectors ? 'Vectors' : 'Objects', String(group.candidates.length)],
+    ['Vector paths', String(group.itemIds.length)],
+    ['Command count', String(group.commands.length)],
+    ['BBox', `${group.bbox.x0}, ${group.bbox.y0}, ${group.bbox.x1}, ${group.bbox.y1}`],
+  ])
+
+  referenceChain.innerHTML = [
+    `<div class="reference-section-title">Selected ${allVectors ? 'Vectors' : 'Objects'}</div>`,
+    labels.length
+      ? labels
+          .map(
+            (label) =>
+              `<section class="reference-card"><div class="reference-card-header"><strong>${escapeHtml(label)}</strong><span>${allVectors ? 'Vector path' : 'Object'}</span></div></section>`,
+          )
+          .join('')
+      : '<div class="reference-empty">No vector labels are available for the current area selection.</div>',
+  ].join('')
+
+  syncSelectionClasses()
+  updateShapeSearchSelectionButton()
+}
+
 function setSelection(item: ReaderItem | null, pageData: PageData | null): void {
+  clearComponentGroupSelectionVisuals()
   activeSelectionId = item?.id ?? null
   selectionMeta.innerHTML = ''
   sourceComment.innerHTML = ''
@@ -650,6 +1368,7 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
     sourceCode.classList.add('empty')
     sourceCode.textContent = 'Click a region in the PDF viewer to show the matching PDF source snippet here.'
     syncSelectionClasses()
+    updateShapeSearchSelectionButton()
     return
   }
 
@@ -695,9 +1414,9 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
     metaRows.push(['Type', 'Image XObject'])
     metaRows.push(['Image name', item.image.name])
     metaRows.push(['Image object', item.image.object_ref])
-    metaRows.push(['Pixel size', `${item.image.pixel_width ?? '?'} × ${item.image.pixel_height ?? '?'}`])
+    metaRows.push(['Pixel size', `${item.image.pixel_width ?? '?'} x ${item.image.pixel_height ?? '?'}`])
     metaRows.push(['Filters', item.image.filters.join(', ') || 'None'])
-    metaRows.push(['Draw size (pt)', `${item.summary.draw_width} × ${item.summary.draw_height}`])
+    metaRows.push(['Draw size (pt)', `${item.summary.draw_width} x ${item.summary.draw_height}`])
   }
 
   metaRows.push(['BBox', `${item.bbox.x0}, ${item.bbox.y0}, ${item.bbox.x1}, ${item.bbox.y1}`])
@@ -725,14 +1444,428 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
   }
 
   syncSelectionClasses()
+  updateShapeSearchSelectionButton()
 }
 
 function syncSelectionClasses(): void {
   document.querySelectorAll<HTMLElement>('.overlay-item').forEach((node) => {
-    const isSelected = node.dataset.itemId === activeSelectionId
+    const itemId = node.dataset.itemId ?? ''
+    const isSelected = itemId === activeSelectionId
+    const isSearchHit = Boolean(searchHighlightItemIds?.has(itemId))
+    const isGroupSelected = Boolean(componentGroupHighlightItemIds?.has(itemId))
     node.classList.toggle('is-selected', isSelected)
-    node.style.zIndex = isSelected ? '10' : node.dataset.baseZIndex ?? '1'
+    node.classList.toggle('is-search-hit', isSearchHit)
+    node.classList.toggle('is-group-selected', isGroupSelected)
+    node.style.zIndex = isSelected ? '10' : isSearchHit ? '9' : isGroupSelected ? '8' : node.dataset.baseZIndex ?? '1'
   })
+}
+
+function syncShapeSearchResultClasses(): void {
+  document.querySelectorAll<HTMLButtonElement>('button.shape-search-hit').forEach((btn) => {
+    btn.classList.toggle('is-active', btn.dataset.candidateId === activeShapeSearchResultId)
+  })
+}
+
+function setTemporarySearchHighlight(itemIds: string[]): void {
+  const cleaned = itemIds.filter((id) => Boolean(id))
+  if (!cleaned.length) {
+    return
+  }
+  searchHighlightItemIds = new Set(cleaned)
+  syncSelectionClasses()
+  if (searchHighlightTimer !== null) {
+    window.clearTimeout(searchHighlightTimer)
+  }
+  searchHighlightTimer = window.setTimeout(() => {
+    searchHighlightTimer = null
+    searchHighlightItemIds = null
+    syncSelectionClasses()
+  }, 2000)
+}
+
+function scrollToBBoxCenter(bbox: BBox): void {
+  const st = currentPageState
+  if (!st) {
+    return
+  }
+  const pageHeight = st.pageData.page_size.height_pt
+  const scale = st.scale
+  const cx = ((bbox.x0 + bbox.x1) / 2) * scale
+  const cy = (pageHeight - (bbox.y0 + bbox.y1) / 2) * scale
+  const viewportW = viewerScroll.clientWidth
+  const viewportH = viewerScroll.clientHeight
+  viewerScroll.scrollTo({
+    left: Math.max(cx - viewportW / 2, 0),
+    top: Math.max(cy - viewportH / 2, 0),
+    behavior: 'smooth',
+  })
+}
+
+function focusSearchTarget(itemIds: string[], bbox: BBox | null): void {
+  const firstNode = itemIds
+    .map((id) => currentPageState?.overlay.querySelector<HTMLElement>(`.overlay-item[data-item-id="${id}"]`))
+    .find((node): node is HTMLElement => Boolean(node))
+  if (firstNode) {
+    firstNode.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
+  } else if (bbox) {
+    scrollToBBoxCenter(bbox)
+  }
+  setTemporarySearchHighlight(itemIds)
+}
+
+function updateShapeSearchSelectionButton(): void {
+  const st = currentPageState
+  if (!st?.pageData) {
+    shapeSearchFromSelectionBtn.disabled = true
+    return
+  }
+  if (
+    activeComponentGroupSelection &&
+    activeComponentGroupSelection.pageNumber === st.pageData.page_number &&
+    activeComponentGroupSelection.commands.length > 0
+  ) {
+    shapeSearchFromSelectionBtn.disabled = false
+    return
+  }
+  if (!activeSelectionId) {
+    shapeSearchFromSelectionBtn.disabled = true
+    return
+  }
+  const item = st.pageData.items.find((i) => i.id === activeSelectionId)
+  shapeSearchFromSelectionBtn.disabled = !item || item.kind !== 'vector_path'
+}
+
+function toleranceSliderToMaxDistance(percent: number): number {
+  return 0.02 + ((percent - 5) / 30) * 0.2
+}
+
+function bboxIntersectsWithPadding(a: BBox, b: BBox, padding = 1): boolean {
+  return !(a.x1 < b.x0 - padding || a.x0 > b.x1 + padding || a.y1 < b.y0 - padding || a.y0 > b.y1 + padding)
+}
+
+function mergeBBox(boxes: BBox[]): BBox {
+  if (!boxes.length) {
+    return { x0: 0, y0: 0, x1: 0, y1: 0, width: 0, height: 0 }
+  }
+  const x0 = Math.min(...boxes.map((b) => b.x0))
+  const y0 = Math.min(...boxes.map((b) => b.y0))
+  const x1 = Math.max(...boxes.map((b) => b.x1))
+  const y1 = Math.max(...boxes.map((b) => b.y1))
+  return { x0, y0, x1, y1, width: x1 - x0, height: y1 - y0 }
+}
+
+function countSubpaths(commands: Array<Record<string, unknown>>): number {
+  return commands.reduce((n, c) => (String(c.op ?? '').toUpperCase() === 'M' ? n + 1 : n), 0)
+}
+
+function buildShapeSearchCandidatesForPage(pageData: PageData): ShapeSearchCandidate[] {
+  const vectors = pageData.items.filter((item): item is VectorItem => item.kind === 'vector_path')
+  const candidates: ShapeSearchCandidate[] = []
+  const signatures = new Set<string>()
+
+  for (const component of pageData.components) {
+    const members = vectors
+      .filter((v) => bboxIntersectsWithPadding(v.bbox, component.bbox, Math.max(v.effective_line_width, 1.1)))
+      .sort((a, b) => a.id.localeCompare(b.id))
+    if (members.length < 1) {
+      continue
+    }
+
+    const memberIds = members.map((m) => m.id)
+    const signature = memberIds.join('|')
+    if (!signature || signatures.has(signature)) {
+      continue
+    }
+    signatures.add(signature)
+
+    const label = typeof component.component?.label === 'string' ? component.component.label.trim() : undefined
+    candidates.push({
+      id: `component:${component.id}`,
+      page_number: component.page_number,
+      commands: members.flatMap((m) => m.commands),
+      // Use the original component rectangle for area-selection and focus.
+      // The merged vector bbox can drift outward when nearby strokes are grouped in.
+      bbox: component.bbox,
+      item_ids: memberIds,
+      kind: 'component',
+      label: label || undefined,
+    })
+  }
+
+  for (const vector of vectors) {
+    candidates.push({
+      id: `vector:${vector.id}`,
+      page_number: vector.page_number,
+      commands: vector.commands,
+      bbox: vector.bbox,
+      item_ids: [vector.id],
+      kind: 'vector',
+    })
+  }
+
+  return candidates
+}
+
+function bboxContains(outer: BBox, inner: BBox, epsilon = 0): boolean {
+  return (
+    inner.x0 >= outer.x0 - epsilon &&
+    inner.y0 >= outer.y0 - epsilon &&
+    inner.x1 <= outer.x1 + epsilon &&
+    inner.y1 <= outer.y1 + epsilon
+  )
+}
+
+function mergeCommands(candidates: ShapeSearchCandidate[]): Array<Record<string, unknown>> {
+  return candidates.flatMap((candidate) => candidate.commands)
+}
+
+function toPageBBoxFromOverlayRect(
+  left: number,
+  top: number,
+  right: number,
+  bottom: number,
+  pageHeight: number,
+  scale: number,
+): BBox {
+  const x0 = left / scale
+  const x1 = right / scale
+  const y1 = pageHeight - top / scale
+  const y0 = pageHeight - bottom / scale
+  return { x0, y0, x1, y1, width: x1 - x0, height: y1 - y0 }
+}
+
+function setAreaSelectMode(enabled: boolean): void {
+  isAreaSelectMode = enabled
+  areaSelectToggleBtn.setAttribute('aria-pressed', String(enabled))
+  areaSelectToggleBtn.classList.toggle('is-active', enabled)
+  if (!enabled && areaSelectionBox) {
+    areaSelectionBox.remove()
+    areaSelectionBox = null
+  }
+  const overlay = currentPageState?.overlay
+  if (overlay) {
+    overlay.classList.toggle('area-select-mode', enabled)
+  }
+}
+
+function selectVectorsInsideArea(pageData: PageData, area: BBox): void {
+  const vectorCandidates = buildShapeSearchCandidatesForPage(pageData).filter((candidate) => candidate.kind === 'vector')
+  if (!vectorCandidates.length) {
+    setStatus('No vector objects were detected on this page.')
+    setSelection(null, null)
+    return
+  }
+
+  const selected = vectorCandidates.filter((candidate) => bboxContains(area, candidate.bbox))
+  if (!selected.length) {
+    setStatus(`No vector object was fully enclosed by the selected area (${vectorCandidates.length} vector candidates on this page).`)
+    setSelection(null, null)
+    return
+  }
+
+  const uniqueItemIds = [...new Set(selected.flatMap((candidate) => candidate.item_ids))]
+  const mergedBox = mergeBBox(selected.map((candidate) => candidate.bbox))
+  const group: ComponentGroupSelection = {
+    pageNumber: pageData.page_number,
+    candidates: selected,
+    itemIds: uniqueItemIds,
+    commands: mergeCommands(selected),
+    bbox: mergedBox,
+  }
+  setStatus(`Selected ${selected.length} vector objects.`)
+  setComponentGroupSelection(group, pageData)
+}
+
+function attachAreaSelectionHandlers(overlay: HTMLDivElement, pageData: PageData, scale: number): void {
+  overlay.classList.toggle('area-select-mode', isAreaSelectMode)
+
+  const clearDragState = () => {
+    areaDragStart = null
+    areaDragPointerId = null
+  }
+
+  const finishAreaSelection = (endX: number, endY: number) => {
+    if (!areaDragStart) {
+      clearDragState()
+      return
+    }
+    const left = Math.min(areaDragStart.x, endX)
+    const right = Math.max(areaDragStart.x, endX)
+    const top = Math.min(areaDragStart.y, endY)
+    const bottom = Math.max(areaDragStart.y, endY)
+
+    if (areaSelectionBox) {
+      areaSelectionBox.remove()
+      areaSelectionBox = null
+    }
+
+    clearDragState()
+    if (right - left < 4 || bottom - top < 4) {
+      return
+    }
+
+    const pageBBox = toPageBBoxFromOverlayRect(left, top, right, bottom, pageData.page_size.height_pt, scale)
+    selectVectorsInsideArea(pageData, pageBBox)
+  }
+
+  overlay.addEventListener('pointerdown', (event) => {
+    if (!isAreaSelectMode || event.button !== 0) {
+      return
+    }
+    event.preventDefault()
+    event.stopPropagation()
+    const rect = overlay.getBoundingClientRect()
+    const x = clamp(event.clientX - rect.left, 0, rect.width)
+    const y = clamp(event.clientY - rect.top, 0, rect.height)
+    areaDragStart = { x, y }
+    areaDragPointerId = event.pointerId
+    overlay.setPointerCapture(event.pointerId)
+    areaSelectionBox = document.createElement('div')
+    areaSelectionBox.className = 'area-selection-rect'
+    areaSelectionBox.style.left = `${x}px`
+    areaSelectionBox.style.top = `${y}px`
+    areaSelectionBox.style.width = '0px'
+    areaSelectionBox.style.height = '0px'
+    overlay.appendChild(areaSelectionBox)
+  })
+
+  overlay.addEventListener('pointermove', (event) => {
+    if (!isAreaSelectMode || areaDragStart === null || areaDragPointerId !== event.pointerId || !areaSelectionBox) {
+      return
+    }
+    event.preventDefault()
+    const rect = overlay.getBoundingClientRect()
+    const x = clamp(event.clientX - rect.left, 0, rect.width)
+    const y = clamp(event.clientY - rect.top, 0, rect.height)
+    const left = Math.min(areaDragStart.x, x)
+    const right = Math.max(areaDragStart.x, x)
+    const top = Math.min(areaDragStart.y, y)
+    const bottom = Math.max(areaDragStart.y, y)
+    areaSelectionBox.style.left = `${left}px`
+    areaSelectionBox.style.top = `${top}px`
+    areaSelectionBox.style.width = `${right - left}px`
+    areaSelectionBox.style.height = `${bottom - top}px`
+  })
+
+  overlay.addEventListener('pointerup', (event) => {
+    if (!isAreaSelectMode || areaDragPointerId !== event.pointerId) {
+      return
+    }
+    event.preventDefault()
+    const rect = overlay.getBoundingClientRect()
+    const x = clamp(event.clientX - rect.left, 0, rect.width)
+    const y = clamp(event.clientY - rect.top, 0, rect.height)
+    finishAreaSelection(x, y)
+  })
+
+  overlay.addEventListener('pointercancel', (event) => {
+    if (areaDragPointerId !== event.pointerId) {
+      return
+    }
+    if (areaSelectionBox) {
+      areaSelectionBox.remove()
+      areaSelectionBox = null
+    }
+    clearDragState()
+  })
+}
+
+function renderShapeSearchResults(hits: EnrichedShapeSearchHit[]): void {
+  shapeSearchResults.innerHTML = ''
+  shapeSearchHitMap = new Map(hits.map((h) => [h.id, h]))
+  if (!hits.length) {
+    activeShapeSearchResultId = null
+    syncShapeSearchResultClasses()
+    return
+  }
+
+  for (let i = 0; i < hits.length; i++) {
+    const h = hits[i]
+    const btn = document.createElement('button')
+    btn.type = 'button'
+    btn.className = 'shape-search-hit'
+    btn.dataset.candidateId = h.id
+
+    const kindLabel = h.candidate.kind === 'component' ? 'Component' : 'Path'
+    const sizeLabel =
+      h.candidate.kind === 'component' ? `${h.candidate.item_ids.length} paths` : `${h.candidate.item_ids.length} path`
+    const label = h.candidate.label ? ` | ${escapeHtml(h.candidate.label)}` : ''
+
+    btn.innerHTML = `<span class="shape-hit-rank">#${i + 1}</span><span>P${h.pageNumber} | ${kindLabel} (${sizeLabel})${label}</span><span class="shape-hit-score">${h.score.toFixed(3)}</span>`
+    shapeSearchResults.appendChild(btn)
+  }
+
+  syncShapeSearchResultClasses()
+}
+
+async function runShapeSearch(
+  queryCommands: Array<Record<string, unknown>>,
+  excludeCandidateIds?: Set<string>,
+): Promise<void> {
+  if (!activeDocument) {
+    return
+  }
+  const maxDistance = toleranceSliderToMaxDistance(Number.parseFloat(shapeSearchTolerance.value))
+  const allowMirror = shapeSearchMirror.checked
+  const querySubpathCount = countSubpaths(queryCommands)
+
+  shapeSearchStatus.textContent = 'Scanning vectors...'
+  shapeSearchResults.innerHTML = ''
+  shapeSearchHitMap = new Map()
+  activeShapeSearchResultId = null
+  shapeSearchFromSnippetBtn.disabled = true
+  shapeSearchFromSelectionBtn.disabled = true
+
+  const candidates: ShapeSearchCandidate[] = []
+  const doc = activeDocument
+  try {
+    for (let i = 0; i < doc.pages.length; i++) {
+      const pm = doc.pages[i]
+      shapeSearchStatus.textContent = `Scanning page ${i + 1} / ${doc.pages.length}...`
+      const pd = await loadPageData(doc.id, pm)
+      candidates.push(...buildShapeSearchCandidatesForPage(pd))
+    }
+
+    const componentCandidates = candidates.filter((c) => c.kind === 'component')
+    const searchPool =
+      querySubpathCount > 1 && componentCandidates.length > 0 ? componentCandidates : candidates
+
+    const hits = searchSimilarVectorPaths({
+      queryCommands,
+      vectors: searchPool.map((c) => ({
+        id: c.id,
+        page_number: c.page_number,
+        commands: c.commands,
+      })),
+      maxDistance,
+      maxResults: 100,
+      allowMirror,
+      excludeIds: excludeCandidateIds,
+    })
+
+    const candidateById = new Map(searchPool.map((c) => [c.id, c]))
+    const enriched: EnrichedShapeSearchHit[] = hits
+      .map((h) => {
+        const candidate = candidateById.get(h.id)
+        if (!candidate) {
+          return null
+        }
+        return { ...h, candidate }
+      })
+      .filter((h): h is EnrichedShapeSearchHit => Boolean(h))
+
+    if (enriched.length) {
+      const mode = querySubpathCount > 1 && componentCandidates.length > 0 ? 'component' : 'mixed'
+      shapeSearchStatus.textContent = `Found ${enriched.length} ${mode} matches (lower score = better).`
+    } else {
+      shapeSearchStatus.textContent =
+        'No close match found. Try a higher tolerance, enable mirror, or paste a more complete snippet.'
+    }
+    renderShapeSearchResults(enriched)
+  } finally {
+    shapeSearchFromSnippetBtn.disabled = false
+    updateShapeSearchSelectionButton()
+  }
 }
 
 function itemArea(item: ReaderItem): number {
@@ -905,6 +2038,9 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
   overlay.style.width = `${viewport.width}px`
   overlay.style.height = `${viewport.height}px`
   overlay.addEventListener('click', (event) => {
+    if (isAreaSelectMode) {
+      return
+    }
     const rect = overlay.getBoundingClientRect()
     const hitX = event.clientX - rect.left
     const hitY = event.clientY - rect.top
@@ -932,6 +2068,7 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
     }
     overlay.appendChild(createOverlayItem(item, scale, pageData.page_size.height_pt))
   })
+  attachAreaSelectionHandlers(overlay, pageData, scale)
 
   currentPageState = {
     pageNumber,
@@ -948,16 +2085,20 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
     ['Text objects', String(countOrZero(pageData.item_counts.text))],
     ['Image objects', String(countOrZero(pageData.item_counts.image))],
     ['Link objects', String(countOrZero(pageData.item_counts.link))],
-    ['Page size (pt)', `${pageData.page_size.width_pt} × ${pageData.page_size.height_pt}`],
+    ['Page size (pt)', `${pageData.page_size.width_pt} x ${pageData.page_size.height_pt}`],
   ])
 
   applyAnchorScroll(options.anchor ?? null, scale)
   updateZoomLabel()
 
-  const selectedItem = activeSelectionId
-    ? pageData.items.find((item) => item.id === activeSelectionId) ?? null
-    : null
-  if (selectedItem) {
+  const selectedItem = activeSelectionId ? pageData.items.find((item) => item.id === activeSelectionId) ?? null : null
+  if (
+    activeComponentGroupSelection &&
+    activeComponentGroupSelection.pageNumber === pageData.page_number &&
+    activeComponentGroupSelection.candidates.length
+  ) {
+    setComponentGroupSelection(activeComponentGroupSelection, pageData)
+  } else if (selectedItem) {
     setSelection(selectedItem, pageData)
   } else if (pageData.warnings.length) {
     warningsEl.innerHTML = pageData.warnings
@@ -969,6 +2110,7 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
 
   setStatus(`Page ${pageNumber} rendered. Click a highlighted region to inspect its PDF source.`)
   syncSelectionClasses()
+  updateShapeSearchSelectionButton()
 }
 
 function populateDocumentSelect(documents: ReaderDocument[]): void {
@@ -998,6 +2140,7 @@ async function selectDocument(documentId: string): Promise<void> {
   activeDocument = documentData
   activePageNumber = 1
   zoomFactor = 1
+  clearComponentGroupSelectionVisuals()
   populatePageSelect(documentData)
   pageSelect.value = '1'
   renderMeta(docMeta, [
@@ -1013,6 +2156,9 @@ async function selectDocument(documentId: string): Promise<void> {
 async function selectPage(pageNumber: number): Promise<void> {
   if (!activeDocument) {
     return
+  }
+  if (activeComponentGroupSelection && activeComponentGroupSelection.pageNumber !== pageNumber) {
+    clearComponentGroupSelectionVisuals()
   }
   activePageNumber = pageNumber
   pageSelect.value = String(pageNumber)
@@ -1060,6 +2206,15 @@ nextPageButton.addEventListener('click', async () => {
   if (activeDocument && activePageNumber < activeDocument.page_count) {
     await selectPage(activePageNumber + 1)
     updatePagerButtons()
+  }
+})
+
+areaSelectToggleBtn.addEventListener('click', () => {
+  setAreaSelectMode(!isAreaSelectMode)
+  if (isAreaSelectMode) {
+    setStatus('Area select mode enabled. Drag a rectangle on the page to select vector objects.')
+  } else {
+    setStatus(`Page ${activePageNumber} ready.`)
   }
 })
 
@@ -1127,6 +2282,13 @@ window.addEventListener('pointercancel', () => {
   viewerScroll.classList.remove('is-panning')
 })
 
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && isAreaSelectMode) {
+    setAreaSelectMode(false)
+    setStatus(`Page ${activePageNumber} ready.`)
+  }
+})
+
 window.addEventListener('resize', async () => {
   if (activeDocument) {
     scheduleRender(activePageNumber, { preserveSelection: true, anchor: getViewportCenterAnchor() })
@@ -1156,9 +2318,112 @@ function initLayerToggles(): void {
   })
 }
 
+function syncShapeSearchToleranceLabel(): void {
+  shapeSearchToleranceLabel.textContent = `${shapeSearchTolerance.value}%`
+}
+
+shapeSearchTolerance.addEventListener('input', syncShapeSearchToleranceLabel)
+syncShapeSearchToleranceLabel()
+
+function findComponentCandidateForVector(pageData: PageData, vectorId: string): ShapeSearchCandidate | null {
+  const candidates = buildShapeSearchCandidatesForPage(pageData)
+    .filter((c) => c.kind === 'component' && c.item_ids.includes(vectorId))
+    .sort((a, b) => a.bbox.width * a.bbox.height - (b.bbox.width * b.bbox.height))
+  return candidates[0] ?? null
+}
+
+shapeSearchFromSnippetBtn.addEventListener('click', async () => {
+  const cmds = parseSnippetToPathCommands(shapeSearchSnippet.value)
+  const records = pathCommandsToQueryRecords(cmds)
+  if (!records.length) {
+    shapeSearchStatus.textContent = 'Cannot parse path commands from snippet. Include m/l/c/re operators and numbers.'
+    shapeSearchResults.innerHTML = ''
+    shapeSearchHitMap = new Map()
+    activeShapeSearchResultId = null
+    syncShapeSearchResultClasses()
+    return
+  }
+  await runShapeSearch(records)
+})
+
+shapeSearchFromSelectionBtn.addEventListener('click', async () => {
+  const st = currentPageState
+  if (!st?.pageData) {
+    return
+  }
+
+  if (
+    activeComponentGroupSelection &&
+    activeComponentGroupSelection.pageNumber === st.pageData.page_number &&
+    activeComponentGroupSelection.commands.length > 0
+  ) {
+    shapeSearchStatus.textContent = `Using area-selected vector group (${activeComponentGroupSelection.candidates.length} vectors).`
+    await runShapeSearch(activeComponentGroupSelection.commands)
+    return
+  }
+
+  if (!activeSelectionId) {
+    return
+  }
+  const item = st.pageData.items.find((i) => i.id === activeSelectionId)
+  if (!item || item.kind !== 'vector_path') {
+    return
+  }
+
+  const componentCandidate = findComponentCandidateForVector(st.pageData, item.id)
+  if (componentCandidate && countSubpaths(componentCandidate.commands) > 1) {
+    shapeSearchStatus.textContent = `Using component query (${componentCandidate.item_ids.length} paths).`
+    await runShapeSearch(componentCandidate.commands)
+    return
+  }
+
+  await runShapeSearch(item.commands)
+})
+
+shapeSearchResults.addEventListener('click', async (e) => {
+  const btn = (e.target as HTMLElement).closest('button.shape-search-hit')
+  if (!btn || !activeDocument) {
+    return
+  }
+  const candidateId = (btn as HTMLButtonElement).dataset.candidateId
+  if (!candidateId) {
+    return
+  }
+  const hit = shapeSearchHitMap.get(candidateId)
+  if (!hit) {
+    return
+  }
+
+  const primaryItemId = hit.candidate.item_ids[0] ?? null
+  if (!primaryItemId) {
+    return
+  }
+
+  activeShapeSearchResultId = candidateId
+  syncShapeSearchResultClasses()
+  activeSelectionId = primaryItemId
+  layerVisibility = { ...layerVisibility, vector_path: true }
+  saveLayerVisibility(layerVisibility)
+  document.querySelectorAll<HTMLInputElement>('.layer-toggle[data-layer-kind="vector_path"]').forEach((el) => {
+    el.checked = true
+  })
+  await selectPage(hit.pageNumber)
+  updatePagerButtons()
+
+  const st = currentPageState
+  if (st?.pageData) {
+    const selected = st.pageData.items.find((i) => i.id === primaryItemId)
+    if (selected) {
+      setSelection(selected, st.pageData)
+    }
+  }
+  focusSearchTarget(hit.candidate.item_ids, hit.candidate.bbox)
+})
+
 async function bootstrap(): Promise<void> {
   try {
     initLayerToggles()
+    initPlayground()
     manifest = await loadManifest()
     if (!manifest.documents.length) {
       setStatus('No PDF data available. Run the data generation script first.')
