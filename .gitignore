@@ -1,8 +1,12 @@
-# 工作目录与生成物（仅仓库根目录）
-/data/
-/output/
+# Generated data and local working directories
+/data/*
+!/data/eplans/
+/data/eplans/*
+!/data/eplans/.gitkeep
+/output/*
+!/output/.gitkeep
 
-# Node（任意子目录下的依赖与构建）
+# Frontend dependencies and build output
 node_modules/
 pdf_reader/dist/
 
@@ -12,25 +16,29 @@ __pycache__/
 *$py.class
 *.egg-info/
 .eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
 env/
 
-# 环境变量与密钥
+# Environment files
 .env
 .env.local
 .env.*.local
 
-# 日志
+# Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# 操作系统
+# OS files
 .DS_Store
 Thumbs.db
 Desktop.ini
 
-# 编辑器（按需保留或删除）
+# Editors / IDEs
 .idea/
+.vscode/
