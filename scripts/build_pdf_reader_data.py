@@ -243,11 +243,25 @@ def ensure_object_detail(
     if obj.decoded_stream is not None and looks_text_like(obj.decoded_stream):
         decoded_stream_preview = decode_text_for_view(obj.decoded_stream, limit=2500)
 
+    raw_source = decode_text_for_view(obj.raw_bytes, limit=6000)
+    if obj.stream_raw is not None:
+        stream_marker = obj.raw_bytes.find(b"stream")
+        if stream_marker >= 0:
+            header_end = stream_marker + len(b"stream")
+            while header_end < len(obj.raw_bytes) and obj.raw_bytes[header_end : header_end + 1] in {b"\r", b"\n"}:
+                header_end += 1
+            header_text = decode_text_for_view(obj.raw_bytes[:header_end], limit=2500).rstrip()
+            if obj.decoded_stream is not None and looks_text_like(obj.decoded_stream):
+                stream_note = "[compressed stream omitted here; see decoded stream preview below]"
+            else:
+                stream_note = "[binary or compressed stream omitted from raw preview]"
+            raw_source = f"{header_text}\n{stream_note}\nendstream\nendobj"
+
     object_details[key] = {
         "object_ref": key,
         "kind_label": object_kind_label(obj),
         "description": object_description(obj),
-        "raw_source": decode_text_for_view(obj.raw_bytes, limit=6000),
+        "raw_source": raw_source,
         "decoded_stream_preview": decoded_stream_preview,
     }
     return key

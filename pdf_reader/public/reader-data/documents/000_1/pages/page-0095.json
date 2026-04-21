@@ -9,7 +9,6 @@
     "13579 0 R"
   ],
   "item_counts": {
-    "component": 9,
     "vector_path": 52,
     "text": 54,
     "image": 1,
@@ -21,7 +20,7 @@
       "object_ref": "13579 0 R",
       "kind_label": "Stream object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "13579 0 obj\n<</Length 13578 0 R/Filter/FlateDecode>>\nstream\nxµXI³eE\u0011Î\u0006\u0007¼ý\u0002QZ×\b\u001e\u001aA»ºæAA\u0011\u0019\u0004\u0007¦çÈÃ©[@äAÀÆ­\u000bW.pa(\u0011.pé?\u0012då\u000fñËªSuêÜ{ú\u001b\u0010Æûî=yª2³rø2³ä ñ÷ü\u001b¼ýÊF c\u0018~·ÑÃÓ °Ê\rJ\tã\u001aÎ6J%)\\¡è×7/lÞÚ¨¼[jÐqÀ.©\\\u0018®m\u001e=Ù\\}B\u000eAxgÜpòrtr}s?{àäµÍã'çz\u0006\u0012ì!þ \u00067ÑÍRF°>o5YÓBÛ:\u0006-2¶\"9:\u0011J\n¯SÉø\b}>F\u001f§[\u0016\r\u0001Fö0e?A§o,\u001d\u0018Zxk\u0007\u001bkÊüé<]Â÷yü\u001dáû\bßÇùùî¤£\u0005\u0001&EøK\r: ½Ù¯dfÛÄh3vÐ\u001a_!Uï\u0017Â\u000b6¬\u0014)ixq¦Øuò@¥l{ Ân\u001a?Èn§oÓ­ôÉ¦S\u000bOçO`Ò\u001b)Ûâ\\\u0012N\u0007?h\u0011õn¿¸ÛèSMVÐ¿ÄÏ_)E\u001c\u0015ù\u0004g\u001b¼pW¥ÌU\bÒ\ty`T÷\u001a4ãÖt: B2\u0017¨¡¨RqFÁ(i¿Ä¥°©Æ:Èh¦Û\u0017XÄ¨u:ë\u0000Õ÷r¸°^>\tÊv`ÊÞýYØ\u0003Ì )½Ágw#L\u0002\u00007\"ÄÎÏ9'´)\u0014vðO#mU\u0011iV\u001c}qAg«£H²0\bzÁ\u001d»qÂ -g X¢¤RJØÊîM\tå\u0016M\u0016ÆN;¯åî°õVîÂ­\n\u001e±{Xì\u001fÑÅPP\u0012f·ê äñGùùh*H¤e!2\u001e»²\u0001êëÎ\n`fÙ'[Q\u001cá`^%\u001bÑ:\u0019fÂ\u0014\u001bB%\u001cn\u000bµ¬\u0016F\fj¿Ù.MÀØìCÐÝY*e\u000b\flÒ~_³é.Âx\u0017ð¹´ä!\u0005=Ýì.ÒÝKJ9acÁ\u0010WòõxQ\u0007ºr\u0018d}îZààh_TH+*Ü½~\f\u0019ìsÄ\u0012J².gL&ÀïV¦\u001d7\u001b\u00140Õý¡]!}\u0006º.Ó½ô\u0005ú\"}î£S¼{\u0000´\u0007\u0017\u000eUEhî\\\\\u0011q\u0019Ýé+t\u0005¿÷0TZ\u0004çÖÒQÐU¤X9|46ø¶$v\u0011W/!®!@Ü¬²\u0002\u000fÐÕ k²\\tm^Å\u0014à°^ªqÑ|ã]ËE:÷(óS\u0017mÝ^ç?È¾ø\u001b¬µT<´Â¨ìTãÒSÿ{îö0\u0006\u0010¦\u0001M#t@cÍöo\u001a¡[dcÈ}_[Ô\bÝ\"/\u0011ºÆO\u001a¡[\u0014Ð£\u001aÓqjnQùÝ\u0015Fè\u0016\u0001å9fZÔ\bÝ\"%e7LX[\tN` \u001e«|Ð+){~\u00115\"\u0003wâ1þÀËÝG\b\"»µBV5\nP×Ñ*Ü-pO85^×þ!/\nÎÇ¥\bDÇÚä{Ðw¥íUù*}\u001e:w'ÂçþN¿ß\u0005£ÚrÁq6vM*\u000b;½\u000b\u000bç¬>Ä\u000e7-µ\u0005)Î\u001fô>+ùì¹¿ñ¹\u000f\u0000ñuú\u0006ãÎÃô\b\u001e¯0þÜKßÜ3Í\u001cTf\u001e¥oÑcS±\u0007¸\u0014D÷¦¸V9×Í(²;+Zéòl\\éA1$Ò]ôø¾\u0019LrS·bè}\u0007\u0000°Ò\u000f°&Ovld>:|¯0\u0005yD©GGÖ4ÊîÑ5\u000f\u0002ÑäW,ýmz¾AHä\u0016ä\u0010&[Þ[\u001b¤AÔ&e^W,ÏÀR\u001fà{j#0`äâsõ)9<öfÞÂB¯°ôÀG§-\u000e\u0017Ãç¾Cß¥ïÑ÷é\u0019z£çé\u0005:¡\u001fÐ\u000féGôcú\tý\u0014o_¤ÓSz~F?§_Ð/éWt®Ó¯éez^¥ßÐkô[zÎè\rzéÌÎê+/W:Ë8ÁÌi\u001erÖJÄ;ôOúG7ä0ñÚÌ9£ê\u0004d7¬%YiþMïÒ{(ÇÿA{÷þLñù­PgY\u001d0.gV¢ð_{\f1uÖ\bM\u001d\u0001oûg\u001d\u0005Ð¼Ó@MHàÎCâ[G\u0004\u0001Z¼ú|\r;\u0010®ý\u0002î¼SÇ >\u0017\u0011¼¡Rà¼cdÀõ6t\u0012Ê3o¨:Ô\u0015UÇÊ`~kWP\u0013\u001fäo,gë>\u000e7ô§Á(\u000fÌ`±Ê¯Ñ\u001fÀÆ¦\u000fçJã\f\u0002VwÞ(ÅøÆñ\u0004Ò\u000el\u0010ú(oóuô´Â&aÂ´¿>VÃ6B±ü´½xf\u0012P}×4¨\u000bªÁü\bÅu\u0013êºmÍ×\\§}\u0004àÿ\u001f}Ç·Ñ~Hÿ\u0001'¼ô½ÿ\u001ae´¿¹±iîQèObï?\f^FúnA\u001e¨;\u0006õ¹y°QF\u000f4\u000e£ªæÁ¦C]Pu¬\fæ§\u0018]XÙ4\u000fÎUßº4C\u001cE¸É9t\t«×\fïÐ_Éw,U=ÚÐÙ°~\u000b´ìvê«4«R@\u0005{®Ö®Qr«\\CMÁÑ¥[Îq/ù\u0017\u001a&ÑÀwo°/\n«]\u0006,Õ8¼s<ïm_ù\u001bÍ\u000eÐÉ\u00114»\u0015¾\tã\böÖwÒ\f$DÇ¤ñÎ\u000e<ìT\u0004YÄ\u000fZêN+SL/h©b·lS¨\u0010ÒÚ!ä\u0019³\u0012\u001eÆ~Ô§\u001d#ÿ\u0000A/¢\u000fàÛ\u000f\fDPj¬åá%9\\/W\u000bãNà»\u0005Í÷L\nE\u0007]£ä¨¨4îàU\u000bÒGÍ-Ú´Ê(ô8ÁT½*mÿªNû­}¼ê\f-!>\nendstream\nendobj",
+      "raw_source": "13579 0 obj\n<</Length 13578 0 R/Filter/FlateDecode>>\nstream\n[compressed stream omitted here; see decoded stream preview below]\nendstream\nendobj",
       "decoded_stream_preview": "0 0 0 RG\n0 0 0 rg\n0.7087 w\n2 J\n703.415 11.3571 m\n1190.55 11.3386 l\nS\nq\n1 0 0 1 1145.28 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0001)Tj\nET\nQ\nq\n1 0 0 1 1090.87 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0002\u0000\u0003)Tj\nET\nQ\n113.386 45.3543 m\n113.386 0 l\nS\nq\n1 0 0 1 172.913 24.9529 cm\nBT\n/F0 10.6299 Tf\n0 0 Td\n(\u0000\u0004\u0000\u0005\u0000\u0006\u0000\u0007\u0000\b)Tj\nET\nQ\nq\n1 0 0 1 771.304 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\t\u0000\\n)Tj\nET\nQ\nq\n1 0 0 1 14.9644 48.189 cm\nBT\n/F0 10.6299 Tf\n0 0 Td\n(\u0000\u0000\u0019\u0000\u000b\u0000\u001a\u0000\u0000\u000b\u0000\u000b\u0000\f\u0000\u0000\f\u0000\u000b\u0000\u0019\u0000\u0000\u000b\u0000\u0019\u0000\u001b\u0000\f)Tj\nET\nQ\nq\n1 0 0 1 398.551 29.7263 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u000b\u0000\u000b\u0000\f)Tj\nET\nQ\n884.534 22.5379 m\n1190.4 22.5134 l\nS\n0.9921 w\n532.913 45.3543 m\n532.913 0 l\nS\nq\n1 0 0 1 871.229 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\\r\u0000\u000e\u0000\u000f)Tj\nET\nQ\n0.7087 w\n56.6929 45.3543 m\n56.6929 0 l\nS\nq\n1 0 0 1 59.5276 2.83465 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0010\u0000\u0011)Tj\nET\nQ\n702.986 45.1049 m\n702.986 0 l\nS\n0 34.0157 m\n396.899 34.0157 l\nS\nq\n1 0 0 1 705.07 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0010\u0000\u0011)Tj\nET\nQ\n0.9921 w\n11.3386 827.717 m\n1190.55 827.717 l\nS\nq\n1 0 0 1 202.118 831.699 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\f)Tj\nET\nQ\nq\n1 0 0 1 2.83465 2.83465 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0012\u0000\u0013)Tj\nET\nQ\nq\n1 0 0 1 882.452 831.86 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0014)Tj\nET\nQ\nq\n1 0 0 1 769.09 831.828 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0015)Tj\nET\nQ\nq\n1 0 0 1 995.877 831.912 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0016)Tj\nET\nQ\n0.7087 w\n0 J\n963.78 34.0157 m\n884.523 34.0139 l\nS\nq\n1 0 0 1 1120.61 831.937 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0017)Tj\nET\nQ\nq\n1 0 0 1 428.901 831.727 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0018)Tj\nET\nQ\n0.9921 w\n2 J\n0 45.3543 m\n1190.55 45.3543 l\nS\n0 0 m\n1190.55 0 l\nS\n1190.55 841.89 m\n1190.55 0 l\nS\n0 841.89 m\n1190.55 841.89 l\nS\n0 841.89 m\n0 0 l\nS\nq\n1 0 0 1 1176.33 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\f\u0000\u0014\u0000\u0014)Tj\nET\nQ\nq\n1 0 0 1 1084.41 48.189 cm\nBT\n/F0 10.6299 Tf\n0 0 Td\n(\u0000\u0000\u0019\u0000\u000b\u0000\u001a\u0000\u0000\u000b\u0000\u000b\u0000\u0019\u0000\u0000\f\u0000\u000b\u0000\f\u0000\u0000\u000b\u0000\f\u0000\u001b\u0000\f)Tj\nET\nQ\n170.079 45.3543 m\n170.079 0 l\nS\n0.7087 w\n147.402 841.89 m\n147.403 827.717 l\nS\n0 11.3386 m\n396.85 11.3386 l\nS\n986.533 45.2939 m\n986.473 0.1941 l\nS\nq\n1 0 0 1 542.328 831.81 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u001a)Tj\nET\nQ\n0 22.6772 m\n170.079 22.6772 l\nS\nq\n1 0 0 1 738.115 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0019\u0000\u000b\u0000\f\u0000\u0017\u0000\u001b\u0000\u0014\u0000\u001b\u0000\u001a)Tj\nET\nQ\nq\n1 0 0 1 1131.55 3.40157 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0017\u0000\u001e)Tj\nET\nQ\nq\n1 0 0 1 315.482 831.782 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u0019)Tj\nET\nQ\nq\n1 0 0 1 116.22 2.83465 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u001c\u0000\u001d)Tj\nET\nQ\nq\n1 0 0 1 655.786 831.792 cm\nBT\n/F0 7.6535 Tf\n0 0 Td\n(\u0000\u001e)Tj\nET\nQ\n0.9921 w\n0 J\n11.343 841.945 m\n11.343 45.4091 l\nS\nq\n1 0 0 1 535.179 34.0157 cm\nBT\n/F0 10.6299 Tf\n0 0 Td\n(\u0000\\r\u0000\u000e\u0000\u000f\u0000\u001f\u0000 \u0000!\u0000\"\u0000#\u0000$\u0000%\u0000\n... [truncated]"
     },
     "232 0 R": {
@@ -42,14 +41,14 @@
       "object_ref": "42181 0 R",
       "kind_label": "Stream object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "42181 0 obj\n<</Length 42183 0 R/Filter/FlateDecode>>\nstream\nxYÛ\u001dÉ\u0011|¯ÇÝE]ÕuÃ@wu5èÁ\u0017,û\u0003´3Gk5\u001aF³\u000fú{gdÄYìÅ¬\u0005\u0012¤º»*£232£Î»ñþxÿüùíÝ__¿>~¸¾Ýúüüôzýöõ××ÇëýÏ×_>?ßxÿôùñ\u0016ÿ}üòñåîÝøÓÇ?ür}·=}ýùúÓû§ëóÛç·ï?ýc|¸º~²\u0017Þ\u001f\u001f¾{»~yÿüéëåòîoöí··×ï?ø\u0007?¾ûËëÓõõóó/?Ø\u0017?¾ûðëËË¿®_lûåá\u000bØ\u000eÿþr½¾`Ðî_®ß^>>^_?>ÿr½»,öçárÚ»ëóÓï\u001eeág?züçÇW=<\\Ò\u001cóÁøpé­f\u001aëÃ¥äºÐH\u000fÚ×F¶oÎ¶Ó(\u000f¼·Fõ\u0005:fß©¥»­Öb ±áS¯í\u000föïª}\u001bzíäÎõÚéO\u001ba£¯\u0005ÃSj ;!ÂQy\u0010\u001cÏÊMCò}*ìF¡QÜh4ª\u001bú¦¹±ÒènD\u001a\u001bãòÀðä~è\u001bÃ¡rÃñ¬òx\b;.nÐk;1þ\u001bÑÏ«Å\u0015Fá>Ññ\u0014B§Òèx*FÇS´ã©\u0010\u001dO¡;ÑñD­æxª\fOáDO;'i\u001fÇStu<û¬'ñxWÇ¸Àêx\"a¯'1Åì.eSîX,À°WÆii1³³\u000e2\fO»^C¾­]á©i!\u0015ñ)§6u<Y¯9\u001e¥ÿJ<Ì·Äø\u0010\\r<\u0010á)Qéo°.9\fî\u0012Êl§oÑVL'N¨õä¹Ùñ]ê\u0019ô\rðÄÀ3H'ÏS\u000b\u00182¼ã!]jÔZIØéèDÍEKÿCNø¶1)áYQîw¬)ó-rµì|0ùZp´ñà3êgW\u0018³áÉ5rÓøÔHß²áiëN<Ùðä³Ë0<¥,<ëø´\"Ãðµi5à)M\u001e\u0000Ï2ä\u001bê'ì2&\u001c]x:\u0016³K;\u0015²àD\u000fzm¹n5×ô$\"CT\u0005ñªú\u001cÂpÖ\u0014;þ\u000f¶,@\u001bñ\u0014dbSú\nÚ]´G.2\u000f\nf\u001dUñL\u001c<ª²#>ªí\u0002¤ioT5gdF#l«w£ÎKW0ß!Ú¨Ü)r¨@ºf~S\u00119äý\u001diáÒú ;Fõ\u0016\u001fÅ´Éµ´áiM\u0007_g.Z\u001a8\u0012½®\\\u0014¿Õ\u001dF;§î\fÃÓoÄU=rgP\u0011¹VèN3<uSL-í¬(\u000fZt¯exä\u0002½nÎ\u0014K7TÖ­\u0000\u001bâ³7îc1³\u0000)\u001aðÛ¦èLQ­ÀÞ6ßV\u0003£i\u001fÄç\u0014m´\u0003ù6ô\r;\u0013ªÉéAw¦È\\ É\t®\u001bw=Ya\fòNO06\u001eow&OzÍ<ÓîÌéAw&OzâL\u001eHIÆs»-\ræ;Ô5;òmv\u0019§Eõ\u0005#MãÑÆFæc\u00146Ä'Ý`rHÑÞÉ3wCe\u001dâ·-{\u0007Ô\u00130Åyð@60ß<xn\u001bâÐélÝ\u0017Ðk¨¨\u0003Ù89ðÜ6¯\u001fq¢Åt°\u001a7äÛ)¾Þ\fO\t\u000fv0ERHvÃÓ\u000eÙúi¢è\u001dõ3&7Ý\u0017:!\u0018\u0017]ZÉÌª½x-hiò\u0001ñìÀSÅ£V»^4ÈìÀ.äÆ*Q\u0003ÛS\u00003qGýäI\b»×OÖÒ§\u00071Ò`§%©\u000eÏ·ûèyÍoÆon¯\u000fÒN<\u0003ü6*÷\u0019àª3|²ëtt8\u001f`>øC¶\u001c\\YµÏ\u0006Z\u0017+\u000fTÖºÉk0Å\"pÃ{VgH\u0006zÖ<ä\u00019«\u001d\u000bÎÓ9dÝ@Ïúíµ\u0015°O\u0016ÆLÌgpdo\u0005ôàpæëÜç¨<·Ãö­jéîõÃ£:\u0010¹ª\u0002<PY#kSïYQO8S\u0010ÏA¦ Ò3\u0005W¬,æÎDÏ:NæÛ\u0004óí\u001a#¦3\u0012vb&Ï '\"7Õr&ðÌMß rÛ¡}(ñÌ³Ö¨;'(Ú\u0013=ø¼­æ3ÒAp\u0016&£u\u0013©jtèLU}át<jz§Ï\u0014\u000fNÄgÉOTV\fú&!Sß >Qt{:óÉ³zaèOhvûÆã#&?}F:yÖ'òmvícxz]d)\båÎ.rÔ;-\u0003\u001c ªràx\u001c ê6O\u001a\u001e\u001fö¹\u0000ÍÔ5­\u0007h¦\u0016w=\u0001S\u001cT\u0012aqæ+Z zj\u001fÄ§\u000fÂâ3RÒj\u0013äJcwBI4oëÐjÞN}Ã|Ó¦À³²\u0003\u0006h¦\\ÉU\u0001©îr\u0014©Ô\u001e@3E\u00187\u001b\u0007\r×YO\n\u000eä\u001d ìÜèAp\rxD\u001aà\u0011è54S\u000fI«Q3i5ä[\nrçðñ°¡¬g\u0015\u001aGH¡J\u001a\\)s\u001fh¦\\)V\u00034\u0018\u0017fÊ³ÊÈH\nVp®1\u0016-|Ë»hïz\rx&[Nfª£j\u001fÄ§]\u00024Í1ÿg¶\fPS=íZ`ú!\n\u0002zV9i@Mõ¤ø@M\u0019ïÐ\u0003¨©|Êkª©ª'`¾H5\u0015 ¦lÔ\u0002^YRM\u0015í\u0003\u001f\u000b3\u0004j*QX©\u000e\u0019\u001f¨)k<x¨©4WíCµË£Z½g)>PSéd\u000bPSvÖÌ\u001d¨©¼*XPSv\u0006«\u000f-¨Þ¹tòLt\u0007jªJ\u0014\u0007ª©¬'Íë°Ï\u0014:ä¨úIEO\\íVy@&×jèLW\u0013\u0001jª\u0017öÆÉ||\u00025e}NÏ°Ê^¨)\u0013\u0002Ä\u00035Õ;õOÈÎ|*\f¨©\u001c8N\u0006¨)Ë*­\u0006<«Ò2;³\u0006ª)\u000eõ\u0001jªU«\rWFÚçðN<PS¹\u000fÂÎÞ\"\u0017ªãW²CäQAM dR\u0014Ï7\u0011\u0017Ô±%÷)>ÃîZ­8ûëç\u001b§õài\u0011¡@3\u0015S\u001c4ùv}³{\u0001ê\tðJh¦¤\u0019\u0016Ã¦\u0002©Oª«ÃÂ\u0005ª3ye&B3õÌ¶ÁëâòÆ\rÏ·,\u0003LQTf®\"ÇP]íªd¨Ø\\\u00034S]¨Ú\u00024\r\u0018Ì^h&£4\u0019èLmÈàÌ§\u0005¦ç(\u0003\fÍT\u001bí\u0000ÍÔ\u0006µYfªAå\fÍTVq¯k¦©\fqÍ´v\u0016:4ugf\b4\u0019zâIH¡ZlZ­#oK#>RFÁ5Ó-ý¡Ú3ùÐ7Óo0äõéÈsfÊ\u001dwiÈPSõà\u0015º#\u0015@M.á!BMÕ9õ\u001a*«rt\u000fPSMw\\j?@MÙ¬,\u0003Û»\u0016@ä G1#M±rw¦8µ´3\u0005ï)B÷{\u0017¤;RÑ\u0013ÔTÕø\u0015\\MmjFPSy(«6gÉ£r5yµ\u0017\\MIñ3\u0012÷*ã \u0007PS6Ýò@\\MåSûð\u001e5·ùLÞ\u0019\u001f¨)ØZ\rë\n=ÔT©\"»ÍgòF\u000f ¦zQot5urÐ\f®¦\"ÕGØ½\u00077=ñÎÄ\u000b/Üì ßPS½¨@M ÊÚ)n¯!\u0013\u000fÍbPS}Q\u001eì~\u001b1e`FÊQ¯a½õS¨)ã\u0003¹\u0003<W\u0013\u0001jÊt°\f)äÎàÌÇ\u0003j·LÊJ<@Mªæ>®¦ö^CM¦å¦PSVÛzâêPñ\u0019~»ÒX®ª \fï´ê\u000bÐL­îr\u0014ñi¼Á@S³ÈÉ·Ã+K\u0003-4Õ\u0002÷9X?zúÑ\u001e\\3Õ]¯e×§ô\u0000©®Mß ÓîrçðN+ªqÍ´ªg\u001dg2w\u000eÇ£wÍ´«d zIòÀëçá×Ïaú½¥æQh&K\u0017dºÚmÌDh¦¶ó¢#LïL¼\r\u000fù¦×'\u0005«q:ó©\u0016¦ß®ðÚ$L¿]\u0011»@3Å F9]cðæ4¸fºÍ\u0014Ó;Òrò6B\u000bx¾iº=\u001d\u0012h&£xnzz|\u0014zh¦vKXh&\\øO¶Lé÷d\t1Uæ\u0018©^5\u001e@Lµ[g;=\u0011ÅN§_ ó¾\u0018²Ð\u000e§Òi)Ã3²1QÞp¤`D\\L¥ÓÞTÑÅT£p\u0010Såàì\u0013\u0017\u0017ïLÞ¸ø\u0005:\u0007¸x\"RUD©¢)\u000f\u001aÑRãh\\üÚwæÑ\u001a$¤\b1eKûø5\u0012S'BLÕÐåÛð\u00056\u001a\u0007ÚÇG$RUt1uRA¿Z)l|\rb*7R\"î(ít¨¹\"Ä±-=\b.\u000eoßøD\u001eü\u0001êÐ\u0013oL¾\u0001ñà\u0013Åª}8\"u\u001a>ß\f'E\u001eøµrÒ7(¬N\u001c!¦zâ\u001dLªñ¿\u0005\u000b~LÄ/·\u001f:ï\u001f}}½>¿ùÏ¡þã$~üü|ýí\u0017Ó¯/÷ö\u0015þÞý\u001bcNU\nendstream\nendobj",
+      "raw_source": "42181 0 obj\n<</Length 42183 0 R/Filter/FlateDecode>>\nstream\n[compressed stream omitted here; see decoded stream preview below]\nendstream\nendobj",
       "decoded_stream_preview": "/CIDInit/ProcSet findresource begin\n12 dict begin begincmap\n/CMapName/Adobe-Identity-UCS def\n/CIDSystemInfo<</Registry(Adobe)/Ordering(UCS)/Supplement 0>>def\n/CMapType 2 def\n1 begincodespacerange\n<0000><FFFF>\nendcodespacerange\n100 beginbfchar\n<0001><4ECE>\n<0002><9875>\n<0003><6570>\n<0004><793A>\n<0005><4F8B>\n<0006><5B8F>\n<0007><9879>\n<0008><76EE>\n<0009><6821>\n<000A><5BF9>\n<000B><0030>\n<000C><0031>\n<000D><0045>\n<000E><0050>\n<000F><004C>\n<0010><65E5>\n<0011><671F>\n<0012><4FEE>\n<0013><6539>\n<0014><0037>\n<0015><0036>\n<0016><0038>\n<0017><0039>\n<0018><0033>\n<0019><0032>\n<001A><0034>\n<001B><002F>\n<001C><59D3>\n<001D><540D>\n<001E><0035>\n<001F><0041>\n<0020><004E>\n<0021><0020>\n<0022><0053>\n<0023><006F>\n<0024><0066>\n<0025><0074>\n<0026><0077>\n<0027><0061>\n<0028><0072>\n<0029><0065>\n<002A><0026>\n<002B><0076>\n<002C><0069>\n<002D><0063>\n<002E><0047>\n<002F><006D>\n<0030><0062>\n<0031><0048>\n<0032><0043>\n<0033><002E>\n<0034><004B>\n<0035><6A21>\n<0036><677F>\n<0037><003A>\n<0038><591A>\n<0039><7EBF>\n<003A><539F>\n<003B><7406>\n<003C><56FE>\n<003D><005F>\n<003E><0070>\n<003F><006C>\n<0040><004D>\n<0041><0073>\n<0042><6279>\n<0043><51C6>\n<0044><4EBA>\n<0045><79F0>\n<0046><53F7>\n<0047><7F16>\n<0048><521B>\n<0049><5EFA>\n<004A><8005>\n<004B><7248>\n<004C><6743>\n<004D><4FDD>\n<004E><62A4>\n<004F><3002>\n<0050><4E25>\n<0051><4EE4>\n<0052><7981>\n<0053><6B62>\n<0054><5728>\n<0055><672A>\n<0056><83B7>\n<0057><5F97>\n<0058><660E>\n<0059><786E>\n<005A><6388>\n<005B><7684>\n<005C><60C5>\n<005D><51B5>\n<005E><4E0B>\n<005F><8F6C>\n<0060><53D1>\n<0061><548C>\n<0062><590D>\n<0063><5236>\n<0064><672C>\nendbfchar\n100 beginbfchar\n<0065><6587>\n<0066><6863>\n<0067><FF0C>\n<0068><5229>\n<0069><7528>\n<006A><53CA>\n<006B><4F20>\n<006C><64AD>\n<006D><5176>\n<006E><5185>\n<006F><5BB9>\n<0070><6D41>\n<0071><4F53>\n<0072><5355>\n<0073><603B>\n<0074><89C8>\n<0075><5F62>\n<0076><5B89>\n<0077><88C5>\n<0078><5E03>\n<0079><5C40>\n<007A><62D3>\n<007B><6251>\n<007C><7BA1>\n<007D><9053>\n<007E><4EEA>\n<007F><8868>\n<0080><7A0B>\n<0081><9884>\n<0082><89C4>\n<0083><5212>\n<0084><0023>\n<0085><7279>\n<0086><6B8A>\n<0087><673A>\n<0088><5668>\n<0089><6237>\n<008A><4E13>\n<008B><6D82>\n<008C><6F06>\n<008D><8FC7>\n<008E><0055>\n<008F><0049>\n<0090><0052>\n<0091><002B>\n<0092><25B2>\n<0093><25CF>\n<0094><25A0>\n<0095><0042>\n<0096><0056>\n<0097><0057>\n<0098><0046>\n<0099><002D>\n<009A><003D>\n<009B><52A0>\n<009C><5DE5>\n<009D><5E95>\n<009E><8272>\n<009F><7EA2>\n<00A0><0044>\n<00A1><94A2>\n<00A2><94C1>\n<00A3><0058>\n<00A4><6DF7>\n<00A5><5408>\n<00A6><8FDB>\n<00A7><7ED9>\n<00A8><6DB2>\n<00A9><6DFB>\n<00AA><5242>\n<00AB><003F>\n<00AC><6\n... [truncated]"
     },
     "473 0 R": {
       "object_ref": "473 0 R",
       "kind_label": "Image object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "473 0 obj\n<</Subtype/Image/Width 142/Height 217/BitsPerComponent 8/ColorSpace/DeviceRGB/Filter/FlateDecode/Length 474 0 R>>\nstream\nxí}\u0007t\u0014GÒ0ï|ïó}ÿù»38PX\te$\u0004Ê \u0012HB\u0002\tDV\u0002\f66Î\u0018\u001fØ\u0006q\u0000\u001bÛØà\b66ÎMÎsÎ°»Ê(çÝôwOÏ&ôôttç÷Ý·õúíé®®®ê®®®Nmm\u000ep\u0003\u001cà\u0000\u00078À\u0001\u000ep\u0003\u001cà\u0000\u00078À\u0001\u000ep\u0003þC¡©Þrv·åô\u000eËé3;á¯ðÀÿîâÂÎö>üÃÎæÓö¿Øøb´bÌòìxÎ\"7V¤:#\"R6;6\u0015JNK#=ËbîàQrZ%;T\u0016{FRÈð\u000brj{k]XP-\u0005WL\u000f¹\u001a»ô4uéiÁû\u0015þ¶¿!\u0007\u0013æ%MBl\u001cÌK\u001c~É'B\u00045T&<~'LQL,*½ì\u0007ËÉ­XI©%7)J¤Y@5ljøéKª\u001eY)\\mz\b\u0011\"wV¦ÚzØ­\u0013©¾Òª¸së­¸Å¬vbÍQ/yxùÊ$e3_\u0016$¥FøW\u0011SëÐÁs5©©ÅQÏ][c3V\u0000z]*\u000frIÚ\u0014«ÖÕUå¨('\bB_*Ù\u001bº\u000eªÖÁ\u0013\u0019\rjIO¨öSÔøõ\u0014Á.&'ÊâHS©¾¡ÔËm}øYSa$¥ÞO±ZDªèd\u0007+³=ÉW\u0012J3F^êö\u0015N­Öcú)­6¥ÞN1}®>ÅEÃ¢iÿÞ\u001c\t¶±\u000bSÝã#ËÚ¤t+ºÎb¬¬\u0006RfGÑ\u001f9\u0011ÿê)£¬N2u©ÊHû©eJf\u0002¥¢  \u001bÏ.erz&°KM:J²ÉQvôö7ò²kJJ \u0018\u0003­8ô¡¥§\\UuªÐ`£\u001bàðRÓ\u001cOuî\u0000³ÃHÚùOÓ'Ò³·Ãdk\u001aHíâ£d¬,\u0002AR\\\"k0±.ÕG¶\u001ar5Ãí4&\u001cS'`#ä%ã\fÖJbÓíÕß\u000bÐ\u000f\u0018²£±-µj¶ãH\u001cctd\u0014m\b\u0016&N¾¢\u000e[K>\faÕö$zÜ_ô;2Ê\u0010³\u0017ëMb\u001dò(c*9@\u000b9;}f\u0000M|ÝÕ^¥)1°]Gyéû)5>\u0013ë$CY4Í]Ê÷ú,\rõþBç\u0010À\u0007}5DËïÇlëê\nÜ«PêÂjytUKB,g(í\u001fº²óÁBí÷£a\u000e¡Ë æ\tDT¸Mê\u0013Ém¨®©ÄÔ)Å=ÿ-\n\u0016$f\u0012iLý~*],rÂfJÑr;ä&·551¡\brIa¬tA«Vb¤å\u0003«áAS\u001c\u001dh\u0019e¤­|\u0004æ\u0013ÖQèà²ÍÒ\u0017MÉ%$v\u001aÛ¢\u001455®,©z|\u001dC\t|³Å®£u(XªÈìU²H3¾\u0016ÿ±}\u0010½Ù©iZü{t~ëTa¥_\"[é\u001d\u001eÝ8\u0011**\u0011\u000fíB\bñK\u001d\u0003´\u0014¹ÍSiQÀ§v4\u001fß\u0002Þ\u0003!\u0000\u001e¸çmè\u0019½´ð/ù¯ö÷ÛÄI\bð½\"¾ø¯YJDò\u000b\u0010ZDøe\tÉÕ\"\bx¤G\u0016G°PYT\u001eÈÄËqÌóáØæÖò6\u00078À\u0001\u000ep\u0003\u001cà\u0000\u00078 3 Ùbi¶Xÿh*þÏAKÉíÆ=?Õ|6»|öÒ)\tÅ\u0013\u0006\u0016\u001bP2a`é¤¸»ÏgV¾ûDýÚ%Ö\u000bû[ë«$æ»/.ø02uTdÊÈøQ9\t£saÈÊm\u0010GKGçÆgÁ ü$¼WÄOÈ¿TF\u0013ÞhÇÌ¡ AøA¥(f\"Âh\u0012añY\u0002\u00019\u0003=~þ¦Z«Jê[ZúH¢ÉÕ æ.\u0010pß»3GÖ¯ÿ¤¥ô6HÞØÜüýíQÃ²ºt5téêÖ¥\u001búu¿(H\rüßn¢ ÙÍD/¼\u0011£7Â×®²,\f\u0012bl1¥/1dHK$¦J¹J$8yì8t,¦ÍË\u000búû°Nä¡`öô¨x-ßVÀW/V¯wë\u001b%a¸Z\u00191\u001c\u0016PÂ7E4,c1lt¤\u0015ÿvS|UÆÝPB\u0006NLÊ)-ÝÎÃ'UR}UÙ³#èWâDÉûÝ*^ÐRf\u00048\u000bKË'?ÿ\nNT\u001c\nú»*9Fæ<.U{\u0010x%c¸ì¥\"8/Y3Çò\\.JOØâHR\u0019Ô$ÕÚX[2)^áç¤GSº©Í}¼ê]ÒfÖÅòUë\u0002B%\u001a\t¯pÏíUðU,}\u0003>\u0017å§n¸|ºaSI¿\u0012Ð\u0015L[´âCxIÏÍÆ@uöVË½Ì',{lhKE!ÀæÊ\u0011H0%5{ZjöT.LSü¢i¢|HQ$I¤*M5\u0015\rûR\u0016NÁ½TÄÄbVE\u0016s4ð/S¤Ñ\u0012Çä¸xM)¦ÆÝ?0Í\u0017PNÏ¡¯æ>M{W;G\u0007PBIn¬J;¢Ýý§ir4lüü.åÿzh>µ©K¢ozB(\bõ±Ý>ûG\u0017ô=T.F%{GETÑî/\u001f4lZÖ°áÓº\u001f\u0017V-z\u001c´G³\u0007©ûsó±Mt)ÿ\u0013 xtf\u0003\u0001£`Ëù½j\u0018Zî\u001a¶|Q\u0013M\u000e$ûï,Î,4Ö\u0016\fð'+±²\u0019ÃÚl\u0016*d;¾)é-ÆSùÆdrË7?mÚùËö½k·ï\u0005¿«·ì.(¹ËZÛ%?mÞµÖd­(ü²}ìý/ÜKáwÍÖß7î9ÔØÜ¬Ëcg\u0000y\bÏÏÛö¬Ý±¯º¶\u001e¼/¯ª\u0001H\u0004ä«6ïºpã\u000e\u0001\u000fÈkýî\u0000\u0003Ê}ÓÞÃ\u0016«¶§´µ²Èì-Ó]\u000e« ¦wku)=ÓÚêÊçNDxJ¦$´Y58°n×\u0001©·Á°ø«\u001f\u0019²ãàÀ©ó¸¡\nÅÆ\u001e>ÿéWÍ\\\u0006¤åýc\u001cnÞ}ï\u0014AÎ\u0014ß­tE®\u0018>\u0018Æ=ñ\u0002\u0001ÏïÇÎHhxÀýø«¹Û\n®zÖ&U¾ý(=Ç\u0004\u0000\u001a¯09¸¥èºfÌ²ÊjÏ°Ab_Ä¸Çg²f×Ôl\tIHÃx\u0012d®\u0000kBâê\u0013RVQMÈ¢¡©)(6YÄ'2®¦¾\u0001}\u001dýØsâ¼¼Â\u0006UT×ª¡þÒë²Aô{_þ YFÍ½\u001eM»¾eå\u001b\u0007­m\r5QÇ\bÅä8à\u0019:\bè\u0013Öür£pÐ¼mr'Ld0<óÚ;\u0004ü$èÃ\u0014ù¢ÓF\u000b_~³Fæ&Úvà8\u0016©¤Ì%(BäWI2&ÏÐ, ¨ö¦Ý£NÖËXÆ\nýø«Ãn@u³\"ùà«äâhw%)QJW¡ËC\u001eÏ\\TÃÓ\\t¯>âj0<ºð\u0015¨/±«Û¬·ðv\u0014h>r7cW7¿¨øº\u0006r\u0001A\u001fdö÷ÄöP(X¯áëF'Â×º< qÎ|ó}V$'\u0001<Ä÷î~ý\"G&\r\u000f\u001d2\u0002\u0006ô\u0000~¹\u001064£_BÚ¼Äù&Oxäàé\u000bûNÛwâÜÞãgpôÜå¯×nâ7L}ñU!÷êºzßÈxqû\u001b¥\u0013d!©<v©\u001d<­ZIx\u0000¶_´?a9®åì.V¦±\u0002(&¨Tb¥4xäDV$\u0016«-<9SÜ^\u0006eoÐ\n>Ym6ð+\u000eV[\u000bHûÌ\u001cÖ{b¥³]b¥ÚÕíåw?\u0016\u00130aÆ,qoè\u001a\u0014Y\\^)#òØù+êîñÆwu{ëÓ¯´ØZ\u0011Fð9ü{¼@9ÏÌ\u0016Kªg@Xa\u0019ó\nÒgç/\u0012w=÷\u0019ü¯Ü6\\¾eìîß_®\u0015e3\\*\u0013\u001f23à5\u001b$Iº\u0019Y+Ëî©W\u0017âgâº\u0019×\u0018Î\u0000({\"`QÜe½xÀr\u0002¿4W²ÐW¶r\u0018·ú\u0017¾<¶Évë´/Þ(«´`´B!\u001c\tü\u0006\f~A±pÜX¾z½fª¿û\u0019oHèýÜÃW¿H\u001c/WoAÝ\u00107L\u0002lK`,Éz(\u0001ù>Á·\nÉ¤Ö|ö\u000fñ`JmFCe\u0003\r5EáÐ8\u0014Áucáý½\u0002ÅÍêÉy\u000b¨EÄÃ\rSÑß=\u0002Å,\u0005\u001aI3\u0015ÐCÇO\u0019c\u0012\u000bD<.\u0013!ÿmç~\u0019* ´ÅE\u0000]!P³ÂW0jÆ\u0019íýeª\u0017\bAÓáu\u0004&¨xÔe~xÑþ{m·ÎÈÈÏÊ\u0011÷³}ãR\u000f¹\b\u0014û³på¶©¦®PÃÇwÄàªÚ:Ma\u0001Ìuó#0fHp\\jPlJßÁ)ÁqÃ\u0003Ãeí\u000bX\u001a2<3æ¾%±6\u001ft?)c\u001aùÈú \u0018AÈ:>%´V\u0014\u0003½\bnO\u0019X\u001b6É»?^Ë\n\"Ñünÿíâ\u000b\u0006 \t,_µ®¶¾QY9ï,\rxÙ¦))\u0000¯-Y.e#Ï·ÆfKc\u0013t³<5o¡È\u000báö\u0017\u0017ßK72$ß­ß&\u001a\u001a@¹aW¿§.]çìLÒ3ëÕ`\u0015sQ\f¥ÓÐ\u000b±\u0001â·zU¾ù\u001f6îUEèQ\u0000õ|õßeH¶\u001d<.\u0019Fuu\u0003cR\u001aIUV×öO\u001a.î8\\ûF^¹e\u0012\"ä?÷¸·\u0002M¬¬RîÓ¸e.\u0006ÝXC>6çuôiÎ¢dMÉ/:aÔÔ§Å8ÿæ\u0011 i\u0002Õ~ó:¹\ttÒn¾vá\u0016¥È¼¾·\u000bK\u001eò\rë\u0004\u0010w\u001c3ßxOÂðZïðÁâ8YÓ¡\u0014ííRægNyRø÷¸\t\u0000ÅØÐqiJº¼®n@£uª\u0011)£dºâ×\u0016ñõJT/×l \u0013i9¿W\u0007ÃqÝ\u0013åùiNÆ?9Ûn2qªWbÃX´dE\"DÃ¤¯ä<=[Üú\fÁÑÅwåã\u001a5xdÖ<i\u0016\u0006`\u0006 O\\7*\u0010`ÏÊÅbxó¯dvÈÙ«7w\u001c:)¯i]Ý¶ì?ZR^ù7÷ÞâO\u0013|QDµX1ªRã¹Id!Ðµ}ç¯d¤¶i\u0005­é\u0001¯ \u001eþýAèî×Ï©w(_.Q¸±hùw\u0002¥ß¬!QkÔÀT\\æ\u001f(TßÁ©HËE¥f+À¸ÇÇbØsìl¼\f]S_ü§Ä#Á©nÔ$£ÓFÝ\\!\tiMZkÅk¿UUFnî£vÅ¼ÏçÔ|>[ô;§vÙeè/ÿ¦ýÓW¯\u0002\u0015'¬\\Üo?&£aÿÉs\u0012mÐÍí\u001f\u000b?¬kh\u0004£àÂÒò¢²\n0â\u0000ã¬Ñ¹â\bÿvõ;q8\u0000&¬I¾¸àCJI\u0001\u0000£$\u0015ÝÕmÖ\u0002èÁ\u0003\"\u0013@Í\u000bÚ¯spq¯Ú'6Ù¥Ø%\u000b?Í_ú\u0005?ë­Åâzõ_Î>ç¯Ý&SØRf4÷öTª5~}Q gK)iv\f\u000bÕ\u001fÍ$H\u001f1²ø¥\u0015U \u001f\u0017s)5{*\u0016ó\u000b âþ««Ûôø¾\u001bØ\u00011CÄ¶Ajö4&²GN}J¤oÝºz\u0006mÝ\fØêb\t.ül¥Zòô¼é¸µýo7¯ 0~D·ì;*\u001dd\u0019~«m\u0002ÏÊRvýÔj¿ÇT^\u0000À\u0014'HªhT2ÉÉOõ¼WX,v¢Çbµ&Í\u0017«# \b »Ð×IÏ¿\"æjÏ03Ë<òÅÆýú@è\u0011\u0000¸M}½v³Zr %j{WË´ÜveR^Uã\u0019\u001a#Æ<æ±g5)´^<`ìâ¬ÆØÂø>­u´]3¦½«\b}\u001fgþÉu²}R ½½ì>\"7<\u0010|¿a»Ôóc\u0000oÐ§oÖmÔä®nk¶îa¢\u001ch'q÷¡´9·\u001d8¦\u0016Î<è.nÔí\u0003\rîaåo[Äñ¡­.¢Ö£ÿ@ [4)¬xe\"ÁlS\u000eÈÐ¸ñs\u0016\u0015#,L\fj³4É¾|£ËÃ½Ä\\zå½O±Èá4\u0007`ÈîE\u001d\n\u0000Ð\u0001\r#69q\r%64nÛBëxÐ\u001dd\tiCFH\u0006\"q\u0007Æ\f¹Yìîv\u0005\bT¢&ÖkÇõNM{~¢/oõÏ´_R_å*\u000b[Kdò¢!6s\u0002\u0016ù}G$]7\u0003°±Ñ§ÖH`ªØ\u000bÆ5¸á\u000f\u0001\u0015ÇÍP`ö\u001d<ä\u0013LV§S^'\u001fMØKôÊ{È\"ï>zZÚ£\u0019\u0016|ú5\rÕ\u001f=O`¯Ù¿åìnÊÂLQ³ý ¤Òû·µ¶*SÁAÈßò7÷OÞ4\u0017]¾eºr\u001b\u0006ð°~÷~\téâQ\u0015HòÔ¼\u0002\u0012¸VA¤EÿÜÃëüu\rJ\t/¼¹XÒÅØk¾od|m=i\u0016X\u0005\"cOÒ$\u000f:/\\]W\u000f\u0006¢68<ÿq*úêÒú\u001bñ\u0003[î¯·\u0007MË²ÚA8ÀY\u001fMøé\u000fke½Ìõôþ®~B¸×ÙG<6\u0011*ËV­\u0013¬Þú»EÝ\f+ÝÍ\u0000 1J{Cø; }\f9á¹k· O>`7\u0000o7x=\t¬Rªé9Ë©í&'â¡r®øg.aéõÊá(?²¿·ò-¼\u0005~ñÆ¿¸øÊzáö¶£T)\\ð\f\u001d$|\u0004Ú\tZk\"3`Òó/Ó]\u0006íS\u0015í9\u001aÒóä#A\u0019\u0000U10}¬RÄj\u0016#¨E\"ýÀf\u0002Õ}ÿÌ\\ÇhBï^oLn>±¥¥è\u00064\u000b\u001bk[«Jl7OÁ¯I¾P.qðÜ¸ã\u001bb¶r\u0017¶vó@.2þÍòí$iÈSg\u0017VïI5D¥\u0006gÎÕ§gk¦Õ>âã\u000fêÒ©àìÕ[÷>QdÒ?ñÊô\u0014V¾1 »${¸\u0015ôó)ò\u0007½é\u001e\u0017q45\u001f ¹¿OK¥ê\u0014çìwJL&¹­+ßí\u0017|öµØ2\u0006ÿQù\\3\rQªs\b1\u00013æjÏrnÚ{D¦ý¦¼0W-2°vÀÈZÔúE\u0004ì\"Z\u0012mVÍ¤ª[uÈ\u0007\u0003\u0005W¥p%\u0001Úu3\u000f¸CS\u001c\u0007\f|àþÞgðï3h(¨{ûOÃ\"Ùºÿ¨`Tsö¼aþå´eÂòUëx\u001er\u0003¥¹ïã\u0007\u000eb¸SX\u0002LD>w®ìRß·Û&,×\u0005tGæ¥æd½\u0004\u001bïÎ\u001cInY:\u00194=àj½J\u001a2445\u0001\u000b\u00181_q@oN^ºvêòuPÕ±ó\u000e\u00024\"$®¡püü\u0015¶²Àj³¹r\u0013ä\u000eñ\\¸R|·B3\th\u0011ç¯Ý>qñ* \u0001ü\u0002ý\u0006\u0010â\u0017ß­<vþ\n_ºK×Áð¹8»Í²êÝ'48O',áeÍªzÀ\u0001\u001dú\r\u0003=Yå\reO\u000ekkmù£\u000bô\f6ãù²'ÓLêA&v÷¹\fúõê\u000eè\b4\u001dþ­xT¸Râ<án®µ@éµtµ\u0003:\u0019l\u0016Ë¹=`äk\u000eñ6âLqÙ_sï^UïLo)Ð>\u0005È\u0001ÿ\"h­-o:¸¶zéså/*É\u001eT\u001c\\\u0010í\u000fFU±\u0001E\u0019a¥Ó«\u0016NkÜöUkuÙ\u001fM©\u0003¤`mnk¬¡¹A¶DÖ\u0001\u000ep\u0003\u001cà\u0000\u00078À\u0001\u000ep\u0003\u001cà?\nZ++çç¿<¾bnvùÜà·\u0002þÂPþ\n÷Ë\u0005þá\u0015qlû³ðËc(\u0017¥\u0012\"ØßØ¿ÚWH£\tùWÚØsÌ¶§¿o^(Î]D°6ñ\n\\ÌrQÖ2üÒâ·G\u0010c\u0016ÇTÌle)Ú)ÿÇ\u0018ëmÉ\f)<ãå\u0001Òí{<SìÁÁU»×8ûQÇl¹Îd§´(E\u0016{Gv§\u0013&v§\u00131(÷[i_º'Í¥\u0003eî\u0014BR¬i_#KF8p¸3\u0018Ò¡{éâtÖ·\u0012<[bqwdk\u0012¬`oGïdÇ\u0011à$ËÎ¤#Nè=Å­»óaGo%Ä1a%\u0005ú)ö[bYÅÚYléDäØ\u0003\u0019ÔDI¨:zI#©¢¶¿ÁÜ;Ïk?òýÑN*Õ\u0015ËO*}¨Ï\u0014¡ &*ê,è\u0015\u0005{2×Q©°÷ù²\"Ñ]jJýCQ+4³&ÛTk~U\u001aÆZ¥sÂnZÇ¦RÜç½#[G\u0017©qôÁ\u0013âgMÈ88¤¯rkª8\u0014DûW¾>©îÇõ?/®]1¯ìñ\u0014Ù.¡Ó¾/åd®ÌÁ\u001c !áØ}.¥yk>]¿æýºU*\u0017=^\u001c,Ëñì¤Y\u00133\u000e'\u0006ÏXChª\"Ù¸rÂJJMûié7RµÇ¦]3~pÏîÎïæ\rWY\u0010áW¿j\u00112BùrùKãÐ(\u0010ÿ¯è°°þÁ!\u0017B¼Ôr,{l¨õâ,GµiÇÊ¢¤¾B´ï³\u0013\u0001Iós3Ä\u0018:Þ±\nõF\u001b\u0010â`,\nö\\h®VLZóÁ^þ½\u0006ÅÜp3\n... [truncated]",
+      "raw_source": "473 0 obj\n<</Subtype/Image/Width 142/Height 217/BitsPerComponent 8/ColorSpace/DeviceRGB/Filter/FlateDecode/Length 474 0 R>>\nstream\n[binary or compressed stream omitted from raw preview]\nendstream\nendobj",
       "decoded_stream_preview": null
     },
     "13581 0 R": {
@@ -299,574 +298,6 @@
     }
   },
   "items": [
-    {
-      "id": "page-0095-component-00001",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 419.173,
-        "y0": 577.913,
-        "x1": 635.315,
-        "y1": 760.039,
-        "width": 216.142,
-        "height": 182.126
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "253 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13581 0 R"
-        ],
-        "action_refs": [
-          "13594 0 R",
-          "13593 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13593 0 R",
-        "context_chain": [
-          "13581 0 R",
-          "13594 0 R",
-          "13593 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(99, [419.173, 577.913, 635.315, 760.039]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 90
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13581 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13594 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13593 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00002",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 267.874,
-        "y0": 546.858,
-        "x1": 465.236,
-        "y1": 567.719,
-        "width": 197.362,
-        "height": 20.861
-      },
-      "component": {
-        "label": "-WD3 BN GNYE BU",
-        "nearby_text": [
-          "-WD3",
-          "BN",
-          "GNYE",
-          "BU"
-        ],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "292 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13583 0 R"
-        ],
-        "action_refs": [
-          "13598 0 R",
-          "13597 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13597 0 R",
-        "context_chain": [
-          "13583 0 R",
-          "13598 0 R",
-          "13597 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(112, [267.874, 546.858, 465.236, 567.719]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 91
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13583 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13598 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13597 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00003",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 234.709,
-        "y0": 518.116,
-        "x1": 286.299,
-        "y1": 538.978,
-        "width": 51.59,
-        "height": 20.862
-      },
-      "component": {
-        "label": "? 块属性 [1] -XD6",
-        "nearby_text": [
-          "?",
-          "块属性 [1]",
-          "-XD6"
-        ],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "232 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13590 0 R"
-        ],
-        "action_refs": [
-          "13614 0 R",
-          "13613 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13613 0 R",
-        "context_chain": [
-          "13590 0 R",
-          "13614 0 R",
-          "13613 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(94, [234.709, 518.116, 286.299, 538.978]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 90
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13590 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13614 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13613 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00004",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 461.48,
-        "y0": 518.116,
-        "x1": 513.071,
-        "y1": 538.978,
-        "width": 51.591,
-        "height": 20.862
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "253 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13587 0 R"
-        ],
-        "action_refs": [
-          "13606 0 R",
-          "13605 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13605 0 R",
-        "context_chain": [
-          "13587 0 R",
-          "13606 0 R",
-          "13605 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(99, [461.48, 518.116, 513.071, 538.978]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 89
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13587 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13606 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13605 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00005",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 268.724,
-        "y0": 522.028,
-        "x1": 320.315,
-        "y1": 538.937,
-        "width": 51.591,
-        "height": 16.909
-      },
-      "component": {
-        "label": "? 块属性 [1] -XD6",
-        "nearby_text": [
-          "?",
-          "块属性 [1]",
-          "-XD6"
-        ],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "232 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13585 0 R",
-          "13588 0 R"
-        ],
-        "action_refs": [
-          "13601 0 R",
-          "13602 0 R",
-          "13609 0 R",
-          "13610 0 R"
-        ],
-        "duplicate_count": 2
-      },
-      "source": {
-        "object_ref": "13601 0 R",
-        "context_chain": [
-          "13585 0 R",
-          "13602 0 R",
-          "13601 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(94, [268.724, 522.028, 320.315, 538.937]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 90
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13585 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13602 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13601 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00006",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 302.74,
-        "y0": 522.028,
-        "x1": 354.331,
-        "y1": 538.937,
-        "width": 51.591,
-        "height": 16.909
-      },
-      "component": {
-        "label": "? 块属性 [1]",
-        "nearby_text": [
-          "?",
-          "块属性 [1]"
-        ],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "232 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13589 0 R"
-        ],
-        "action_refs": [
-          "13612 0 R",
-          "13611 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13611 0 R",
-        "context_chain": [
-          "13589 0 R",
-          "13612 0 R",
-          "13611 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(94, [302.74, 522.028, 354.331, 538.937]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 89
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13589 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13612 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13611 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00007",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 106.299,
-        "y0": 384.803,
-        "x1": 175.039,
-        "y1": 401.215,
-        "width": 68.74,
-        "height": 16.412
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "328 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13584 0 R"
-        ],
-        "action_refs": [
-          "13600 0 R",
-          "13599 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13599 0 R",
-        "context_chain": [
-          "13584 0 R",
-          "13600 0 R",
-          "13599 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(126, [106.299, 384.803, 175.039, 401.215]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 91
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13584 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13600 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13599 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00008",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 377.717,
-        "y0": 313.965,
-        "x1": 418.465,
-        "y1": 357.136,
-        "width": 40.748,
-        "height": 43.171
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "97 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13586 0 R"
-        ],
-        "action_refs": [
-          "13604 0 R",
-          "13603 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13603 0 R",
-        "context_chain": [
-          "13586 0 R",
-          "13604 0 R",
-          "13603 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(38, [377.717, 313.965, 418.465, 357.136]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 90
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13586 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13604 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13603 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
-    {
-      "id": "page-0095-component-00009",
-      "kind": "component",
-      "page_number": 95,
-      "bbox": {
-        "x0": 135.709,
-        "y0": 56.339,
-        "x1": 692.008,
-        "y1": 317.835,
-        "width": 556.299,
-        "height": 261.496
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "javascript_highlight",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "184 0 R",
-          "fit_mode": "/Fit"
-        },
-        "annotation_refs": [
-          "13582 0 R"
-        ],
-        "action_refs": [
-          "13596 0 R",
-          "13595 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "13595 0 R",
-        "context_chain": [
-          "13582 0 R",
-          "13596 0 R",
-          "13595 0 R"
-        ],
-        "snippet": "<</Type/Action/S/JavaScript/JS(highlight\\(73, [135.709, 56.3386, 692.008, 317.835]\\);\\n)>>",
-        "highlight_start": 0,
-        "highlight_end": 90
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "13582 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "232 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "13596 0 R",
-          "role": "Action chain 1"
-        },
-        {
-          "object_ref": "13595 0 R",
-          "role": "Highlight action"
-        }
-      ]
-    },
     {
       "id": "page-0095-vector-00001",
       "kind": "vector_path",

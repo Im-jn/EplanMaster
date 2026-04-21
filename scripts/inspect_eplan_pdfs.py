@@ -650,12 +650,104 @@ def sanitize_text(text: str) -> str:
     return text.strip()
 
 
+COMMON_CJK_CHARS = set(
+    "的一是在不了有人和这中大为上个国我以要他"
+    "时来用们生到作地于出就分对成会可主发年动"
+    "同工也能下过子说产种面而方后多定行学法所"
+    "民得经十三之进着等部度家电力里如水化高自"
+    "二理起小物现实加量都两体制机当使点从业本"
+    "去把性好应开它合还因由其些然前外天政四日"
+    "那社义事平形相全表间样与关各重新线内数正"
+    "心反你明看原又么利比或但质气第向道命此变"
+    "条只没结解问意建月公无系军很情者最立代想"
+    "已通并提直题党程展五果料象员革位入常文总"
+    "次品式活设及管特件长求老头基资边流路级少"
+    "图山统接知较将组见计别她手角期根论运农指"
+    "几九区强放决西被干做必战先回则任取据处理"
+    "功能文本自动属性连接页面图纸设备对象阅读器"
+)
+
+SUSPICIOUS_MOJIBAKE_CHARS = set(
+    "鍔鍖鍗鍙鍚浣浠浜杩杞璇诲瓧鏂囨湰鎸夐〉闈㈢洰褰曞墠绔槄璇诲櫒"
+    "銆鈥€榛樿杈撳叆杈撳嚭鐜鍚啓鍏ヨ瘑绱㈠紩缁撴瀯瀵硅薄"
+)
+
+
+def score_text_quality(text: str) -> float:
+    if not text:
+        return float("-inf")
+
+    score = 0.0
+    for char in text:
+        codepoint = ord(char)
+        if char == "\ufffd":
+            score -= 8.0
+        elif char in COMMON_CJK_CHARS:
+            score += 3.0
+        elif char in SUSPICIOUS_MOJIBAKE_CHARS:
+            score -= 4.0
+        elif "\u4e00" <= char <= "\u9fff":
+            score += 0.5
+        elif char.isascii() and (char.isalnum() or char in "._-:/+=#%()[]{}"):
+            score += 1.0
+        elif char.isspace():
+            score += 0.2
+        elif 0x20 <= codepoint <= 0x7E:
+            score += 0.4
+        else:
+            score -= 0.5
+    return score / max(len(text), 1)
+
+
+def try_repair_mojibake(text: str) -> str:
+    original = sanitize_text(text)
+    if not original:
+        return original
+
+    candidates = {original}
+    repairs = [
+        ("gb18030", "utf-8"),
+        ("gbk", "utf-8"),
+        ("latin-1", "utf-8"),
+        ("cp1252", "utf-8"),
+    ]
+
+    for source_encoding, target_encoding in repairs:
+        try:
+            repaired = original.encode(source_encoding).decode(target_encoding)
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            continue
+        repaired = sanitize_text(repaired)
+        if repaired:
+            candidates.add(repaired)
+
+    best = original
+    best_score = score_text_quality(original)
+    original_suspicious = sum(1 for ch in original if ch in SUSPICIOUS_MOJIBAKE_CHARS)
+
+    for candidate in candidates:
+        candidate_score = score_text_quality(candidate)
+        candidate_suspicious = sum(1 for ch in candidate if ch in SUSPICIOUS_MOJIBAKE_CHARS)
+        if candidate == original:
+            continue
+        if candidate_score > best_score + 0.35:
+            best = candidate
+            best_score = candidate_score
+            original_suspicious = candidate_suspicious
+        elif candidate_score > best_score + 0.1 and candidate_suspicious < original_suspicious:
+            best = candidate
+            best_score = candidate_score
+            original_suspicious = candidate_suspicious
+
+    return best
+
+
 def readable_string(value: Any) -> str:
     if isinstance(value, PDFString):
-        return sanitize_text(decode_pdf_text_bytes(value.raw))
+        return try_repair_mojibake(decode_pdf_text_bytes(value.raw))
     if isinstance(value, str):
-        return sanitize_text(value)
-    return sanitize_text(str(value))
+        return try_repair_mojibake(value)
+    return try_repair_mojibake(str(value))
 
 
 def join_text_array(values: Any) -> str:
@@ -667,7 +759,7 @@ def join_text_array(values: Any) -> str:
             text = readable_string(item)
             if text:
                 parts.append(text)
-    return sanitize_text("".join(parts))
+    return try_repair_mojibake("".join(parts))
 
 
 def numeric_list(values: Any) -> list[float] | None:
@@ -797,7 +889,7 @@ def decode_with_cmap(raw: bytes, cmap: dict[bytes, str]) -> str:
             continue
         pos += lengths[-1]
 
-    return sanitize_text("".join(parts))
+    return try_repair_mojibake("".join(parts))
 
 
 class ContentTokenizer:

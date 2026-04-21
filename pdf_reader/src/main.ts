@@ -448,13 +448,18 @@ app.innerHTML = `
             <div class="viewer-toolbar">
               <button
                 id="area-select-toggle"
-                class="button icon-button"
+                class="button icon-button compact-icon-button"
                 type="button"
                 title="Select multiple components by dragging a rectangle"
+                aria-label="Toggle area selection"
                 aria-pressed="false"
               >
-                <span class="icon-button-glyph" aria-hidden="true">[]</span>
-                <span>Area Select</span>
+                <span class="icon-button-glyph selection-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M3 7V3h4M13 3h4v4M17 13v4h-4M7 17H3v-4" />
+                    <path d="M7 7h6v6H7z" />
+                  </svg>
+                </span>
               </button>
               <label class="zoom-control" for="zoom-input">
                 <span>Zoom</span>

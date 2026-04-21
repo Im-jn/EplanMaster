@@ -9,7 +9,6 @@
     "101 0 R"
   ],
   "item_counts": {
-    "component": 2,
     "vector_path": 217,
     "text": 92,
     "image": 1,
@@ -21,7 +20,7 @@
       "object_ref": "101 0 R",
       "kind_label": "Stream object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "101 0 obj\n<<\n/Filter /FlateDecode\n/Length 4695\n>>\nstream\nx½\\K\u001cÇ.`Nîµ\u0014_öÊ\u0006ê@\r%*V¾3=\u0019\u0014%S^ÙRôÊ¦.\u001eÃ»XLc¡½ø\u0007ìÑ¿Ãÿs¿ÈweewõÈ\u000f\f8Ó\u0019\u001d\u0015\u0011\u0019\u0019ÏÌ,Îã¯?;ÌþÃÿþçaãlüó¯\u000e¹Ép9ZÉ&ëÆc\u0001yR·åð\u001dPéa6ÚYÐÓ£´s7ÇÃ/^\u001f¿\u0004þ¤fáÆ×ò^ÿñðÑ g\u0003\u001b~6<\u001fÞ}4\\á\u000f\rýG=\\\u000f?§3~}üú¿\u000f¾>|U±aLÚÉê\u0011²0¥UfãF=\tcW\\Äðbx5|>¼íÐAP1*1YeÅY:×Ã\foß\u000e_\u000f¿\u0001µ7ò3|~\t(¿Â7WøM£Oéû\u000e7g'7;hO33nØ<iîÖÊy\th|ÍÎ\u001a?\u001e\u0014Q\u0012&-\n-æ\t«Ö©}j½N15Yy¡,\u001fô&c@W\u000b)ük¦Àf©'VäLã¾9q5qk.dòãÌÄÍód¹)\\2 ËFÛ\u0019äÙl~Ù\u0018¥<µÌ&\u0003ºl\u0011úB6·\u0006pÙÚ\në&y)G\u001fe\u000e~Ð¥Î¥U\u0017XYV\u0013sÚz:RMBI1JÍ'käßB\u0006G~þK6¾ø\u001f²\u0014#')]e*\tÐ\u0015ÌÙà\u0001ÚLÚr}ÖÁSÉ_\f¿ÆÏ\u000b|ú\u0015|ù+xð\u0005'¡1Ï?\u001f±\u0013\u0007óYX²¥0[2Dø\u001bÉ\u0006´Ö;yRl5C@caÌÉ\tñ7\u0002\tÂf>Â\u001b\u0014cÖ#\u0005H+DRÂ%ñ)BÚ5¦üjÊ)ò3KëR©ÏdÙ£\u0005aÎç* hcx´þ~\u001bfa:Zß-Ìv\"\u0016^1 f(\u0000\"­íçÕ\u0004­EîZÿ¡Ü×#\u0015VLç`°|kf\u0015WÅ°\u0010ðêuf{Ô%|f+Ì7ö»\u0003þx0NÂCUMñ>¾I­­çåð-,ö\u001büÅïJE[rVNvÜÃáÑpo¸?<Æïøû`øÉ9¢LA\u0019PÐy¢]\u001dt¨\t.&\u000eÇ:Oí\u0019èéÁRMð\u00146ûáðoÃOKNQ@+F\u001a\"lkÃñëÎ7U>]}É!ArK\u0005C\t\t\u0010ð\fÍòu\u0002´îJ1t6î¢õ\u00145Çáw>J}:¼{×-£Ý9\u0004\u0015\n\u0006e\u0001S\u0004\u0012RÉÂê\r¼ôßá¥/cñó|¶C\u0015)|bä_ÎìLó®EUx ÍÌlw$¦`ÿ\u0012®Àåøý«àm®oÐ\tBkÊÁM \"\u001dHë\bÃõ8Já\u0004ñV5\u001b2V´BfHîé²Y­\nSDKñë!óÄ¤hcx2ÕKÂ®\u0002£o É·A]KaajÄ,\u0015«2B·Ox>¸>\tmñ\u0001yÄ\u0013j=\"³ïÔH\u0014EÊÀßç®gZDî\u0013¦\u0011çÚ=¤Zd\\øF0­+ãJ\u0010ÂJ1¨,h\n;\tÒÔ\ndÅF^¦À\u001fPä}÷ñÙ ²Lkq>¥nº'ôd°Ï70%9^z2<E¡»ób¶1(i\u0000µÊÌ\\)ÞâØ+×«U\u0014Y{î6Át\u0004ÏÈ¶þH¼(\u0014V\u0011PËS±]Ø OI¤È\náHK\u0018±¨\u0005ê(è/Ðü54½ xÕ¿\u001a¾ð!\"æ}|zìú!*\u0001úDQñªÂ{ëG´p\u0014h¾ÁïÏ{Ûú1\u0019ì\\EËvã¨4³ëïÓÛïëªU8Æì\rßGÕ_I\u000eùÐ±Ô\u0004\u0012Ì'y9{U×+aí¨:[µT?¬\u0012ØëD¦[dHmë`/Ö°`;\u001c®k\u000e\n^!Cº\u001c\u0012dÃaÖä¢è*\u001cç;,Ö,z\\±@ÍGc&£WA°ÇâÝÇ½8Je\u0010úZ?\u001f»$>ªÅä\u0016-¥P\t\u0012\rÁ=\fJc\u0015N\u0003¤®\u0016Ùä>¬m\u000b+¥ã\tÛ¡\f+{gÛ|\u0001%>'\f(\u0016~w¶ È§QâsÂ\u000f·w7£ÓzëÚP!lWÛ\u0002§cþ;Ê*OÑ\u001dP[ð\u0006)àë~i°Íþ&ë¤É»ïa©\\Ì\u0016&¿²ÐUÌ4aÕfZmA\fR\u001cY\u0016ßK´ßñÒ×Tð¾¦Ê?÷Ñ»_U3\u0014\u0015Ôü\\T\u001b<ìn\u0010¦5DÂà{õ\u0019å+ä{XÂ{\u0010õ^¯ÐÀ\u001a:\u000eãtÐ1çI>\\WÃóûÉ¿ÃÌ\u000b\u001d|á«\u0017¾JÖ¾XXâzEÐaË°mZN0s(S?@\u0007}?ÿ<¨òâ¬´¡¼\u0018k`×\u0014\u001c\u0012\u0011Ôò¢\u0001$Kàdd¨Ê¶\u0010M{¾Î\u0003\u0004Õ\u0000\u0012@%²·-ÛÃ\u001f\u000e!\u0000]$Â²\u001d;b-\u001bØq+êÒ\n{)N3¡¥'÷\u0006§è\u0019b\\-@\u000eÿ­ä\u0017è@´äåy1ÓJ\u001a\u000bfVé9Ý\u0000\nÕJÑ\u0017È°l`Ç­\\K+Ù¥8ôK+ÿYzQY¯\u0014=ûs\u0018A.á-D1H7r\u0004I5»Ê|·ôÔmKf­Æ]\u000eË\u0006vìp]6°cG¥Çp´±´BSÌó$5¯8\u000b:\u0014CoWÏ7*y\u0003)Om-é\u001ce\u0003;vø.\u001bÎç±jMµ\u0012WJ\u0010´Y!+ß\u0014¨¢8jæâJBSi\u0000\u0002ý¤½I9+i¢Â:dûC\u00020Úhd\u0001\u000eh\u0018íõ\u0018Äfa+y6Ò,Båßk¡jîË»´ ã?~\nËf\u0012Ätu{\u0002«jgmª\u0005\u0017Ônðj)û\u0010&8Eý25ÌÊ'sA{þ¤\fJê\u0018\u001b¢ÿæÐBn½ìVcÆ(·´^\u0003 Îè·\u000e$\r\u001fÎ 'IÌÐ<<Bë¯È\nVÄ4.I´Ê²ê¯5Óí-û9U,\u001bØñ{(cÙ¨ãøÏPÇ²QHeÚu¨è`µj«M)|)+W@£ÚµroT¡Úf\fÚÒ\u0007~r0*\u0011ÆÙ10¤¯ì\u0018/]íÛåÛkV¼+ìÒÿ`ùÍ\fã\u001aë¶ÕÎ³³*í \u000b¬Ü¸\u0003¡~Ìræè\u001ehÈ£±\u0014\f6Æ\\h9&ÃîAÁ\u0018:ó\u0016ÒÏN)ÌÖ\u0002liÌBæ¥½\u001fô7Dë\u0000DØ1ô\u0003T§J^ÊÊ/^fY¼¸[oÏÍ{ÙÀwùrh@Ç2:*\u0013®}¸Õ*­¶\u0019éÇÔé\fÓ²¼®v# ®Ã3[HÏïv\u0019,\u001b\u0016}¤ë±#Y\u0017«­3ûÊ\u001a\u0012Íâ\u0019Iªn\u00147®]^ÀcÙp9Õp>v¤ëbmä«À?,«+\u001aêpu]¥\u0005@µàñ-¤g\u0002»\f\r>RÃõØ¬ÕÊÖ}Ö#Íªê¢\u0005O\u00147®\t\\ÀcÙp9Õp>v¤ëbmä«Î­\u0019í@\u001dål!AHOª=óc\u001aa\u000bÅË%÷6èÌï7~cåËÞ\t0ºÓÙ\u000eºÒ¯ý&Í[¿Cuò¸;\u0011ý^'CÛö@§Kæ³öFÉøêÀ£\u0013rÜ\u0000õMØtêÛv«\u0015E¦¼Lc×Ã\u0017þ¨÷ËóúJ$ÿF}%2\u0004³ÊêniÚ¯Ï>Ã&hôOÞ.9\u0013ß^N8w @KùÄ^ßýá'Ã\u0007õÏöÒXZÜl\u0013\t0¯Îjá`Bs^Õ&H3u\u001d®¾iî<K}þìîzx\u000fË6(~\u0004Ù¯\u000fßæï\u0002ä\u001f?\u0002ä\u001e ÿdx\u001f£«îµY:ithe$3ÞòýÎ{ÂL[D\u001aÓÇOØÄ¢1\u0001\u001d`\u0013föU\u0016\u001fiÍ²µø\u000eÌé2ðÓ°OÍ\u0011\u0011®° O\u0006;øù ««?\u001d¡¤ ®ZE\u001d\u001e\u0002duw9Ó¡\u0002ÑÈ\u001dU÷.\u0015\u0019\u000e¦ä\u0014¦\u0013W\u0013ìlýIÔeTî¼Ã¼H]OIót_ûgXÖ²´\u0017cþnX}7\u000e\u000f[¿&ý%\u0014\u0018ºc\bOX\u0004ñiOÓéöçjÆ\u001a\u0015 \n)¶\u0005,ôÖU´¤C­ ltpI\u0006!FO-BZ¢B\u0012¸3©na\u0013èÌ¡[ú[O\u0016m¼Q·Phñ\u0019âäJøBKÎó¤\u0018_Ñja\u0005[t©Z+B¸á>¤&\u0014¼jÕ'\u0004ò?b\u001bò\u001aÂ$\"·e\u00146Ó21ú\u001d-ý.FÁ\bs,\u0014Ò8ð¸9\u0014\bóÛ#\u0002:'!Æz©iLO$)\u0012F2QXÏãæð_?ÕÁÞ\u0018ÔtÄtbkSuhãÐâ×ú/ôS=\u000fÍ¤õ\t\u0017r¶\u0012ª\tjOÇ©\"ÆÝ{ñ÷#\u001f\u0005FÄçÐþ¡Õçä`\u0010RµfPÌ\fgIÍ~Kô,©URÉÄ²¿Âä©þ<nü0$¨$Sp2ëïï\u0014\b°M0\u0017ÚMKtZºÁ\\¬\"b\u0018Ä\fÿD¤Ç\u0007µà¿çñ¬~;ôÙ-h*TÄ£¸wÌ¿ÿv¤\u0007Xÿ\fQ\bSÒ\u001f¤\u001b!üê*Fc:ÈPy\u001cö­1\u0005Ch¿)äqà\u0011ö\r=Ó¥°Ñè)Ð¾qG\u001cã$EÂHR&\nÍ<È£VÇõ\bÚ|6\u001e»½k\u0001s1¤zº8ç\u000bÀ\u0002AôSzÌ§Q<è²ºa\u0018â_þô}´üx\u001a\u0007\u00067UøM¢Î\u001dH\u001d£¤\u0002PÖH\u0002Q#ÆÕr\nD­i;xõõñ'An\u000b$s\u001fÚ\u0000ò3(¹ñ\u0002\u000eËÇ)¬\u0015ßcG´.R#Ü\u0012Ì<©\u0006AªèJY´)\u001a¯.tUùuä\u001f!²Ðnñ\u0015Ýl\u0000ù²ÎpX6<Na­ø\u001e;¢u\u001aá²PÉ3æýû«kDMYæ=:k>\nRz¬B\nMK²Èãf!ê¬^×$\tB7¶JV§Í#_qäú$KV/\u0018!g\u0017\ni\u001cx¬NÇÛÂ¬N§ÔNG\u0018¬^0Âz\u001e!«\u000bô\u0016õØ÷­ü¡©i»­|\u0001\u0014\u0005 R»\u0015Â¨\u0010\f²Ü{ùóÃêó£N\u0002Í\fèÞ©\u001cÌð\tz¹ÇçÈÀC5³û)ýýá¯ÈÇïãç¾/@¶ãG'ëÌ\fÞ/:Ïì¾$ôTE¸n\u001dI\nº¹º£\u001f£H*-lMPX\u001b®BIí½\u0005f¡è\n º\u0011§âõh,¾b\u0004£]\u0004o\u0004h¹Çr\u001d,ÎÂ®°Èé£³gðJ¥V\u001ci«Þ5XVÁêÑJr\u0015¬Z.Þ\u001a0ï¿:ÌD8\u0010åó­\u0004ÅÂÚÒ\"GFNÏy¹ö»k\u001caF<é\u0018xs#ç\tXkXÕ÷uET\u0014Ó''WXXY\u0019õ%\u0011 èÜkæ·D\u0015\u0004º\u0007D8¢Éà¾\fú\u001b30D¨±°\nÂß[¤}BOçq`@\u000fD\b½WC\u000fÄç£­Üx I\u0010!YÂ@ B¨§rç¨ãæU/.MI\u0017Êwn\\LlísÁ\u0010Ø4Ç'Þ\u0010\u0012\u0004µ\u0016#\u0019º \u0011cØö7Þ\fM\u0005\u0011.¼%(qàAOD\u000e\u0019)S }dÏ3òãC\"a$)#v\u001eISth^\u001bJÔÂ÷­2\f\t+-éÅb(H2\u0014\u000e]\u0015 Î¤6<Î iãóÙ\fÖrC a$\t#f\naúäLì@¯éMy½\u0019qrk \u001aÀBY¿^w{çkÚ8ê6Ïâ>â\rýïh¬¼ÝM·Ö¸V¤<\u001fW\r\u0007¯\u0011\u0012NÇ \u000b\u001dbðEi\u0006Ð\u0005¯tØH\u0005\u0018\n[D+¬\fK¤zHÔ\u0006É\u0003ú8\rÿÀ-N\u0006¥\u001e½å}ô7\u000eh)AÒù/-\u000f\u0017î5ÕÜ¬+¹pó#Bj\u0013 t\u0013ü¤@*¬ÄOç-·æ¹ì[¬\bYq¬°â\f{XqªO«²(x\u0017ÃÜ$u³j§¸F5ñÌ×\u0011Ï`§0zPÝ·è%)3J\nÁz×à\u0005m»ºúý.TíFP?B=4½§àaü\u0015x\u000f\u0011Ì¿\u0003Oç)¡IJí\u000bm£õÞóÃQ\"²\u000e\u001d»\u0010Ä_ÿ1ô?=íèî\u0001\r)hz\u0015ÍWÔ\u0004\u0011ôFOí¯\u000f¹ThÓ4:\bC:õ\"#zR@ñ4,O\u0017¤2ÕhUE\u000fÎi\"Íc·}R\u0004ñü]îßTÈ$DK;oÅo\u0005ÙeÆªa\u0011ËÚ@ÇÐ\u0011÷;j}Z7i\u0007\u0018NLWÊ¹»ã°jhm±È7(v°\"YoQ.x-Ý\u000b{Î\u0015£÷¯c±Â·ú;X[ZÍs§Æ®M¢pr«ýÃ\u0013ýÕuÕ_]WýÕõþ*3°(´ÜN¯bàµ\u0016¡à±\u000bþÁyFL³bm\u0003´'ø÷ÂA>öËÿUïßt\u0018;ó\u001dé\u0005¾7þ%Ê\u0007ÃO}K$ðï½ø\u0016o«î+\u0019çþ\u001d^å[óû¶Õ^-Ü\u0013\t\u0019º\bi\u000byn@Jåo\u0006\u0004#ÂÓ$¡°\bdÈdl:WiYn<\u001f.dþ^×Jóãi\u001c\u0019Ü\u001c2DQ;5æçã!M{hssÈ\u0012$$a$ÐL![h^¤#½l(¬ôû?RUÿ\u001b\u0006,Ïj5S_!mu\u000etW\u0001o­jk<ÝxS<)¢U÷\u000e¯E¿\u0018K$ \u001fý\u0017-;$ÊÿêòÿÜ\u0011\u0003â\nendstream\nendobj",
+      "raw_source": "101 0 obj\n<<\n/Filter /FlateDecode\n/Length 4695\n>>\nstream\n[compressed stream omitted here; see decoded stream preview below]\nendstream\nendobj",
       "decoded_stream_preview": "0 0 0 RG\n0 0 0 rg\n0.9921 w\n1 J\n319.724 841.89 m\n319.724 830.551 l\nS\nq\n1 0 0 1 803.992 5.69941 cm\nBT\n/F4 8.5039 Tf\n0 0 Td\n(\u00006\u0000,\u00001\u0000*\u0000/\u0000\\(\u0000\u0003\u0000/\u0000,\u00001\u0000\\(\u0000\u0003\u00006\u0000&\u0000+\u0000\\(\u00000\u0000\\()Tj\nET\nQ\nq\n1 0 0 1 1148.86 19.1565 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u00003\u0000D\u0000J\u0000H\u0000V)Tj\nET\nQ\nq\n1 0 0 1 431.693 53.8583 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000&\u0000X\u0000V\u0000W\u0000R\u0000P\u0000H\u0000U\u0000\u0003\u0000G\u0000R\u0000F\u0000X\u0000P\u0000H\u0000Q\u0000W\u0000\u0003\u0000Q\u0000X\u0000P\u0000E\u0000H\u0000U)Tj\nET\nQ\nq\n1 0 0 1 98.909 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0014)Tj\nET\nQ\n610.276 830.551 m\n598.937 841.89 l\nS\n621.614 841.89 m\n610.276 830.551 l\nS\nq\n1 0 0 1 1115.84 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u001b)Tj\nET\nQ\nq\n1 0 0 1 970.563 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u001a)Tj\nET\nQ\n1046.1 841.89 m\n1046.1 830.551 l\nS\nq\n1 0 0 1 825.287 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0019)Tj\nET\nQ\n900.827 841.89 m\n900.827 830.551 l\nS\nq\n1 0 0 1 680.011 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0018)Tj\nET\nQ\n755.551 841.89 m\n755.551 830.551 l\nS\nq\n1 0 0 1 534.736 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0017)Tj\nET\nQ\n610.276 841.89 m\n610.276 830.551 l\nS\nq\n1 0 0 1 389.46 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0016)Tj\nET\nQ\n465 841.89 m\n465 830.551 l\nS\nq\n1 0 0 1 244.185 832.017 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000\u0015)Tj\nET\nQ\nq\n65.1968 0 0 45.3543 462.874 2.83465 cm\n/I1 Do\nQ\n174.449 841.89 m\n174.449 830.551 l\nS\nq\n1 0 0 1 981.614 67.6826 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000,\u0000Q\u0000V\u0000W\u0000D\u0000O\u0000O\u0000D\u0000W\u0000L\u0000R\u0000Q\u0000\u0003\u0000 )Tj\nET\nQ\n0.3685 w\n978.78 74.038 m\n978.78 0 l\nS\nq\n1 0 0 1 17.4803 755.666 cm\nBT\n/F4 10.6299 Tf\n0 0 Td\n(\u0000$)Tj\nET\nQ\n978.78 48.189 m\n1194.21 48.189 l\nS\n1146.02 25.5118 m\n1146.02 0 l\nS\nq\n1 0 0 1 981.614 19.1565 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000'\u0000&\u0000&\u0000\u0003\u0000\t)Tj\nET\nQ\n0.9921 w\n1182.87 841.89 m\n1205.55 819.213 l\nS\n37.6772 841.89 m\n15 819.213 l\nS\nq\n1 0 0 1 431.693 44.6683 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000&\u0000X\u0000V\u0000W\u0000R\u0000P\u0000H\u0000U)Tj\nET\nQ\nq\n1 0 0 1 63.189 44.7563 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000'\u0000D\u0000W\u0000H)Tj\nET\nQ\n0.8824 0.8824 0.8824 RG\n0.8824 0.8824 0.8824 rg\nq\n1 0 0 1 60.3543 79.4601 cm\nBT\n/F9 51.0236 Tf\n0 0 Td\n(\u00006\u0000$\u00000\u00003\u0000/\u0000\\()Tj\nET\nQ\n0 0 0 RG\n0 0 0 rg\nq\n0 1 -1 0 12.3781 411.112 cm\nBT\n/F9 12.7559 Tf\n0 0 Td\n(\u0000F\u0000]\u0000L\u0000Y\u0000F\u0000L\u0000Y)Tj\nET\nQ\nq\n0 1 -1 0 12.3781 484.812 cm\nBT\n/F9 12.7559 Tf\n0 0 Td\n(\u0000\u0015\u0000\u0016\u0000\u0011\u0000\u0013\u0000\u0017\u0000\u0011\u0000\u0015\u0000\u0013\u0000\u0014\u0000\u001c)Tj\nET\nQ\nq\n0 1 -1 0 12.3781 150.324 cm\nBT\n/F9 12.7559 Tf\n0 0 Td\n(\u00006\u0000$\u00000\u00003\u0000/\u0000\\()Tj\nET\nQ\nq\n0 1 -1 0 12.3781 323.238 cm\nBT\n/F9 12.7559 Tf\n0 0 Td\n(\u0000,\u00006\u00006\u00008\u0000\\(\u0000'\u0000\u0003\u0000%\u0000<\u0000\u001d)Tj\nET\nQ\n15 0 m\n1205.55 0 l\nS\n1205.55 841.89 m\n1205.55 0 l\nS\n15 841.89 m\n1205.55 841.89 l\nS\n15 841.89 m\n15 0 l\nS\n0.3685 w\n428.858 74.038 m\n428.858 0 l\nS\n712.323 74.038 m\n712.323 0 l\nS\nq\n1 0 0 1 32.0079 67.6826 cm\nBT\n/F9 6.378 Tf\n0 0 Td\n(\u0000'\u0000U\u0000D\u0000Z\u0000Q\u0000\u0003\u0000E\u0000\\\\)Tj\nET\nQ\nq\n\n... [truncated]"
     },
     "33 0 R": {
@@ -42,7 +41,7 @@
       "object_ref": "134 0 R",
       "kind_label": "Stream object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "134 0 obj\n<<\n/Filter /FlateDecode\n/Length 583\n>>\nstream\nx]Íâ@\u0014F÷>EÝ&¦î½U\n\u0012ð§\u0005\u0017óÃØó\u00001)À^øöS~3\u0011Z8hÅs>èÊ·Ý¡k§üûØ×Ç8eç¶kÆxë?Ç:f§xi»Yá²¦­'\u0012ßëk5ÌòíjøZ]c¾núS|;4±Úéþös{ÌxN_8ì÷Û\u0014¯îÜ¯Vùtö6÷\u0017\u001cxÍ¿M\u001cÛîòN¼æÇÏaø\u001d¯é!Ù¼,ùô\u000b\u001f÷!f\u000e\u000f,¿Þ7ñ6Tu\u001c«î\u0012g«yz«}z³Ø5ÿ}¼\u0010:ë_ÕoKÞÝ¼\u0004,\u0001°\u0001,\b[À°\u0003¬\tï\ra\u000fØ\u00029`G(\u0000ï\u0004\u0007Ø\u0013` 4(\u0014P\u0010\fà\b\u001e \u0000PÂ\u0002`\u0004$\b\u00135 \u0010Ð#ì)Ð#ì)Ð#ì)Ð#ìqH\u0010&8¸)Ý\u001cÜn\u000enJ7\u00077¥ÒÍÁMéæà¦tspSº9¸)Ý\u001cÜn\u000enútÃÖÊ­\u0005¢JQÁÖÊ­\u0005[+·\u0016lmÜZÐcì\u0011ô\u0018{\u0004=Æ\u001eA±GÐcì\u0011ô\u0018{\u0004=Æ\u001eA±GÐcì\u0011ô\u0018{\u0014nF7§BÇSG¡ã©£ÐñÔQèxê(t<u\u0014::\n\u001dO\u001d§BÇ?u0¯ç¼y=ç5Ìë9¯a^Ïy\r\t\ty\u0003ç5ô\u0004ö\u0018z\u0002{\f==À\u001eCO`¡'°ÇÐ\u0013Øcè\tì1ô\u0004ö\u0018z\u0002{\u0016ÐÙPgI Î2¹9÷\u001cqm\u000f(x&}aå\u001eÿ\u0000\u0001p=6Ø8Ü+Ï\u000bäqÃ<®¿¿·_Vcº´pGâÆzÜUm\u0017ÿ]£C?déÔãoö\u0007ºpCß\nendstream\nendobj",
+      "raw_source": "134 0 obj\n<<\n/Filter /FlateDecode\n/Length 583\n>>\nstream\n[compressed stream omitted here; see decoded stream preview below]\nendstream\nendobj",
       "decoded_stream_preview": "/CIDInit/ProcSet findresource begin\n12 dict begin begincmap\n/CMapName/Adobe-Identity-UCS def\n/CIDSystemInfo<</Registry(Adobe)/Ordering(UCS)/Supplement 0>>def\n/CMapType 2 def\n1 begincodespacerange\n<0000><FFFF>\nendcodespacerange\n83 beginbfchar\n<0003><0020>\n<0009><0026>\n<000B><0028>\n<000C><0029>\n<000D><002A>\n<000E><002B>\n<000F><002C>\n<0010><002D>\n<0011><002E>\n<0012><002F>\n<0013><0030>\n<0014><0031>\n<0015><0032>\n<0016><0033>\n<0017><0034>\n<0018><0035>\n<0019><0036>\n<001A><0037>\n<001B><0038>\n<001C><0039>\n<001D><003A>\n<001E><003B>\n<0020><003D>\n<0024><0041>\n<0025><0042>\n<0026><0043>\n<0027><0044>\n<0028><0045>\n<0029><0046>\n<002A><0047>\n<002B><0048>\n<002C><0049>\n<002D><004A>\n<002E><004B>\n<002F><004C>\n<0030><004D>\n<0031><004E>\n<0032><004F>\n<0033><0050>\n<0034><0051>\n<0035><0052>\n<0036><0053>\n<0037><0054>\n<0038><0055>\n<0039><0056>\n<003A><0057>\n<003B><0058>\n<003C><0059>\n<003D><005A>\n<0042><005F>\n<0044><0061>\n<0045><0062>\n<0046><0063>\n<0047><0064>\n<0048><0065>\n<0049><0066>\n<004A><0067>\n<004B><0068>\n<004C><0069>\n<004D><006A>\n<004E><006B>\n<004F><006C>\n<0050><006D>\n<0051><006E>\n<0052><006F>\n<0053><0070>\n<0054><0071>\n<0055><0072>\n<0056><0073>\n<0057><0074>\n<0058><0075>\n<0059><0076>\n<005A><0077>\n<005B><0078>\n<005C><0079>\n<005D><007A>\n<0083><00B0>\n<0093><00B1>\n<0094><2264>\n<00A5><221A>\n<00B1><2013>\n<00B3><201C>\n<00F0><00B2>\nendbfchar\nendcmap\nCMapName currentdict /CMap defineresource pop end end\n"
     },
     "46 0 R": {
@@ -56,14 +55,14 @@
       "object_ref": "136 0 R",
       "kind_label": "Stream object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "136 0 obj\n<<\n/Filter /FlateDecode\n/Length 501\n>>\nstream\nx]Í£@\u0014÷>ËîEc¬º·* ¤M\u0007\\Ì\u000f\u00070ZÉ\b\u0013\u0015c\u0016yû)ÏÉÌb\b\u001f±îùkVVûªïæìû44Ç0§ç®o§p\u001bîS\u0013ÒS¸t}´íÄ{s­Ç$+¿Ôã×ú\u001a²];Â[Õ~îæÇÛÏò¶á\u001c\u001f¨öÇÇm\u000e×ª?\u000fÛmö#½ÍÓã\u0005\u0007^³oS\u001b¦®¿¼Ä\u0013¯Ùñ>¿Ã5\u000eIWEÁ\u0001Qáó1Ô``þT\u001fÚp\u001bë&Lu\tÉv\u0015¯b{W¾ýïogxêtn~Õ\u0013¶E¼U\u0001Ø\u0000\u001cá\u001d°&\rá\u0003ð\u000eÈsÀ\u0007\u0001Ó,§å\u0002È\t\n0\u0004\u0007°\u0004\u000f\u0010Â\u001a \u0004Zæ{À\u000e\u0010ý.°'@G¨c #Ô1Ð\u0011ê\u0018è\bu\ft:f\u0007ð\u0004Ä\u0016Æ6p t`\u0010[\u0018Û\u001c\u0000%ÀÂÐE!ÂBbà\u0005\u000e\u0004´£lÇÂ¨Ò¨Q¥Q\u000b£J£\u0016FF-ÞòýX¸Vº¶0ª4jQ²*A;í\bD\u001dE\u0005¢¢\u0002QGQ¨£¨@ÔQT ê(*¨Ê±*\u0003G\u0007\u0002\u0007îé\u0000½9ö&èÍ±7Eo½)zsìMÑcoÞ<{SDð à\u0019A\u0011Á3\"g\u0004E\u0004Ï\b\b\u0011\u0014®=]+\\{º^#Ün5zîË²PË¶ÿ]ö´¹OSÜQ|\u0012° Ëjv}ø÷Õ\u00181§_ò\u0007x/\r\u0006\nendstream\nendobj",
+      "raw_source": "136 0 obj\n<<\n/Filter /FlateDecode\n/Length 501\n>>\nstream\n[compressed stream omitted here; see decoded stream preview below]\nendstream\nendobj",
       "decoded_stream_preview": "/CIDInit/ProcSet findresource begin\n12 dict begin begincmap\n/CMapName/Adobe-Identity-UCS def\n/CIDSystemInfo<</Registry(Adobe)/Ordering(UCS)/Supplement 0>>def\n/CMapType 2 def\n1 begincodespacerange\n<0000><FFFF>\nendcodespacerange\n62 beginbfchar\n<0003><0020>\n<0009><0026>\n<000B><0028>\n<000C><0029>\n<000E><002B>\n<0011><002E>\n<0013><0030>\n<0014><0031>\n<0015><0032>\n<0016><0033>\n<0017><0034>\n<0018><0035>\n<001C><0039>\n<001D><003A>\n<0020><003D>\n<0024><0041>\n<0025><0042>\n<0026><0043>\n<0027><0044>\n<0028><0045>\n<002A><0047>\n<002B><0048>\n<002C><0049>\n<002E><004B>\n<002F><004C>\n<0030><004D>\n<0031><004E>\n<0032><004F>\n<0033><0050>\n<0035><0052>\n<0036><0053>\n<0037><0054>\n<0038><0055>\n<0039><0056>\n<003A><0057>\n<003C><0059>\n<003D><005A>\n<0044><0061>\n<0045><0062>\n<0046><0063>\n<0047><0064>\n<0048><0065>\n<0049><0066>\n<004A><0067>\n<004B><0068>\n<004C><0069>\n<004D><006A>\n<004E><006B>\n<004F><006C>\n<0050><006D>\n<0051><006E>\n<0052><006F>\n<0053><0070>\n<0055><0072>\n<0056><0073>\n<0057><0074>\n<0058><0075>\n<0059><0076>\n<005A><0077>\n<005C><0079>\n<005D><007A>\n<008B><00A9>\nendbfchar\nendcmap\nCMapName currentdict /CMap defineresource pop end end\n"
     },
     "48 0 R": {
       "object_ref": "48 0 R",
       "kind_label": "Image object",
       "description": "Stream object that stores compressed PDF instructions or other stream data.",
-      "raw_source": "48 0 obj\n<<\n/BitsPerComponent 8\n/ColorSpace /DeviceRGB\n/Filter /FlateDecode\n/Height 160\n/Length 129\n/SMask 139 0 R\n/Subtype /Image\n/Width 230\n>>\nstream\nxíÁ\u0001\u0001\u0000\u0000\u0000 ÿ«mH@\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000/\u0006º\b©ä\nendstream\nendobj",
+      "raw_source": "48 0 obj\n<<\n/BitsPerComponent 8\n/ColorSpace /DeviceRGB\n/Filter /FlateDecode\n/Height 160\n/Length 129\n/SMask 139 0 R\n/Subtype /Image\n/Width 230\n>>\nstream\n[binary or compressed stream omitted from raw preview]\nendstream\nendobj",
       "decoded_stream_preview": null
     },
     "204 0 R": {
@@ -96,128 +95,6 @@
     }
   },
   "items": [
-    {
-      "id": "page-0022-component-00001",
-      "kind": "component",
-      "page_number": 22,
-      "bbox": {
-        "x0": 230.433,
-        "y0": 691.654,
-        "x1": 236.102,
-        "y1": 691.654,
-        "width": 5.669,
-        "height": 0.0
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "annotation_rect",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "17 0 R",
-          "fit_mode": "/FitR",
-          "params": [
-            80.1968,
-            745.512,
-            221.929,
-            887.244
-          ]
-        },
-        "annotation_refs": [
-          "205 0 R"
-        ],
-        "action_refs": [
-          "1378 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "205 0 R",
-        "context_chain": [
-          "205 0 R",
-          "1378 0 R"
-        ],
-        "snippet": "<<\n/A 1378 0 R\n/Border [0 0 0]\n/BS <<\n/S /S\n/W 0\n>>\n/F 4\n/P 33 0 R\n/Rect [230.433 691.654 236.102 691.654]\n/Subtype /Link\n/Type /Annot\n>>",
-        "highlight_start": 0,
-        "highlight_end": 137
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "205 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "33 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "1378 0 R",
-          "role": "Action chain 1"
-        }
-      ]
-    },
-    {
-      "id": "page-0022-component-00002",
-      "kind": "component",
-      "page_number": 22,
-      "bbox": {
-        "x0": 247.441,
-        "y0": 691.654,
-        "x1": 253.11,
-        "y1": 691.654,
-        "width": 5.669,
-        "height": 0.0
-      },
-      "component": {
-        "label": null,
-        "nearby_text": [],
-        "detection_source": "annotation_rect",
-        "link_kind": "internal_goto_action",
-        "target": {
-          "page_ref": "17 0 R",
-          "fit_mode": "/FitR",
-          "params": [
-            80.1968,
-            745.512,
-            221.929,
-            887.244
-          ]
-        },
-        "annotation_refs": [
-          "204 0 R"
-        ],
-        "action_refs": [
-          "1378 0 R"
-        ],
-        "duplicate_count": 1
-      },
-      "source": {
-        "object_ref": "204 0 R",
-        "context_chain": [
-          "204 0 R",
-          "1378 0 R"
-        ],
-        "snippet": "<<\n/A 1378 0 R\n/Border [0 0 0]\n/BS <<\n/S /S\n/W 0\n>>\n/F 4\n/P 33 0 R\n/Rect [247.441 691.654 253.11 691.654]\n/Subtype /Link\n/Type /Annot\n>>",
-        "highlight_start": 0,
-        "highlight_end": 136
-      },
-      "source_comment": "This component candidate comes from the original PDF annotation metadata. When available, the JavaScript `highlight(...)` rectangle is used; otherwise the annotation `/Rect` is used.",
-      "reference_chain": [
-        {
-          "object_ref": "204 0 R",
-          "role": "Source annotation"
-        },
-        {
-          "object_ref": "33 0 R",
-          "role": "Owning page (/P)"
-        },
-        {
-          "object_ref": "1378 0 R",
-          "role": "Action chain 1"
-        }
-      ]
-    },
     {
       "id": "page-0022-vector-00001",
       "kind": "vector_path",
