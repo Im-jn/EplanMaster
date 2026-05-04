@@ -9,6 +9,7 @@
 
 - [scripts/inspect_eplan_pdfs.py](scripts/inspect_eplan_pdfs.py)
 - [scripts/build_pdf_reader_data.py](scripts/build_pdf_reader_data.py)
+- [pdf_parser/parse_pdf_to_json.py](pdf_parser/parse_pdf_to_json.py)
 
 前端 PDF 渲染使用：
 
@@ -26,6 +27,7 @@
 EplanMaster/
 ├─ docs/                     # README 用到的图片与附加文档
 ├─ scripts/                  # PDF 解析、检查、前端数据生成脚本
+├─ pdf_parser/               # 独立 PDF 原始结构分段解析器
 ├─ pdf_reader/               # Vite + TypeScript 前端阅读器
 ├─ data/                     # 放原始 PDF，默认不提交
 ├─ output/                   # inspect 输出目录，默认不提交
@@ -101,6 +103,8 @@ data/eplans/demo.pdf
 ```
 
 ## 4. 生成前端所需的预处理数据
+
+预处理脚本依赖 **PyMuPDF**（`pymupdf`）。若尚未安装，可先执行 `pip install -r requirements.txt`。
 
 在仓库根目录运行：
 
@@ -185,6 +189,28 @@ python scripts/inspect_eplan_pdfs.py
 
 这个步骤不是前端运行的必需步骤，但对调试 PDF 结构很有帮助。
 
+## 可选：生成 PDF 原始分段 JSON
+
+如果你想把单个 PDF 拆成粗粒度源码片段，可以运行独立的 `pdf_parser`：
+
+```powershell
+python -m pdf_parser data/eplans/demo.pdf
+```
+
+默认输出到：
+
+```text
+output/pdf_parser_step1/demo.json
+```
+
+也可以显式指定输入和输出：
+
+```powershell
+python -m pdf_parser --input data/eplans/demo.pdf --output output/pdf_parser_step1/demo.json
+```
+
+详细说明见 [pdf_parser/README.md](pdf_parser/README.md)。
+
 ## 常用命令
 
 ### 重新生成前端数据
@@ -213,6 +239,18 @@ npm run build
 python scripts/inspect_eplan_pdfs.py
 ```
 
+### 单独生成 PDF 原始分段 JSON
+
+```powershell
+python -m pdf_parser data/eplans/demo.pdf
+```
+
+### 在解析结果中查找矢量形状
+
+```powershell
+python pdf_parser/element_finder.py output/pdf_parser_step1/demo.json target_shape.txt --output output/shape_matches.json
+```
+
 ## 开源前建议
 
 如果你准备把这个仓库公开，建议在发布前确认下面几件事：
@@ -230,3 +268,4 @@ python scripts/inspect_eplan_pdfs.py
 - 前端是 Vite + TypeScript
 - PDF 页面渲染由 `pdfjs-dist` 完成
 - 某些 PDF 的文字编码、字体映射和对象流格式比较特殊，解析结果可能需要继续迭代
+

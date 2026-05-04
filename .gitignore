@@ -9,7 +9,7 @@
 # Frontend dependencies and build output
 node_modules/
 pdf_reader/dist/
-pdf_parser/public/reader-data/
+pdf_reader/public/reader-data/
 
 # Python
 __pycache__/

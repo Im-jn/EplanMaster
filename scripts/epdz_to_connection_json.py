@@ -133,7 +133,9 @@ def choose_device_id(name: str, props: Dict[str, str]) -> Tuple[str, str]:
 # ------------------------------ SVG bbox parsing ------------------------------
 
 _num_re = re.compile(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?")
+_path_token_re = re.compile(r"[AaCcHhLlMmQqSsTtVvZz]|[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?")
 _suffix_id_re = re.compile(r"_(\d+)_(\d+)$")
+_source_ref_re = re.compile(r"^\d+/(\d+)/(\d+)/\d+$")
 
 BBox = Tuple[float, float, float, float]
 Matrix = Tuple[float, float, float, float, float, float]  # SVG affine a,b,c,d,e,f
@@ -226,16 +228,132 @@ def parse_points_attr(points_str: str) -> List[Tuple[float, float]]:
 
 
 def parse_path_bbox(d: str) -> Optional[BBox]:
-    nums = [float(x) for x in _num_re.findall(d or "")]
-    if len(nums) < 2:
-        return None
-    pts = []
-    for i in range(0, len(nums) - 1, 2):
-        pts.append((nums[i], nums[i + 1]))
-    return bbox_from_points(pts)
+    tokens = _path_token_re.findall(d or "")
+    points: List[Tuple[float, float]] = []
+    index = 0
+    command = ""
+    current = (0.0, 0.0)
+    start = (0.0, 0.0)
+
+    def is_command(token: str) -> bool:
+        return len(token) == 1 and token.isalpha()
+
+    def has_number(offset: int = 0) -> bool:
+        return (
+            index < len(tokens)
+            and index + offset < len(tokens)
+            and not is_command(tokens[index])
+            and not is_command(tokens[index + offset])
+        )
+
+    def read_float() -> float:
+        nonlocal index
+        value = float(tokens[index])
+        index += 1
+        return value
+
+    while index < len(tokens):
+        if is_command(tokens[index]):
+            command = tokens[index]
+            index += 1
+        if not command:
+            break
+
+        relative = command.islower()
+        upper = command.upper()
+
+        if upper == "Z":
+            current = start
+            points.append(current)
+            command = ""
+            continue
+
+        if upper == "M":
+            first = True
+            while has_number(1):
+                x, y = read_float(), read_float()
+                if relative:
+                    x += current[0]
+                    y += current[1]
+                current = (x, y)
+                points.append(current)
+                if first:
+                    start = current
+                    first = False
+            command = "l" if relative else "L"
+            continue
+
+        if upper == "L":
+            while has_number(1):
+                x, y = read_float(), read_float()
+                if relative:
+                    x += current[0]
+                    y += current[1]
+                current = (x, y)
+                points.append(current)
+            continue
+
+        if upper == "H":
+            while has_number():
+                x = read_float()
+                if relative:
+                    x += current[0]
+                current = (x, current[1])
+                points.append(current)
+            continue
+
+        if upper == "V":
+            while has_number():
+                y = read_float()
+                if relative:
+                    y += current[1]
+                current = (current[0], y)
+                points.append(current)
+            continue
+
+        if upper in {"C", "S", "Q"}:
+            pair_count = {"C": 3, "S": 2, "Q": 2}[upper]
+            while has_number(pair_count * 2 - 1):
+                coords = [(read_float(), read_float()) for _ in range(pair_count)]
+                if relative:
+                    coords = [(x + current[0], y + current[1]) for x, y in coords]
+                points.extend(coords)
+                current = coords[-1]
+            continue
+
+        if upper == "T":
+            while has_number(1):
+                x, y = read_float(), read_float()
+                if relative:
+                    x += current[0]
+                    y += current[1]
+                current = (x, y)
+                points.append(current)
+            continue
+
+        if upper == "A":
+            while has_number(6):
+                _rx, _ry, _angle, _large_arc, _sweep = (
+                    read_float(),
+                    read_float(),
+                    read_float(),
+                    read_float(),
+                    read_float(),
+                )
+                x, y = read_float(), read_float()
+                if relative:
+                    x += current[0]
+                    y += current[1]
+                current = (x, y)
+                points.append(current)
+            continue
+
+        break
+
+    return bbox_from_points(points) if points else None
 
 
-def element_local_bbox(el: ET.Element) -> Optional[BBox]:
+def element_local_bbox(el: ET.Element, *, include_text: bool = True) -> Optional[BBox]:
     tag = el.tag.split('}')[-1]
     if tag == "path":
         return parse_path_bbox(el.get("d", ""))
@@ -268,19 +386,13 @@ def element_local_bbox(el: ET.Element) -> Optional[BBox]:
         h = float(el.get("height", "0"))
         return (x, y, x + w, y + h)
     if tag == "text":
+        if not include_text:
+            return None
         x = float(el.get("x", "0")) if el.get("x") else 0.0
         y = float(el.get("y", "0")) if el.get("y") else 0.0
-        # Approximate text bbox from font-size and text length if explicit x/y.
+        # Approximate text bbox in local coordinates; parent walk applies SVG transforms.
         text = "".join(el.itertext()).strip()
         fs = 3.0
-        cls = el.get("class", "")
-        m = re.search(r"font-size:\s*([0-9.]+)px", "")
-        # Prefer transform translate() when present.
-        tf = el.get("transform")
-        if tf:
-            nums = [float(n) for n in _num_re.findall(tf)]
-            if len(nums) >= 2:
-                x, y = nums[0], nums[1]
         w = max(1.0, len(text) * fs * 0.6)
         h = fs
         return (x, y - h, x + w, y)
@@ -292,26 +404,39 @@ def collect_group_bboxes(svg_path: Path) -> Dict[str, Dict[str, object]]:
     root = tree.getroot()
     out: Dict[str, Dict[str, object]] = {}
 
-    def walk(el: ET.Element, parent_mat: Matrix = IDENTITY) -> Optional[BBox]:
+    def walk(el: ET.Element, parent_mat: Matrix = IDENTITY) -> Tuple[Optional[BBox], Optional[BBox]]:
         current_mat = mat_mul(parent_mat, parse_transform(el.get("transform")))
         bbox = None
-        lb = element_local_bbox(el)
+        graphic_bbox = None
+        lb = element_local_bbox(el, include_text=True)
         if lb is not None:
             bbox = union_bbox(bbox, transform_bbox(lb, current_mat))
+        glb = element_local_bbox(el, include_text=False)
+        if glb is not None:
+            graphic_bbox = union_bbox(graphic_bbox, transform_bbox(glb, current_mat))
         for ch in list(el):
-            cb = walk(ch, current_mat)
+            cb, cgb = walk(ch, current_mat)
             bbox = union_bbox(bbox, cb)
+            graphic_bbox = union_bbox(graphic_bbox, cgb)
         tag = el.tag.split('}')[-1]
         if tag == "g":
             gid = el.get("id")
             if gid and gid.startswith("Id") and bbox is not None:
                 title_el = el.find(f"{SVG_NS}title")
                 title = "".join(title_el.itertext()).strip() if title_el is not None else ""
-                out[gid] = {
+                item = {
                     "title": title,
                     "bbox": [round(bbox[0], 3), round(bbox[1], 3), round(bbox[2], 3), round(bbox[3], 3)],
                 }
-        return bbox
+                if graphic_bbox is not None:
+                    item["symbol_bbox"] = [
+                        round(graphic_bbox[0], 3),
+                        round(graphic_bbox[1], 3),
+                        round(graphic_bbox[2], 3),
+                        round(graphic_bbox[3], 3),
+                    ]
+                out[gid] = item
+        return bbox, graphic_bbox
 
     walk(root)
     return out
@@ -322,6 +447,21 @@ def function_name_to_svg_id(name: str) -> Optional[str]:
     if not m:
         return None
     return f"Id{m.group(1)}_{m.group(2)}"
+
+
+def source_ref_to_svg_id(source_ref: str) -> Optional[str]:
+    m = _source_ref_re.match(source_ref or "")
+    if not m:
+        return None
+    return f"Id{m.group(1)}_{m.group(2)}"
+
+
+def page_reference_values(props: Dict[str, str], name: str) -> List[str]:
+    values = []
+    for key, value in props.items():
+        if key == name or key.startswith(f"{name}["):
+            values.append(value)
+    return values
 
 # ------------------------------ build output ------------------------------
 
@@ -366,6 +506,8 @@ def build_output(db_path: Path, extracted_root: Path) -> Dict:
                 page_svg_bboxes[pid] = {}
 
     devices: Dict[str, Dict[str, object]] = {}
+    function_occurrences: List[Dict[str, object]] = []
+    page_occurrence_svg_ids: Dict[str, set[str]] = defaultdict(set)
     terminal_set = set()
     package_to_device: Dict[int, str] = {}
 
@@ -397,6 +539,44 @@ def build_output(db_path: Path, extracted_root: Path) -> Dict:
         device_id, raw_id = choose_device_id(name, props)
         pageids = function_to_pages.get(pid, [])
         page_list = [page_names[p] for p in pageids if p in page_names]
+        svg_id = function_name_to_svg_id(name)
+        occurrence_bboxes: Dict[str, Dict[str, object]] = {}
+        if svg_id:
+            for pageid in pageids:
+                group_info = page_svg_bboxes.get(pageid, {}).get(svg_id)
+                if group_info and pageid in page_names:
+                    occurrence_bboxes[page_names[pageid]] = {
+                        "svg_id": svg_id,
+                        "bbox": group_info["bbox"],
+                        "symbol_bbox": group_info.get("symbol_bbox") or group_info["bbox"],
+                        "title": group_info.get("title", ""),
+                    }
+        function_occurrences.append({
+            "package_id": pid,
+            "source_ref": None,
+            "name": name,
+            "device_id": device_id,
+            "raw_id": raw_id,
+            "type": props.get(str(PROP_TYPE_TEXT), ""),
+            "pins": parse_pin_list(props.get(str(PROP_PINS), "")),
+            "pages": page_list,
+            "labels": [
+                props.get(k, "")
+                for k in [
+                    str(PROP_FUNC_TEXT),
+                    str(PROP_LOCATION_TEXT),
+                    str(PROP_FULL_TAG),
+                    str(PROP_COMPONENT_TAG),
+                    str(PROP_DEVICE_TAG),
+                ]
+                if props.get(k, "")
+            ],
+            "svg_id": svg_id,
+            "bbox_by_page": occurrence_bboxes,
+        })
+        for page_name in page_list:
+            if svg_id:
+                page_occurrence_svg_ids[page_name].add(svg_id)
         d = ensure_device(device_id, raw_id=raw_id, typ=props.get(str(PROP_TYPE_TEXT), ""), pages_list=page_list)
         if d is None:
             continue
@@ -409,17 +589,43 @@ def build_output(db_path: Path, extracted_root: Path) -> Dict:
         for pin in parse_pin_list(props.get(str(PROP_PINS), "")):
             d["pins"].add(pin)
 
-        svg_id = function_name_to_svg_id(name)
         if svg_id:
             d["svg_ids"].add(svg_id)
-            for pageid in pageids:
+            for page_name, group_info in occurrence_bboxes.items():
+                d["bbox_by_page"][page_name] = group_info
+
+    # Some page-level function references (notably source type 59) do not appear
+    # in function_package/page_functions, but they still have SVG groups.
+    for pageid, page_name in pages:
+        props = pprops.get(pageid, {})
+        for ref_kind in ("functions", "interruptionpoints"):
+            for source_ref in page_reference_values(props, ref_kind):
+                svg_id = source_ref_to_svg_id(source_ref)
+                if not svg_id or svg_id in page_occurrence_svg_ids[page_name]:
+                    continue
                 group_info = page_svg_bboxes.get(pageid, {}).get(svg_id)
+                bbox_by_page = {}
                 if group_info:
-                    d["bbox_by_page"][page_names[pageid]] = {
+                    bbox_by_page[page_name] = {
                         "svg_id": svg_id,
                         "bbox": group_info["bbox"],
+                        "symbol_bbox": group_info.get("symbol_bbox") or group_info["bbox"],
                         "title": group_info.get("title", ""),
                     }
+                function_occurrences.append({
+                    "package_id": None,
+                    "source_ref": source_ref,
+                    "name": source_ref,
+                    "device_id": "",
+                    "raw_id": source_ref,
+                    "type": ref_kind,
+                    "pins": [],
+                    "pages": [page_name],
+                    "labels": [],
+                    "svg_id": svg_id,
+                    "bbox_by_page": bbox_by_page,
+                })
+                page_occurrence_svg_ids[page_name].add(svg_id)
 
     # Wires.
     wires: List[Dict[str, object]] = []
@@ -507,6 +713,7 @@ def build_output(db_path: Path, extracted_root: Path) -> Dict:
 
     return {
         "devices": devices_out,
+        "function_occurrences": function_occurrences,
         "terminals": sorted(terminal_set),
         "wires": wires,
         "pages": pages_out,
