@@ -1,13 +1,7 @@
 import './style.css'
 import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs'
 import workerUrl from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url'
-import {
-  commandsToPolylines,
-  parseSnippetToPathCommands,
-  pathCommandsToQueryRecords,
-  searchSimilarVectorPaths,
-  type ShapeSearchHit,
-} from './shapeSearch'
+import { commandsToPolylines, parseSnippetToPathCommands } from './shapeSearch'
 
 function installPdfJsCollectionPolyfills(): void {
   const mapPrototype = Map.prototype as Map<unknown, unknown> & {
@@ -187,6 +181,21 @@ type ReaderItem = VectorItem | LinkItem | TextItem | ImageItem
 type OverlayKind = ReaderItem['kind']
 
 const LAYER_STORAGE_KEY = 'pdf-reader-overlay-layers'
+const LAYOUT_STORAGE_KEY = 'pdf-reader-layout-sizes'
+
+type LayoutSizes = {
+  sidebarWidth: number
+  inspectorWidth: number
+  viewerHeight: number
+  playgroundEditorWidth: number
+}
+
+const DEFAULT_LAYOUT_SIZES: LayoutSizes = {
+  sidebarWidth: 320,
+  inspectorWidth: 420,
+  viewerHeight: 860,
+  playgroundEditorWidth: 360,
+}
 
 function loadLayerVisibility(): Record<OverlayKind, boolean> {
   const defaults: Record<OverlayKind, boolean> = {
@@ -216,6 +225,36 @@ function saveLayerVisibility(visibility: Record<OverlayKind, boolean>): void {
 }
 
 let layerVisibility = loadLayerVisibility()
+
+function loadLayoutSizes(): LayoutSizes {
+  try {
+    const raw = localStorage.getItem(LAYOUT_STORAGE_KEY)
+    if (!raw) {
+      return DEFAULT_LAYOUT_SIZES
+    }
+    const parsed = JSON.parse(raw) as Partial<LayoutSizes>
+    return {
+      sidebarWidth: clamp(Number(parsed.sidebarWidth) || DEFAULT_LAYOUT_SIZES.sidebarWidth, 240, 520),
+      inspectorWidth: clamp(Number(parsed.inspectorWidth) || DEFAULT_LAYOUT_SIZES.inspectorWidth, 320, 720),
+      viewerHeight: clamp(Number(parsed.viewerHeight) || DEFAULT_LAYOUT_SIZES.viewerHeight, 420, 1200),
+      playgroundEditorWidth: clamp(
+        Number(parsed.playgroundEditorWidth) || DEFAULT_LAYOUT_SIZES.playgroundEditorWidth,
+        260,
+        560,
+      ),
+    }
+  } catch {
+    return DEFAULT_LAYOUT_SIZES
+  }
+}
+
+function saveLayoutSizes(sizes: LayoutSizes): void {
+  try {
+    localStorage.setItem(LAYOUT_STORAGE_KEY, JSON.stringify(sizes))
+  } catch {
+    /* ignore quota / private mode */
+  }
+}
 
 function isReaderItem(item: { kind: string }): item is ReaderItem {
   return (
@@ -407,38 +446,8 @@ app.innerHTML = `
         </p>
       </div>
 
-      <div class="panel shape-search-panel">
-        <p class="field-label">Vector Shape Search</p>
-        <p class="muted small">
-          Match by geometric shape while ignoring translation, uniform scaling, and rotation (with optional mirror).
-          Paste a path snippet using <code>m</code>/<code>l</code>/<code>c</code>/<code>re</code>, or select a vector on the page and search from selection.
-        </p>
-        <textarea
-          id="shape-search-snippet"
-          class="shape-search-textarea"
-          rows="4"
-          spellcheck="false"
-          placeholder="Example: 19.724 841.89 m&#10;319.724 830.551 l&#10;S"
-        ></textarea>
-        <div class="shape-search-row">
-          <label class="shape-search-tolerance" for="shape-search-tolerance">
-            Tolerance (higher = looser)
-            <input id="shape-search-tolerance" type="range" min="5" max="35" value="15" />
-            <span id="shape-search-tolerance-label">15%</span>
-          </label>
-        </div>
-        <label class="legend-item shape-search-mirror">
-          <input type="checkbox" id="shape-search-mirror" checked />
-          <span>Allow mirror (flip)</span>
-        </label>
-        <div class="shape-search-actions">
-          <button id="shape-search-from-snippet" class="button" type="button">Search From Snippet</button>
-          <button id="shape-search-from-selection" class="button" type="button" disabled>Search From Selection</button>
-        </div>
-        <div id="shape-search-status" class="shape-search-status muted small"></div>
-        <div id="shape-search-results" class="shape-search-results"></div>
-      </div>
     </aside>
+    <div class="resize-handle resize-handle-vertical" data-resize-target="sidebar" title="Resize sidebar"></div>
 
     <main class="workspace">
       <div class="workspace-main">
@@ -461,6 +470,21 @@ app.innerHTML = `
                   </svg>
                 </span>
               </button>
+              <button
+                id="vector-match-search"
+                class="button icon-button compact-icon-button"
+                type="button"
+                title="Find matching vector groups from the selected area"
+                aria-label="Find matching vector groups"
+                disabled
+              >
+                <span class="icon-button-glyph selection-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M8 4a4 4 0 1 0 2.45 7.16L15 15.7" />
+                    <path d="M13 13l3 3" />
+                  </svg>
+                </span>
+              </button>
               <label class="zoom-control" for="zoom-input">
                 <span>Zoom</span>
                 <input id="zoom-input" class="zoom-input" type="number" min="50" max="400" step="5" value="100" />
@@ -474,6 +498,7 @@ app.innerHTML = `
             <div id="viewer-stage" class="viewer-stage"></div>
           </div>
         </section>
+        <div class="resize-handle resize-handle-horizontal" data-resize-target="viewer" title="Resize viewer"></div>
 
         <section class="playground-shell">
           <div class="playground-topbar">
@@ -498,6 +523,7 @@ app.innerHTML = `
               ></textarea>
               <p id="playground-status" class="muted small">Paste vector path code to draw it on the whiteboard below.</p>
             </div>
+            <div class="resize-handle resize-handle-vertical resize-handle-playground" data-resize-target="playground-editor" title="Resize editor"></div>
             <div id="playground-board" class="playground-board">
               <canvas id="playground-canvas" class="playground-canvas"></canvas>
               <div id="playground-empty" class="playground-empty">Vector preview will appear here.</div>
@@ -506,6 +532,7 @@ app.innerHTML = `
           </div>
         </section>
       </div>
+      <div class="resize-handle resize-handle-vertical" data-resize-target="inspector" title="Resize inspector"></div>
 
       <aside class="inspector">
         <div class="panel inspector-panel">
@@ -541,6 +568,7 @@ const playgroundRenderBtn = mustQuery<HTMLButtonElement>('#playground-render')
 const playgroundFitBtn = mustQuery<HTMLButtonElement>('#playground-fit')
 const playgroundResetBtn = mustQuery<HTMLButtonElement>('#playground-reset')
 const areaSelectToggleBtn = mustQuery<HTMLButtonElement>('#area-select-toggle')
+const vectorMatchSearchBtn = mustQuery<HTMLButtonElement>('#vector-match-search')
 const zoomInput = mustQuery<HTMLInputElement>('#zoom-input')
 const zoomLabel = mustQuery<HTMLSpanElement>('#zoom-label')
 const selectionTitle = mustQuery<HTMLHeadingElement>('#selection-title')
@@ -549,35 +577,21 @@ const sourceComment = mustQuery<HTMLDivElement>('#source-comment')
 const sourceCode = mustQuery<HTMLPreElement>('#source-code')
 const referenceChain = mustQuery<HTMLDivElement>('#reference-chain')
 const warningsEl = mustQuery<HTMLDivElement>('#warnings')
-const shapeSearchSnippet = mustQuery<HTMLTextAreaElement>('#shape-search-snippet')
-const shapeSearchTolerance = mustQuery<HTMLInputElement>('#shape-search-tolerance')
-const shapeSearchToleranceLabel = mustQuery<HTMLSpanElement>('#shape-search-tolerance-label')
-const shapeSearchMirror = mustQuery<HTMLInputElement>('#shape-search-mirror')
-const shapeSearchFromSnippetBtn = mustQuery<HTMLButtonElement>('#shape-search-from-snippet')
-const shapeSearchFromSelectionBtn = mustQuery<HTMLButtonElement>('#shape-search-from-selection')
-const shapeSearchStatus = mustQuery<HTMLDivElement>('#shape-search-status')
-const shapeSearchResults = mustQuery<HTMLDivElement>('#shape-search-results')
 
-type ShapeSearchCandidate = {
-  id: string
-  page_number: number
-  commands: Array<Record<string, unknown>>
-  bbox: BBox
-  item_ids: string[]
-  kind: 'component' | 'vector'
-  label?: string
-}
-
-type EnrichedShapeSearchHit = ShapeSearchHit & {
-  candidate: ShapeSearchCandidate
-}
-
-type ComponentGroupSelection = {
+type VectorSnifferSelection = {
   pageNumber: number
-  candidates: ShapeSearchCandidate[]
-  itemIds: string[]
-  commands: Array<Record<string, unknown>>
+  queryBBox: BBox
   bbox: BBox
+  shapeCount: number
+  shapes: unknown[]
+  sourceCode: string
+  itemIds: string[]
+}
+
+type VectorMatchResult = {
+  bbox_pdf: BBox
+  shape_count: number
+  anchor?: unknown
 }
 
 const pageCache = new Map<string, PageData>()
@@ -586,13 +600,10 @@ let manifest: Manifest | null = null
 let activeDocument: ReaderDocument | null = null
 let activePageNumber = 1
 let activeSelectionId: string | null = null
-let activeComponentGroupSelection: ComponentGroupSelection | null = null
-let activeShapeSearchResultId: string | null = null
+let activeVectorSnifferSelection: VectorSnifferSelection | null = null
 let currentPageState: PageState | null = null
-let shapeSearchHitMap = new Map<string, EnrichedShapeSearchHit>()
-let searchHighlightItemIds: Set<string> | null = null
-let searchHighlightTimer: number | null = null
-let componentGroupHighlightItemIds: Set<string> | null = null
+let vectorMatchResults: VectorMatchResult[] = []
+let selectedVectorGroupItemIds = new Set<string>()
 let isAreaSelectMode = false
 let areaSelectionBox: HTMLDivElement | null = null
 let areaDragStart: { x: number; y: number } | null = null
@@ -614,6 +625,7 @@ let playgroundPanStartX = 0
 let playgroundPanStartY = 0
 let playgroundPanOffsetX = 0
 let playgroundPanOffsetY = 0
+let layoutSizes = loadLayoutSizes()
 
 const MIN_ZOOM_FACTOR = 0.5
 const MAX_ZOOM_FACTOR = 4
@@ -723,6 +735,70 @@ function setStatus(message: string): void {
 
 function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max)
+}
+
+function applyLayoutSizes(): void {
+  document.documentElement.style.setProperty('--sidebar-width', `${layoutSizes.sidebarWidth}px`)
+  document.documentElement.style.setProperty('--inspector-width', `${layoutSizes.inspectorWidth}px`)
+  document.documentElement.style.setProperty('--viewer-height', `${layoutSizes.viewerHeight}px`)
+  document.documentElement.style.setProperty('--playground-editor-width', `${layoutSizes.playgroundEditorWidth}px`)
+}
+
+function refreshAfterLayoutResize(): void {
+  renderPlayground()
+  if (activeDocument) {
+    scheduleRender(activePageNumber, { preserveSelection: true, anchor: getViewportCenterAnchor() })
+  }
+}
+
+function initResizableLayout(): void {
+  applyLayoutSizes()
+
+  document.querySelectorAll<HTMLElement>('.resize-handle[data-resize-target]').forEach((handle) => {
+    handle.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) {
+        return
+      }
+      event.preventDefault()
+      event.stopPropagation()
+
+      const target = handle.dataset.resizeTarget
+      const startX = event.clientX
+      const startY = event.clientY
+      const startSizes = { ...layoutSizes }
+      handle.classList.add('is-resizing')
+      handle.setPointerCapture(event.pointerId)
+
+      const move = (moveEvent: PointerEvent) => {
+        const dx = moveEvent.clientX - startX
+        const dy = moveEvent.clientY - startY
+        if (target === 'sidebar') {
+          layoutSizes.sidebarWidth = clamp(startSizes.sidebarWidth + dx, 240, 520)
+        } else if (target === 'inspector') {
+          layoutSizes.inspectorWidth = clamp(startSizes.inspectorWidth - dx, 320, 720)
+        } else if (target === 'viewer') {
+          layoutSizes.viewerHeight = clamp(startSizes.viewerHeight + dy, 420, 1200)
+        } else if (target === 'playground-editor') {
+          layoutSizes.playgroundEditorWidth = clamp(startSizes.playgroundEditorWidth + dx, 260, 560)
+        }
+        applyLayoutSizes()
+        renderPlayground()
+      }
+
+      const stop = () => {
+        handle.classList.remove('is-resizing')
+        handle.removeEventListener('pointermove', move)
+        handle.removeEventListener('pointerup', stop)
+        handle.removeEventListener('pointercancel', stop)
+        saveLayoutSizes(layoutSizes)
+        refreshAfterLayoutResize()
+      }
+
+      handle.addEventListener('pointermove', move)
+      handle.addEventListener('pointerup', stop)
+      handle.addEventListener('pointercancel', stop)
+    })
+  })
 }
 
 function getCurrentRenderScale(): number {
@@ -1218,150 +1294,52 @@ function renderReferenceChain(item: ReaderItem, pageData: PageData): void {
   ].join('')
 }
 
-function formatCommandNumber(value: unknown): string {
-  const n = typeof value === 'number' ? value : Number(value)
-  if (!Number.isFinite(n)) {
-    return '0'
-  }
-  return n.toFixed(3).replace(/\.?0+$/, '')
+function clearVectorSnifferSelection(): void {
+  activeVectorSnifferSelection = null
+  vectorMatchResults = []
+  selectedVectorGroupItemIds = new Set()
+  renderVectorMatchOverlays()
+  updateVectorMatchButton()
+  syncSelectionClasses()
 }
 
-function commandKey(command: Record<string, unknown>): string {
-  const op = String(command.op ?? '').toUpperCase()
-  const pts = Array.isArray(command.points) ? (command.points as unknown[]) : []
-  const nums = pts
-    .flatMap((pair) => (Array.isArray(pair) ? pair : []))
-    .map((v) => formatCommandNumber(v))
-    .join(',')
-  return `${op}|${nums}`
-}
+function setVectorSnifferSelection(selection: VectorSnifferSelection | null, preserveMatches = false): void {
+  activeVectorSnifferSelection = selection
+  selectedVectorGroupItemIds = new Set(selection?.itemIds ?? [])
+  if (!preserveMatches) {
+    vectorMatchResults = []
+  }
+  renderVectorMatchOverlays()
+  updateVectorMatchButton()
 
-function extractCommonCommands(groups: Array<Array<Record<string, unknown>>>): Array<Record<string, unknown>> {
-  if (!groups.length) {
-    return []
-  }
-  const first = groups[0]
-  const common = new Set(first.map((cmd) => commandKey(cmd)))
-  for (let i = 1; i < groups.length; i++) {
-    const set = new Set(groups[i].map((cmd) => commandKey(cmd)))
-    for (const key of [...common]) {
-      if (!set.has(key)) {
-        common.delete(key)
-      }
-    }
-    if (!common.size) {
-      break
-    }
-  }
-  return first.filter((cmd) => common.has(commandKey(cmd)))
-}
-
-function formatCommandsAsSnippet(commands: Array<Record<string, unknown>>, maxLines = 320): string {
-  const lines: string[] = []
-  for (const command of commands) {
-    const op = String(command.op ?? '').toUpperCase()
-    const points = Array.isArray(command.points) ? (command.points as unknown[]) : []
-    if ((op === 'M' || op === 'L') && Array.isArray(points[0])) {
-      const [x, y] = points[0] as [unknown, unknown]
-      lines.push(`${formatCommandNumber(x)} ${formatCommandNumber(y)} ${op.toLowerCase()}`)
-      continue
-    }
-    if (op === 'C' && Array.isArray(points[0]) && Array.isArray(points[1]) && Array.isArray(points[2])) {
-      const [x1, y1] = points[0] as [unknown, unknown]
-      const [x2, y2] = points[1] as [unknown, unknown]
-      const [x3, y3] = points[2] as [unknown, unknown]
-      lines.push(
-        `${formatCommandNumber(x1)} ${formatCommandNumber(y1)} ${formatCommandNumber(x2)} ${formatCommandNumber(y2)} ${formatCommandNumber(x3)} ${formatCommandNumber(y3)} c`,
-      )
-      continue
-    }
-    if (op === 'Z') {
-      lines.push('h')
-      continue
-    }
-  }
-  if (!lines.length) {
-    return '// No path commands were extracted from the current selection.'
-  }
-  const clipped = lines.slice(0, maxLines)
-  if (lines.length > maxLines) {
-    clipped.push(`... (${lines.length - maxLines} more lines)`)
-  }
-  return clipped.join('\n')
-}
-
-function clearComponentGroupSelectionVisuals(): void {
-  activeComponentGroupSelection = null
-  componentGroupHighlightItemIds = null
-}
-
-function setComponentGroupSelection(group: ComponentGroupSelection | null, pageData: PageData | null): void {
-  if (!group || !pageData) {
-    clearComponentGroupSelectionVisuals()
+  if (!selection) {
     syncSelectionClasses()
-    updateShapeSearchSelectionButton()
     return
   }
 
   activeSelectionId = null
-  activeComponentGroupSelection = group
-  componentGroupHighlightItemIds = new Set(group.itemIds)
-
-  const labels = group.candidates
-    .map((candidate) => {
-      if (candidate.kind === 'component') {
-        if (candidate.label) {
-          return candidate.label
-        }
-        const componentId = candidate.id.replace(/^component:/, '')
-        const component = pageData.components.find((item) => item.id === componentId)
-        return component?.component?.label?.trim() || componentId
-      }
-      return candidate.id.replace(/^vector:/, '')
-    })
-    .filter((label): label is string => Boolean(label))
-
-  const commonCommands = extractCommonCommands(group.candidates.map((c) => c.commands))
-  const codeToShow = commonCommands.length ? commonCommands : group.commands
-  const allVectors = group.candidates.every((candidate) => candidate.kind === 'vector')
-  const subjectLabel = allVectors ? 'vectors' : 'objects'
-  const codeTitle = commonCommands.length
-    ? `Common code across ${group.candidates.length} selected ${subjectLabel}`
-    : `Merged code from ${group.candidates.length} selected ${subjectLabel}`
-
-  selectionTitle.textContent = `${group.candidates.length} ${allVectors ? 'Vectors' : 'Objects'} Selected`
+  selectionTitle.textContent = `${selection.shapeCount} Vector Shapes Selected`
   sourceCode.classList.remove('empty')
-  sourceCode.textContent = `${codeTitle}\n\n${formatCommandsAsSnippet(codeToShow)}`
+  sourceCode.textContent = selection.sourceCode || 'The selected vector shape group is stored in memory for pdf_parser matching.'
   sourceComment.innerHTML =
-    '<div class="source-note">This code block is generated from the current area selection and can be used directly for shape search.</div>'
+    '<div class="source-note">Selected source is also loaded into the vector whiteboard. Use the search button beside area select to find matching vector groups on this page.</div>'
   warningsEl.innerHTML = ''
-
+  referenceChain.innerHTML = ''
   renderMeta(selectionMeta, [
-    ['Page', String(group.pageNumber)],
-    [allVectors ? 'Vectors' : 'Objects', String(group.candidates.length)],
-    ['Vector paths', String(group.itemIds.length)],
-    ['Command count', String(group.commands.length)],
-    ['BBox', `${group.bbox.x0}, ${group.bbox.y0}, ${group.bbox.x1}, ${group.bbox.y1}`],
+    ['Page', String(selection.pageNumber)],
+    ['Shapes', String(selection.shapeCount)],
+    ['Highlighted items', String(selection.itemIds.length)],
+    ['BBox', `${selection.bbox.x0}, ${selection.bbox.y0}, ${selection.bbox.x1}, ${selection.bbox.y1}`],
   ])
-
-  referenceChain.innerHTML = [
-    `<div class="reference-section-title">Selected ${allVectors ? 'Vectors' : 'Objects'}</div>`,
-    labels.length
-      ? labels
-          .map(
-            (label) =>
-              `<section class="reference-card"><div class="reference-card-header"><strong>${escapeHtml(label)}</strong><span>${allVectors ? 'Vector path' : 'Object'}</span></div></section>`,
-          )
-          .join('')
-      : '<div class="reference-empty">No vector labels are available for the current area selection.</div>',
-  ].join('')
-
   syncSelectionClasses()
-  updateShapeSearchSelectionButton()
 }
 
 function setSelection(item: ReaderItem | null, pageData: PageData | null): void {
-  clearComponentGroupSelectionVisuals()
+  activeVectorSnifferSelection = null
+  vectorMatchResults = []
+  selectedVectorGroupItemIds = new Set()
+  renderVectorMatchOverlays()
+  updateVectorMatchButton()
   activeSelectionId = item?.id ?? null
   selectionMeta.innerHTML = ''
   sourceComment.innerHTML = ''
@@ -1373,7 +1351,6 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
     sourceCode.classList.add('empty')
     sourceCode.textContent = 'Click a region in the PDF viewer to show the matching PDF source snippet here.'
     syncSelectionClasses()
-    updateShapeSearchSelectionButton()
     return
   }
 
@@ -1449,43 +1426,17 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
   }
 
   syncSelectionClasses()
-  updateShapeSearchSelectionButton()
 }
 
 function syncSelectionClasses(): void {
   document.querySelectorAll<HTMLElement>('.overlay-item').forEach((node) => {
     const itemId = node.dataset.itemId ?? ''
     const isSelected = itemId === activeSelectionId
-    const isSearchHit = Boolean(searchHighlightItemIds?.has(itemId))
-    const isGroupSelected = Boolean(componentGroupHighlightItemIds?.has(itemId))
+    const isGroupSelected = selectedVectorGroupItemIds.has(itemId)
     node.classList.toggle('is-selected', isSelected)
-    node.classList.toggle('is-search-hit', isSearchHit)
     node.classList.toggle('is-group-selected', isGroupSelected)
-    node.style.zIndex = isSelected ? '10' : isSearchHit ? '9' : isGroupSelected ? '8' : node.dataset.baseZIndex ?? '1'
+    node.style.zIndex = isSelected ? '10' : isGroupSelected ? '9' : node.dataset.baseZIndex ?? '1'
   })
-}
-
-function syncShapeSearchResultClasses(): void {
-  document.querySelectorAll<HTMLButtonElement>('button.shape-search-hit').forEach((btn) => {
-    btn.classList.toggle('is-active', btn.dataset.candidateId === activeShapeSearchResultId)
-  })
-}
-
-function setTemporarySearchHighlight(itemIds: string[]): void {
-  const cleaned = itemIds.filter((id) => Boolean(id))
-  if (!cleaned.length) {
-    return
-  }
-  searchHighlightItemIds = new Set(cleaned)
-  syncSelectionClasses()
-  if (searchHighlightTimer !== null) {
-    window.clearTimeout(searchHighlightTimer)
-  }
-  searchHighlightTimer = window.setTimeout(() => {
-    searchHighlightTimer = null
-    searchHighlightItemIds = null
-    syncSelectionClasses()
-  }, 2000)
 }
 
 function scrollToBBoxCenter(bbox: BBox): void {
@@ -1506,122 +1457,12 @@ function scrollToBBoxCenter(bbox: BBox): void {
   })
 }
 
-function focusSearchTarget(itemIds: string[], bbox: BBox | null): void {
-  const firstNode = itemIds
-    .map((id) => currentPageState?.overlay.querySelector<HTMLElement>(`.overlay-item[data-item-id="${id}"]`))
-    .find((node): node is HTMLElement => Boolean(node))
-  if (firstNode) {
-    firstNode.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
-  } else if (bbox) {
-    scrollToBBoxCenter(bbox)
-  }
-  setTemporarySearchHighlight(itemIds)
-}
-
-function updateShapeSearchSelectionButton(): void {
-  const st = currentPageState
-  if (!st?.pageData) {
-    shapeSearchFromSelectionBtn.disabled = true
-    return
-  }
-  if (
-    activeComponentGroupSelection &&
-    activeComponentGroupSelection.pageNumber === st.pageData.page_number &&
-    activeComponentGroupSelection.commands.length > 0
-  ) {
-    shapeSearchFromSelectionBtn.disabled = false
-    return
-  }
-  if (!activeSelectionId) {
-    shapeSearchFromSelectionBtn.disabled = true
-    return
-  }
-  const item = st.pageData.items.find((i) => i.id === activeSelectionId)
-  shapeSearchFromSelectionBtn.disabled = !item || item.kind !== 'vector_path'
-}
-
-function toleranceSliderToMaxDistance(percent: number): number {
-  return 0.02 + ((percent - 5) / 30) * 0.2
-}
-
-function bboxIntersectsWithPadding(a: BBox, b: BBox, padding = 1): boolean {
-  return !(a.x1 < b.x0 - padding || a.x0 > b.x1 + padding || a.y1 < b.y0 - padding || a.y0 > b.y1 + padding)
-}
-
-function mergeBBox(boxes: BBox[]): BBox {
-  if (!boxes.length) {
-    return { x0: 0, y0: 0, x1: 0, y1: 0, width: 0, height: 0 }
-  }
-  const x0 = Math.min(...boxes.map((b) => b.x0))
-  const y0 = Math.min(...boxes.map((b) => b.y0))
-  const x1 = Math.max(...boxes.map((b) => b.x1))
-  const y1 = Math.max(...boxes.map((b) => b.y1))
-  return { x0, y0, x1, y1, width: x1 - x0, height: y1 - y0 }
-}
-
-function countSubpaths(commands: Array<Record<string, unknown>>): number {
-  return commands.reduce((n, c) => (String(c.op ?? '').toUpperCase() === 'M' ? n + 1 : n), 0)
-}
-
-function buildShapeSearchCandidatesForPage(pageData: PageData): ShapeSearchCandidate[] {
-  const vectors = pageData.items.filter((item): item is VectorItem => item.kind === 'vector_path')
-  const candidates: ShapeSearchCandidate[] = []
-  const signatures = new Set<string>()
-
-  for (const component of pageData.components) {
-    const members = vectors
-      .filter((v) => bboxIntersectsWithPadding(v.bbox, component.bbox, Math.max(v.effective_line_width, 1.1)))
-      .sort((a, b) => a.id.localeCompare(b.id))
-    if (members.length < 1) {
-      continue
-    }
-
-    const memberIds = members.map((m) => m.id)
-    const signature = memberIds.join('|')
-    if (!signature || signatures.has(signature)) {
-      continue
-    }
-    signatures.add(signature)
-
-    const label = typeof component.component?.label === 'string' ? component.component.label.trim() : undefined
-    candidates.push({
-      id: `component:${component.id}`,
-      page_number: component.page_number,
-      commands: members.flatMap((m) => m.commands),
-      // Use the original component rectangle for area-selection and focus.
-      // The merged vector bbox can drift outward when nearby strokes are grouped in.
-      bbox: component.bbox,
-      item_ids: memberIds,
-      kind: 'component',
-      label: label || undefined,
-    })
-  }
-
-  for (const vector of vectors) {
-    candidates.push({
-      id: `vector:${vector.id}`,
-      page_number: vector.page_number,
-      commands: vector.commands,
-      bbox: vector.bbox,
-      item_ids: [vector.id],
-      kind: 'vector',
-    })
-  }
-
-  return candidates
-}
-
-function bboxContains(outer: BBox, inner: BBox, epsilon = 0): boolean {
-  return (
-    inner.x0 >= outer.x0 - epsilon &&
-    inner.y0 >= outer.y0 - epsilon &&
-    inner.x1 <= outer.x1 + epsilon &&
-    inner.y1 <= outer.y1 + epsilon
-  )
-}
-
-function mergeCommands(candidates: ShapeSearchCandidate[]): Array<Record<string, unknown>> {
-  return candidates.flatMap((candidate) => candidate.commands)
+function updateVectorMatchButton(): void {
+  const canSearch =
+    Boolean(activeVectorSnifferSelection) &&
+    Boolean(activeDocument) &&
+    currentPageState?.pageNumber === activeVectorSnifferSelection?.pageNumber
+  vectorMatchSearchBtn.disabled = !canSearch
 }
 
 function toPageBBoxFromOverlayRect(
@@ -1639,6 +1480,174 @@ function toPageBBoxFromOverlayRect(
   return { x0, y0, x1, y1, width: x1 - x0, height: y1 - y0 }
 }
 
+function normalizeApiBBox(box: Partial<BBox> & { x0: number; y0: number; x1: number; y1: number }): BBox {
+  const x0 = Number(box.x0)
+  const y0 = Number(box.y0)
+  const x1 = Number(box.x1)
+  const y1 = Number(box.y1)
+  return { x0, y0, x1, y1, width: x1 - x0, height: y1 - y0 }
+}
+
+function bboxContains(outer: BBox, inner: BBox, epsilon = 0): boolean {
+  return (
+    inner.x0 >= outer.x0 - epsilon &&
+    inner.y0 >= outer.y0 - epsilon &&
+    inner.x1 <= outer.x1 + epsilon &&
+    inner.y1 <= outer.y1 + epsilon
+  )
+}
+
+function bboxIntersects(a: BBox, b: BBox, epsilon = 0): boolean {
+  return !(a.x1 < b.x0 - epsilon || a.x0 > b.x1 + epsilon || a.y1 < b.y0 - epsilon || a.y0 > b.y1 + epsilon)
+}
+
+function extractShapeCode(shape: unknown): string | null {
+  if (!shape || typeof shape !== 'object') {
+    return null
+  }
+  const code = (shape as { code?: unknown }).code
+  return typeof code === 'string' && code.trim() ? code.trim() : null
+}
+
+function formatPoint(point: unknown): string | null {
+  if (!Array.isArray(point) || point.length < 2) {
+    return null
+  }
+  const x = Number(point[0])
+  const y = Number(point[1])
+  if (!Number.isFinite(x) || !Number.isFinite(y)) {
+    return null
+  }
+  return `${x.toFixed(3).replace(/\.?0+$/, '')} ${y.toFixed(3).replace(/\.?0+$/, '')}`
+}
+
+function shapeToRenderableCode(shape: unknown): string | null {
+  if (!shape || typeof shape !== 'object') {
+    return null
+  }
+  const record = shape as { type?: unknown; points?: unknown }
+  const type = String(record.type ?? '')
+  const points = Array.isArray(record.points) ? record.points : []
+
+  if (type === 'line' && points.length >= 2) {
+    const start = formatPoint(points[0])
+    const end = formatPoint(points[1])
+    return start && end ? `${start} m\n${end} l` : extractShapeCode(shape)
+  }
+
+  if (type === 'curve' && points.length >= 4) {
+    const start = formatPoint(points[0])
+    const p1 = formatPoint(points[1])
+    const p2 = formatPoint(points[2])
+    const p3 = formatPoint(points[3])
+    return start && p1 && p2 && p3 ? `${start} m\n${p1} ${p2} ${p3} c` : extractShapeCode(shape)
+  }
+
+  if ((type === 'rect' || type === 'rectangle') && points.length >= 4) {
+    const formatted = points.slice(0, 4).map(formatPoint)
+    if (formatted.every(Boolean)) {
+      return `${formatted[0]} m\n${formatted[1]} l\n${formatted[2]} l\n${formatted[3]} l\nh`
+    }
+  }
+
+  return extractShapeCode(shape)
+}
+
+function buildSelectionSourceCode(shapes: unknown[], fallbackItems: VectorItem[]): string {
+  const shapeCodes = shapes.map(shapeToRenderableCode).filter((code): code is string => Boolean(code))
+  if (shapeCodes.length) {
+    return [...new Set(shapeCodes)].join('\n')
+  }
+  return fallbackItems.map((item) => item.source.snippet.trim()).filter(Boolean).join('\n\n')
+}
+
+function findVectorItemsInsideArea(pageData: PageData, area: BBox): VectorItem[] {
+  const vectors = pageData.items.filter((item): item is VectorItem => item.kind === 'vector_path')
+  const contained = vectors.filter((item) => bboxContains(area, item.bbox, 0.25))
+  if (contained.length) {
+    return contained
+  }
+  return vectors.filter((item) => bboxIntersects(area, item.bbox, 0.25))
+}
+
+function loadPlaygroundCode(source: string): void {
+  playgroundCode.value = source
+  refreshPlayground(true)
+}
+
+async function callVectorSniffer(mode: 'select' | 'match', bbox: BBox): Promise<{
+  selected_shape_count: number
+  selected_bbox_pdf: BBox | null
+  selected_shapes: unknown[]
+  matches?: VectorMatchResult[]
+}> {
+  if (!activeDocument) {
+    throw new Error('No active PDF document.')
+  }
+  const response = await fetch('/api/vector-sniffer', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      mode,
+      pdf_url: activeDocument.pdf_url,
+      page: activePageNumber,
+      bbox,
+      select_slack: mode === 'select' ? 0 : 0.1,
+    }),
+  })
+  const payload = (await response.json()) as {
+    ok: boolean
+    error?: string
+    result?: {
+      selected_shape_count: number
+      selected_bbox_pdf: BBox | null
+      selected_shapes: unknown[]
+      matches?: VectorMatchResult[]
+    }
+  }
+  if (!response.ok || !payload.ok || !payload.result) {
+    throw new Error(payload.error || `Vector sniffer request failed: ${response.status}`)
+  }
+  return {
+    selected_shape_count: payload.result.selected_shape_count,
+    selected_bbox_pdf: payload.result.selected_bbox_pdf ? normalizeApiBBox(payload.result.selected_bbox_pdf) : null,
+    selected_shapes: payload.result.selected_shapes ?? [],
+    matches: (payload.result.matches ?? []).map((match) => ({
+      ...match,
+      bbox_pdf: normalizeApiBBox(match.bbox_pdf),
+    })),
+  }
+}
+
+function createMatchOverlayBox(bbox: BBox, index: number, scale: number, pageHeight: number): HTMLButtonElement {
+  const node = document.createElement('button')
+  node.type = 'button'
+  node.className = 'vector-match-box'
+  node.dataset.matchIndex = String(index)
+  node.title = `Vector match ${index + 1}`
+  node.style.left = `${bbox.x0 * scale}px`
+  node.style.top = `${(pageHeight - bbox.y1) * scale}px`
+  node.style.width = `${Math.max(bbox.width * scale, 6)}px`
+  node.style.height = `${Math.max(bbox.height * scale, 6)}px`
+  node.addEventListener('click', (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+    scrollToBBoxCenter(bbox)
+  })
+  return node
+}
+
+function renderVectorMatchOverlays(): void {
+  const st = currentPageState
+  if (!st) {
+    return
+  }
+  st.overlay.querySelectorAll('.vector-match-box').forEach((node) => node.remove())
+  for (let index = 0; index < vectorMatchResults.length; index += 1) {
+    st.overlay.appendChild(createMatchOverlayBox(vectorMatchResults[index].bbox_pdf, index, st.scale, st.pageData.page_size.height_pt))
+  }
+}
+
 function setAreaSelectMode(enabled: boolean): void {
   isAreaSelectMode = enabled
   areaSelectToggleBtn.setAttribute('aria-pressed', String(enabled))
@@ -1653,32 +1662,33 @@ function setAreaSelectMode(enabled: boolean): void {
   }
 }
 
-function selectVectorsInsideArea(pageData: PageData, area: BBox): void {
-  const vectorCandidates = buildShapeSearchCandidatesForPage(pageData).filter((candidate) => candidate.kind === 'vector')
-  if (!vectorCandidates.length) {
-    setStatus('No vector objects were detected on this page.')
-    setSelection(null, null)
-    return
-  }
+async function selectVectorsInsideArea(pageData: PageData, area: BBox): Promise<void> {
+  try {
+    setStatus('Extracting vector shapes from selected area...')
+    const result = await callVectorSniffer('select', area)
+    if (!result.selected_shape_count || !result.selected_bbox_pdf) {
+      setStatus('No vector shape was fully enclosed by the selected area.')
+      setVectorSnifferSelection(null)
+      return
+    }
 
-  const selected = vectorCandidates.filter((candidate) => bboxContains(area, candidate.bbox))
-  if (!selected.length) {
-    setStatus(`No vector object was fully enclosed by the selected area (${vectorCandidates.length} vector candidates on this page).`)
-    setSelection(null, null)
-    return
+    const selectedItems = findVectorItemsInsideArea(pageData, area)
+    const selectedSource = buildSelectionSourceCode(result.selected_shapes, selectedItems)
+    loadPlaygroundCode(selectedSource)
+    setStatus(`Selected ${result.selected_shape_count} vector shapes.`)
+    setVectorSnifferSelection({
+      pageNumber: pageData.page_number,
+      queryBBox: area,
+      bbox: result.selected_bbox_pdf,
+      shapeCount: result.selected_shape_count,
+      shapes: result.selected_shapes,
+      sourceCode: selectedSource,
+      itemIds: selectedItems.map((item) => item.id),
+    })
+  } catch (error) {
+    setStatus(`Vector selection failed: ${error instanceof Error ? error.message : String(error)}`)
+    setVectorSnifferSelection(null)
   }
-
-  const uniqueItemIds = [...new Set(selected.flatMap((candidate) => candidate.item_ids))]
-  const mergedBox = mergeBBox(selected.map((candidate) => candidate.bbox))
-  const group: ComponentGroupSelection = {
-    pageNumber: pageData.page_number,
-    candidates: selected,
-    itemIds: uniqueItemIds,
-    commands: mergeCommands(selected),
-    bbox: mergedBox,
-  }
-  setStatus(`Selected ${selected.length} vector objects.`)
-  setComponentGroupSelection(group, pageData)
 }
 
 function attachAreaSelectionHandlers(overlay: HTMLDivElement, pageData: PageData, scale: number): void {
@@ -1710,7 +1720,7 @@ function attachAreaSelectionHandlers(overlay: HTMLDivElement, pageData: PageData
     }
 
     const pageBBox = toPageBBoxFromOverlayRect(left, top, right, bottom, pageData.page_size.height_pt, scale)
-    selectVectorsInsideArea(pageData, pageBBox)
+    void selectVectorsInsideArea(pageData, pageBBox)
   }
 
   overlay.addEventListener('pointerdown', (event) => {
@@ -1773,104 +1783,6 @@ function attachAreaSelectionHandlers(overlay: HTMLDivElement, pageData: PageData
     }
     clearDragState()
   })
-}
-
-function renderShapeSearchResults(hits: EnrichedShapeSearchHit[]): void {
-  shapeSearchResults.innerHTML = ''
-  shapeSearchHitMap = new Map(hits.map((h) => [h.id, h]))
-  if (!hits.length) {
-    activeShapeSearchResultId = null
-    syncShapeSearchResultClasses()
-    return
-  }
-
-  for (let i = 0; i < hits.length; i++) {
-    const h = hits[i]
-    const btn = document.createElement('button')
-    btn.type = 'button'
-    btn.className = 'shape-search-hit'
-    btn.dataset.candidateId = h.id
-
-    const kindLabel = h.candidate.kind === 'component' ? 'Component' : 'Path'
-    const sizeLabel =
-      h.candidate.kind === 'component' ? `${h.candidate.item_ids.length} paths` : `${h.candidate.item_ids.length} path`
-    const label = h.candidate.label ? ` | ${escapeHtml(h.candidate.label)}` : ''
-
-    btn.innerHTML = `<span class="shape-hit-rank">#${i + 1}</span><span>P${h.pageNumber} | ${kindLabel} (${sizeLabel})${label}</span><span class="shape-hit-score">${h.score.toFixed(3)}</span>`
-    shapeSearchResults.appendChild(btn)
-  }
-
-  syncShapeSearchResultClasses()
-}
-
-async function runShapeSearch(
-  queryCommands: Array<Record<string, unknown>>,
-  excludeCandidateIds?: Set<string>,
-): Promise<void> {
-  if (!activeDocument) {
-    return
-  }
-  const maxDistance = toleranceSliderToMaxDistance(Number.parseFloat(shapeSearchTolerance.value))
-  const allowMirror = shapeSearchMirror.checked
-  const querySubpathCount = countSubpaths(queryCommands)
-
-  shapeSearchStatus.textContent = 'Scanning vectors...'
-  shapeSearchResults.innerHTML = ''
-  shapeSearchHitMap = new Map()
-  activeShapeSearchResultId = null
-  shapeSearchFromSnippetBtn.disabled = true
-  shapeSearchFromSelectionBtn.disabled = true
-
-  const candidates: ShapeSearchCandidate[] = []
-  const doc = activeDocument
-  try {
-    for (let i = 0; i < doc.pages.length; i++) {
-      const pm = doc.pages[i]
-      shapeSearchStatus.textContent = `Scanning page ${i + 1} / ${doc.pages.length}...`
-      const pd = await loadPageData(doc.id, pm)
-      candidates.push(...buildShapeSearchCandidatesForPage(pd))
-    }
-
-    const componentCandidates = candidates.filter((c) => c.kind === 'component')
-    const searchPool =
-      querySubpathCount > 1 && componentCandidates.length > 0 ? componentCandidates : candidates
-
-    const hits = searchSimilarVectorPaths({
-      queryCommands,
-      vectors: searchPool.map((c) => ({
-        id: c.id,
-        page_number: c.page_number,
-        commands: c.commands,
-      })),
-      maxDistance,
-      maxResults: 100,
-      allowMirror,
-      excludeIds: excludeCandidateIds,
-    })
-
-    const candidateById = new Map(searchPool.map((c) => [c.id, c]))
-    const enriched: EnrichedShapeSearchHit[] = hits
-      .map((h) => {
-        const candidate = candidateById.get(h.id)
-        if (!candidate) {
-          return null
-        }
-        return { ...h, candidate }
-      })
-      .filter((h): h is EnrichedShapeSearchHit => Boolean(h))
-
-    if (enriched.length) {
-      const mode = querySubpathCount > 1 && componentCandidates.length > 0 ? 'component' : 'mixed'
-      shapeSearchStatus.textContent = `Found ${enriched.length} ${mode} matches (lower score = better).`
-    } else {
-      shapeSearchStatus.textContent =
-        'No close match found. Try a higher tolerance, enable mirror, or paste a more complete snippet.'
-    }
-    renderShapeSearchResults(enriched)
-  } finally {
-    shapeSearchFromSnippetBtn.disabled = false
-    updateShapeSearchSelectionButton()
-  }
 }
 
 function itemArea(item: ReaderItem): number {
@@ -2097,12 +2009,8 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
   updateZoomLabel()
 
   const selectedItem = activeSelectionId ? pageData.items.find((item) => item.id === activeSelectionId) ?? null : null
-  if (
-    activeComponentGroupSelection &&
-    activeComponentGroupSelection.pageNumber === pageData.page_number &&
-    activeComponentGroupSelection.candidates.length
-  ) {
-    setComponentGroupSelection(activeComponentGroupSelection, pageData)
+  if (activeVectorSnifferSelection && activeVectorSnifferSelection.pageNumber === pageData.page_number) {
+    setVectorSnifferSelection(activeVectorSnifferSelection, true)
   } else if (selectedItem) {
     setSelection(selectedItem, pageData)
   } else if (pageData.warnings.length) {
@@ -2115,7 +2023,7 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
 
   setStatus(`Page ${pageNumber} rendered. Click a highlighted region to inspect its PDF source.`)
   syncSelectionClasses()
-  updateShapeSearchSelectionButton()
+  updateVectorMatchButton()
 }
 
 function populateDocumentSelect(documents: ReaderDocument[]): void {
@@ -2145,7 +2053,7 @@ async function selectDocument(documentId: string): Promise<void> {
   activeDocument = documentData
   activePageNumber = 1
   zoomFactor = 1
-  clearComponentGroupSelectionVisuals()
+  clearVectorSnifferSelection()
   populatePageSelect(documentData)
   pageSelect.value = '1'
   renderMeta(docMeta, [
@@ -2162,8 +2070,8 @@ async function selectPage(pageNumber: number): Promise<void> {
   if (!activeDocument) {
     return
   }
-  if (activeComponentGroupSelection && activeComponentGroupSelection.pageNumber !== pageNumber) {
-    clearComponentGroupSelectionVisuals()
+  if (activeVectorSnifferSelection && activeVectorSnifferSelection.pageNumber !== pageNumber) {
+    clearVectorSnifferSelection()
   }
   activePageNumber = pageNumber
   pageSelect.value = String(pageNumber)
@@ -2258,7 +2166,7 @@ viewerScroll.addEventListener('pointerdown', (event) => {
     return
   }
   const target = event.target as HTMLElement | null
-  if (target?.closest('.overlay-item, .button, .select')) {
+  if (target?.closest('.overlay-item, .button, .select, .resize-handle')) {
     return
   }
   isPanning = true
@@ -2323,110 +2231,27 @@ function initLayerToggles(): void {
   })
 }
 
-function syncShapeSearchToleranceLabel(): void {
-  shapeSearchToleranceLabel.textContent = `${shapeSearchTolerance.value}%`
-}
-
-shapeSearchTolerance.addEventListener('input', syncShapeSearchToleranceLabel)
-syncShapeSearchToleranceLabel()
-
-function findComponentCandidateForVector(pageData: PageData, vectorId: string): ShapeSearchCandidate | null {
-  const candidates = buildShapeSearchCandidatesForPage(pageData)
-    .filter((c) => c.kind === 'component' && c.item_ids.includes(vectorId))
-    .sort((a, b) => a.bbox.width * a.bbox.height - (b.bbox.width * b.bbox.height))
-  return candidates[0] ?? null
-}
-
-shapeSearchFromSnippetBtn.addEventListener('click', async () => {
-  const cmds = parseSnippetToPathCommands(shapeSearchSnippet.value)
-  const records = pathCommandsToQueryRecords(cmds)
-  if (!records.length) {
-    shapeSearchStatus.textContent = 'Cannot parse path commands from snippet. Include m/l/c/re operators and numbers.'
-    shapeSearchResults.innerHTML = ''
-    shapeSearchHitMap = new Map()
-    activeShapeSearchResultId = null
-    syncShapeSearchResultClasses()
+vectorMatchSearchBtn.addEventListener('click', async () => {
+  if (!activeVectorSnifferSelection) {
     return
   }
-  await runShapeSearch(records)
-})
-
-shapeSearchFromSelectionBtn.addEventListener('click', async () => {
-  const st = currentPageState
-  if (!st?.pageData) {
-    return
+  try {
+    vectorMatchSearchBtn.disabled = true
+    setStatus('Searching matching vector groups with pdf_parser...')
+    const result = await callVectorSniffer('match', activeVectorSnifferSelection.queryBBox)
+    vectorMatchResults = result.matches ?? []
+    renderVectorMatchOverlays()
+    setStatus(`Found ${vectorMatchResults.length} matching vector group${vectorMatchResults.length === 1 ? '' : 's'}.`)
+    updateVectorMatchButton()
+  } catch (error) {
+    setStatus(`Vector match failed: ${error instanceof Error ? error.message : String(error)}`)
+    updateVectorMatchButton()
   }
-
-  if (
-    activeComponentGroupSelection &&
-    activeComponentGroupSelection.pageNumber === st.pageData.page_number &&
-    activeComponentGroupSelection.commands.length > 0
-  ) {
-    shapeSearchStatus.textContent = `Using area-selected vector group (${activeComponentGroupSelection.candidates.length} vectors).`
-    await runShapeSearch(activeComponentGroupSelection.commands)
-    return
-  }
-
-  if (!activeSelectionId) {
-    return
-  }
-  const item = st.pageData.items.find((i) => i.id === activeSelectionId)
-  if (!item || item.kind !== 'vector_path') {
-    return
-  }
-
-  const componentCandidate = findComponentCandidateForVector(st.pageData, item.id)
-  if (componentCandidate && countSubpaths(componentCandidate.commands) > 1) {
-    shapeSearchStatus.textContent = `Using component query (${componentCandidate.item_ids.length} paths).`
-    await runShapeSearch(componentCandidate.commands)
-    return
-  }
-
-  await runShapeSearch(item.commands)
-})
-
-shapeSearchResults.addEventListener('click', async (e) => {
-  const btn = (e.target as HTMLElement).closest('button.shape-search-hit')
-  if (!btn || !activeDocument) {
-    return
-  }
-  const candidateId = (btn as HTMLButtonElement).dataset.candidateId
-  if (!candidateId) {
-    return
-  }
-  const hit = shapeSearchHitMap.get(candidateId)
-  if (!hit) {
-    return
-  }
-
-  const primaryItemId = hit.candidate.item_ids[0] ?? null
-  if (!primaryItemId) {
-    return
-  }
-
-  activeShapeSearchResultId = candidateId
-  syncShapeSearchResultClasses()
-  activeSelectionId = primaryItemId
-  layerVisibility = { ...layerVisibility, vector_path: true }
-  saveLayerVisibility(layerVisibility)
-  document.querySelectorAll<HTMLInputElement>('.layer-toggle[data-layer-kind="vector_path"]').forEach((el) => {
-    el.checked = true
-  })
-  await selectPage(hit.pageNumber)
-  updatePagerButtons()
-
-  const st = currentPageState
-  if (st?.pageData) {
-    const selected = st.pageData.items.find((i) => i.id === primaryItemId)
-    if (selected) {
-      setSelection(selected, st.pageData)
-    }
-  }
-  focusSearchTarget(hit.candidate.item_ids, hit.candidate.bbox)
 })
 
 async function bootstrap(): Promise<void> {
   try {
+    initResizableLayout()
     initLayerToggles()
     initPlayground()
     manifest = await loadManifest()
