@@ -29,11 +29,17 @@ def _transform_key(match_info: dict[str, Any], *, translation_precision: float =
     )
 
 
-def _query_selected_shapes(sniffer: vector_sniffer, bbox_pdf: dict[str, Any], *, slack: float) -> list[dict[str, Any]]:
+def _query_selected_shapes(
+    sniffer: vector_sniffer,
+    bbox: dict[str, Any],
+    *,
+    slack: float,
+    coord_space: str = "pdf",
+) -> list[dict[str, Any]]:
     return sniffer.query_bbox(
-        bbox=(float(bbox_pdf["x0"]), float(bbox_pdf["y0"]), float(bbox_pdf["x1"]), float(bbox_pdf["y1"])),
+        bbox=(float(bbox["x0"]), float(bbox["y0"]), float(bbox["x1"]), float(bbox["y1"])),
         slack=slack,
-        coord_space="pdf",
+        coord_space=coord_space,
     )
 
 
@@ -116,8 +122,10 @@ def _match_groups(sniffer: vector_sniffer, hits: list[dict[str, Any]]) -> list[d
 def handle(payload: dict[str, Any]) -> dict[str, Any]:
     pdf_path = resolve_repo_relative(str(payload["pdf_path"]))
     page = int(payload["page"])
-    bbox_pdf = payload["bbox"]
+    bbox = payload["bbox"]
     mode = str(payload.get("mode", "match"))
+    coord_space = str(payload.get("coord_space", "pdf"))
+    search_scope = str(payload.get("search_scope", "global"))
 
     if not pdf_path.is_file():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
@@ -125,7 +133,12 @@ def handle(payload: dict[str, Any]) -> dict[str, Any]:
     with vector_sniffer(pdf_path) as sniffer:
         sniffer.goto(page)
         page_height = float(sniffer.page_height_pt or 0.0)
-        hits = _query_selected_shapes(sniffer, bbox_pdf, slack=float(payload.get("select_slack", 0.0)))
+        hits = _query_selected_shapes(
+            sniffer,
+            bbox,
+            slack=float(payload.get("select_slack", 0.0)),
+            coord_space=coord_space,
+        )
         selected_bbox_mupdf = bbox_from_shapes(hits) if hits else None
 
         result: dict[str, Any] = {
@@ -139,7 +152,12 @@ def handle(payload: dict[str, Any]) -> dict[str, Any]:
             return result
 
         all_matches: list[dict[str, Any]] = []
-        for match_page in range(1, sniffer.doc.page_count + 1):
+        if search_scope == "current":
+            search_pages = [page]
+        else:
+            search_pages = list(range(1, sniffer.doc.page_count + 1))
+
+        for match_page in search_pages:
             sniffer.goto(match_page)
             match_page_height = float(sniffer.page_height_pt or 0.0)
             for match in _match_groups(sniffer, hits):
@@ -151,7 +169,7 @@ def handle(payload: dict[str, Any]) -> dict[str, Any]:
                     }
                 )
 
-        result["searched_page_count"] = sniffer.doc.page_count
+        result["searched_page_count"] = len(search_pages)
         result["matches"] = all_matches
         return result
 
