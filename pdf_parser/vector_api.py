@@ -138,14 +138,21 @@ def handle(payload: dict[str, Any]) -> dict[str, Any]:
         if mode == "select":
             return result
 
-        matches = _match_groups(sniffer, hits)
-        result["matches"] = [
-            {
-                **match,
-                "bbox_pdf": _mupdf_bbox_to_pdf(match["bbox_mupdf"], page_height),
-            }
-            for match in matches
-        ]
+        all_matches: list[dict[str, Any]] = []
+        for match_page in range(1, sniffer.doc.page_count + 1):
+            sniffer.goto(match_page)
+            match_page_height = float(sniffer.page_height_pt or 0.0)
+            for match in _match_groups(sniffer, hits):
+                all_matches.append(
+                    {
+                        **match,
+                        "page_number": match_page,
+                        "bbox_pdf": _mupdf_bbox_to_pdf(match["bbox_mupdf"], match_page_height),
+                    }
+                )
+
+        result["searched_page_count"] = sniffer.doc.page_count
+        result["matches"] = all_matches
         return result
 
 

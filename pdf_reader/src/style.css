@@ -322,10 +322,11 @@ pre {
   width: 100%;
   height: 100%;
   stroke: currentColor;
-  stroke-width: 1.7;
+  stroke-width: 2;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+  overflow: visible;
 }
 
 .icon-button.is-active {
@@ -606,6 +607,89 @@ pre {
   background: rgba(34, 197, 94, 0.15);
   pointer-events: none;
   z-index: 25;
+}
+
+.vector-match-control {
+  position: relative;
+}
+
+.vector-match-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 80;
+  min-width: 220px;
+  max-height: 320px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.vector-match-menu-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.vector-match-menu-status.error {
+  color: #fca5a5;
+  white-space: normal;
+}
+
+.vector-match-spinner {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(148, 163, 184, 0.35);
+  border-top-color: var(--accent);
+  border-radius: 999px;
+  animation: vector-match-spin 800ms linear infinite;
+}
+
+.vector-match-page-list {
+  display: grid;
+  gap: 4px;
+}
+
+.vector-match-page-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.vector-match-page-option:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: var(--accent-soft);
+}
+
+.vector-match-page-option strong {
+  min-width: 24px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.16);
+  text-align: center;
+}
+
+@keyframes vector-match-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .vector-match-box {

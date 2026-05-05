@@ -470,21 +470,24 @@ app.innerHTML = `
                   </svg>
                 </span>
               </button>
-              <button
-                id="vector-match-search"
-                class="button icon-button compact-icon-button"
-                type="button"
-                title="Find matching vector groups from the selected area"
-                aria-label="Find matching vector groups"
-                disabled
-              >
-                <span class="icon-button-glyph selection-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" focusable="false">
-                    <path d="M8 4a4 4 0 1 0 2.45 7.16L15 15.7" />
-                    <path d="M13 13l3 3" />
-                  </svg>
-                </span>
-              </button>
+              <div class="vector-match-control">
+                <button
+                  id="vector-match-search"
+                  class="button icon-button compact-icon-button"
+                  type="button"
+                  title="Find matching vector groups from the selected area"
+                  aria-label="Find matching vector groups"
+                  disabled
+                >
+                  <span class="icon-button-glyph selection-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" focusable="false">
+                      <path d="M8 4a4 4 0 1 0 2.45 7.16L15 15.7" />
+                      <path d="M13 13l3 3" />
+                    </svg>
+                  </span>
+                </button>
+                <div id="vector-match-menu" class="vector-match-menu" hidden></div>
+              </div>
               <label class="zoom-control" for="zoom-input">
                 <span>Zoom</span>
                 <input id="zoom-input" class="zoom-input" type="number" min="50" max="400" step="5" value="100" />
@@ -569,6 +572,7 @@ const playgroundFitBtn = mustQuery<HTMLButtonElement>('#playground-fit')
 const playgroundResetBtn = mustQuery<HTMLButtonElement>('#playground-reset')
 const areaSelectToggleBtn = mustQuery<HTMLButtonElement>('#area-select-toggle')
 const vectorMatchSearchBtn = mustQuery<HTMLButtonElement>('#vector-match-search')
+const vectorMatchMenu = mustQuery<HTMLDivElement>('#vector-match-menu')
 const zoomInput = mustQuery<HTMLInputElement>('#zoom-input')
 const zoomLabel = mustQuery<HTMLSpanElement>('#zoom-label')
 const selectionTitle = mustQuery<HTMLHeadingElement>('#selection-title')
@@ -589,6 +593,7 @@ type VectorSnifferSelection = {
 }
 
 type VectorMatchResult = {
+  page_number: number
   bbox_pdf: BBox
   shape_count: number
   anchor?: unknown
@@ -1298,6 +1303,7 @@ function clearVectorSnifferSelection(): void {
   activeVectorSnifferSelection = null
   vectorMatchResults = []
   selectedVectorGroupItemIds = new Set()
+  renderVectorMatchMenu()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
   syncSelectionClasses()
@@ -1309,6 +1315,7 @@ function setVectorSnifferSelection(selection: VectorSnifferSelection | null, pre
   if (!preserveMatches) {
     vectorMatchResults = []
   }
+  renderVectorMatchMenu()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
 
@@ -1322,7 +1329,7 @@ function setVectorSnifferSelection(selection: VectorSnifferSelection | null, pre
   sourceCode.classList.remove('empty')
   sourceCode.textContent = selection.sourceCode || 'The selected vector shape group is stored in memory for pdf_parser matching.'
   sourceComment.innerHTML =
-    '<div class="source-note">Selected source is also loaded into the vector whiteboard. Use the search button beside area select to find matching vector groups on this page.</div>'
+    '<div class="source-note">Selected source is also loaded into the vector whiteboard. Use the search button beside area select to find matching vector groups across the document.</div>'
   warningsEl.innerHTML = ''
   referenceChain.innerHTML = ''
   renderMeta(selectionMeta, [
@@ -1338,6 +1345,7 @@ function setSelection(item: ReaderItem | null, pageData: PageData | null): void 
   activeVectorSnifferSelection = null
   vectorMatchResults = []
   selectedVectorGroupItemIds = new Set()
+  renderVectorMatchMenu()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
   activeSelectionId = item?.id ?? null
@@ -1579,6 +1587,7 @@ async function callVectorSniffer(mode: 'select' | 'match', bbox: BBox): Promise<
   selected_shape_count: number
   selected_bbox_pdf: BBox | null
   selected_shapes: unknown[]
+  searched_page_count?: number
   matches?: VectorMatchResult[]
 }> {
   if (!activeDocument) {
@@ -1602,6 +1611,7 @@ async function callVectorSniffer(mode: 'select' | 'match', bbox: BBox): Promise<
       selected_shape_count: number
       selected_bbox_pdf: BBox | null
       selected_shapes: unknown[]
+      searched_page_count?: number
       matches?: VectorMatchResult[]
     }
   }
@@ -1612,8 +1622,10 @@ async function callVectorSniffer(mode: 'select' | 'match', bbox: BBox): Promise<
     selected_shape_count: payload.result.selected_shape_count,
     selected_bbox_pdf: payload.result.selected_bbox_pdf ? normalizeApiBBox(payload.result.selected_bbox_pdf) : null,
     selected_shapes: payload.result.selected_shapes ?? [],
+    searched_page_count: payload.result.searched_page_count,
     matches: (payload.result.matches ?? []).map((match) => ({
       ...match,
+      page_number: Number(match.page_number),
       bbox_pdf: normalizeApiBBox(match.bbox_pdf),
     })),
   }
@@ -1637,14 +1649,67 @@ function createMatchOverlayBox(bbox: BBox, index: number, scale: number, pageHei
   return node
 }
 
+function getVectorMatchPageGroups(): Array<{ pageNumber: number; matches: VectorMatchResult[] }> {
+  const grouped = new Map<number, VectorMatchResult[]>()
+  for (const match of vectorMatchResults) {
+    if (!Number.isFinite(match.page_number)) {
+      continue
+    }
+    const pageMatches = grouped.get(match.page_number) ?? []
+    pageMatches.push(match)
+    grouped.set(match.page_number, pageMatches)
+  }
+  return [...grouped.entries()]
+    .sort(([a], [b]) => a - b)
+    .map(([pageNumber, matches]) => ({ pageNumber, matches }))
+}
+
+function setVectorMatchMenuSearching(totalPages: number): void {
+  vectorMatchMenu.hidden = false
+  vectorMatchMenu.innerHTML = `
+    <div class="vector-match-menu-status">
+      <span class="vector-match-spinner" aria-hidden="true"></span>
+      <span>Searching ${totalPages} page${totalPages === 1 ? '' : 's'}...</span>
+    </div>
+  `
+}
+
+function renderVectorMatchMenu(): void {
+  if (!activeVectorSnifferSelection || !vectorMatchResults.length) {
+    vectorMatchMenu.hidden = true
+    vectorMatchMenu.innerHTML = ''
+    return
+  }
+
+  const groups = getVectorMatchPageGroups()
+  const total = vectorMatchResults.length
+  vectorMatchMenu.hidden = false
+  vectorMatchMenu.innerHTML = `
+    <div class="vector-match-menu-status">Found ${total} match${total === 1 ? '' : 'es'} on ${groups.length} page${groups.length === 1 ? '' : 's'}.</div>
+    <div class="vector-match-page-list">
+      ${groups
+        .map(
+          ({ pageNumber, matches }) => `
+            <button class="vector-match-page-option" type="button" data-page-number="${pageNumber}">
+              <span>Page ${pageNumber}</span>
+              <strong>${matches.length}</strong>
+            </button>
+          `,
+        )
+        .join('')}
+    </div>
+  `
+}
+
 function renderVectorMatchOverlays(): void {
   const st = currentPageState
   if (!st) {
     return
   }
   st.overlay.querySelectorAll('.vector-match-box').forEach((node) => node.remove())
-  for (let index = 0; index < vectorMatchResults.length; index += 1) {
-    st.overlay.appendChild(createMatchOverlayBox(vectorMatchResults[index].bbox_pdf, index, st.scale, st.pageData.page_size.height_pt))
+  const pageMatches = vectorMatchResults.filter((match) => match.page_number === st.pageNumber)
+  for (let index = 0; index < pageMatches.length; index += 1) {
+    st.overlay.appendChild(createMatchOverlayBox(pageMatches[index].bbox_pdf, index, st.scale, st.pageData.page_size.height_pt))
   }
 }
 
@@ -1898,7 +1963,7 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
   setStatus(`Rendering page ${pageNumber}...`)
   viewerStage.innerHTML = ''
   currentPageState = null
-  if (!options.preserveSelection) {
+  if (!options.preserveSelection && !activeVectorSnifferSelection) {
     setSelection(null, null)
   }
 
@@ -1994,6 +2059,7 @@ async function renderPage(pageNumber: number, options: RenderPageOptions = {}): 
     overlay,
     scale,
   }
+  renderVectorMatchOverlays()
 
   renderMeta(pageMeta, [
     ['Page object', pageData.page_object_ref ?? 'None'],
@@ -2069,9 +2135,6 @@ async function selectDocument(documentId: string): Promise<void> {
 async function selectPage(pageNumber: number): Promise<void> {
   if (!activeDocument) {
     return
-  }
-  if (activeVectorSnifferSelection && activeVectorSnifferSelection.pageNumber !== pageNumber) {
-    clearVectorSnifferSelection()
   }
   activePageNumber = pageNumber
   pageSelect.value = String(pageNumber)
@@ -2237,15 +2300,46 @@ vectorMatchSearchBtn.addEventListener('click', async () => {
   }
   try {
     vectorMatchSearchBtn.disabled = true
-    setStatus('Searching matching vector groups with pdf_parser...')
+    const totalPages = activeDocument?.page_count ?? 0
+    setVectorMatchMenuSearching(totalPages)
+    setStatus('Searching matching vector groups across the document with pdf_parser...')
     const result = await callVectorSniffer('match', activeVectorSnifferSelection.queryBBox)
     vectorMatchResults = result.matches ?? []
+    if (vectorMatchResults.length) {
+      renderVectorMatchMenu()
+    } else {
+      vectorMatchMenu.hidden = false
+      vectorMatchMenu.innerHTML = '<div class="vector-match-menu-status">No matching pages found.</div>'
+    }
     renderVectorMatchOverlays()
-    setStatus(`Found ${vectorMatchResults.length} matching vector group${vectorMatchResults.length === 1 ? '' : 's'}.`)
+    const searchedPages = result.searched_page_count ?? totalPages
+    const pageCount = getVectorMatchPageGroups().length
+    setStatus(
+      `Found ${vectorMatchResults.length} matching vector group${vectorMatchResults.length === 1 ? '' : 's'} on ${pageCount} page${pageCount === 1 ? '' : 's'} after searching ${searchedPages} page${searchedPages === 1 ? '' : 's'}.`,
+    )
     updateVectorMatchButton()
   } catch (error) {
+    vectorMatchMenu.hidden = false
+    vectorMatchMenu.innerHTML = `<div class="vector-match-menu-status error">Search failed: ${escapeHtml(error instanceof Error ? error.message : String(error))}</div>`
     setStatus(`Vector match failed: ${error instanceof Error ? error.message : String(error)}`)
     updateVectorMatchButton()
+  }
+})
+
+vectorMatchMenu.addEventListener('click', async (event) => {
+  const option = (event.target as HTMLElement).closest<HTMLButtonElement>('.vector-match-page-option')
+  if (!option) {
+    return
+  }
+  const pageNumber = Number(option.dataset.pageNumber)
+  if (!Number.isFinite(pageNumber)) {
+    return
+  }
+  const firstMatch = vectorMatchResults.find((match) => match.page_number === pageNumber)
+  await selectPage(pageNumber)
+  updatePagerButtons()
+  if (firstMatch) {
+    scrollToBBoxCenter(firstMatch.bbox_pdf)
   }
 })
 
