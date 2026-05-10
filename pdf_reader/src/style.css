@@ -735,9 +735,15 @@ pre {
   color: var(--muted);
 }
 
-.source-stash-button {
+.source-stash-button,
+.source-compare-button {
   width: auto;
-  align-self: flex-start;
+}
+
+.source-compare-button.is-active {
+  border-color: rgba(250, 204, 21, 0.8);
+  background: rgba(250, 204, 21, 0.14);
+  color: #fde68a;
 }
 
 .source-comment,

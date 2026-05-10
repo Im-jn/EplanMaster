@@ -355,6 +355,7 @@ type PlaygroundBounds = {
 }
 
 type PlaygroundData = {
+  sourceBounds: PlaygroundBounds
   bounds: PlaygroundBounds
   polylines: Array<{
     points: [number, number][]
@@ -371,6 +372,12 @@ type PlaygroundView = {
 type PlaygroundHover = {
   x: number
   y: number
+}
+
+type PlaygroundComparison = {
+  candidate: PlaygroundData
+  matchedBaseIndexes: Set<number>
+  matchedCandidateIndexes: Set<number>
 }
 
 function mustQuery<T extends Element>(selector: string): T {
@@ -511,9 +518,11 @@ app.innerHTML = `
                 </select>
               </div>
               <div class="playground-toolbar-divider" aria-hidden="true"></div>
-              <button id="playground-render" class="button" type="button">Render</button>
+              <button id="source-stash" class="button source-stash-button" type="button" disabled>Stash Shape</button>
+              <button id="source-compare" class="button source-compare-button" type="button" hidden disabled>Compare</button>
+              <div class="playground-toolbar-divider" aria-hidden="true"></div>
               <button id="playground-fit" class="button" type="button">Fit View</button>
-              <button id="playground-reset" class="button" type="button">Reset</button>
+              <button id="playground-reset" class="button" type="button">Clear</button>
             </div>
           </div>
           <div class="playground-content">
@@ -544,7 +553,6 @@ app.innerHTML = `
           <h2 id="selection-title" class="section-title">No object selected</h2>
           <div id="selection-meta" class="meta-list"></div>
           <div id="source-comment" class="source-comment"></div>
-          <button id="source-stash" class="button source-stash-button" type="button" disabled>Stash to Playground</button>
           <pre id="source-code" class="source-code empty">Click a region in the PDF viewer to show the matching PDF source snippet here.</pre>
           <div id="reference-chain" class="reference-chain"></div>
           <div id="warnings" class="warnings"></div>
@@ -569,7 +577,6 @@ const playgroundBoard = mustQuery<HTMLDivElement>('#playground-board')
 const playgroundCanvas = mustQuery<HTMLCanvasElement>('#playground-canvas')
 const playgroundEmpty = mustQuery<HTMLDivElement>('#playground-empty')
 const playgroundCoords = mustQuery<HTMLDivElement>('#playground-coords')
-const playgroundRenderBtn = mustQuery<HTMLButtonElement>('#playground-render')
 const playgroundFitBtn = mustQuery<HTMLButtonElement>('#playground-fit')
 const playgroundResetBtn = mustQuery<HTMLButtonElement>('#playground-reset')
 const globalSearchToggle = mustQuery<HTMLInputElement>('#global-search-toggle')
@@ -582,6 +589,7 @@ const selectionTitle = mustQuery<HTMLHeadingElement>('#selection-title')
 const selectionMeta = mustQuery<HTMLDivElement>('#selection-meta')
 const sourceComment = mustQuery<HTMLDivElement>('#source-comment')
 const sourceStashBtn = mustQuery<HTMLButtonElement>('#source-stash')
+const sourceCompareBtn = mustQuery<HTMLButtonElement>('#source-compare')
 const sourceCode = mustQuery<HTMLPreElement>('#source-code')
 const referenceChain = mustQuery<HTMLDivElement>('#reference-chain')
 const warningsEl = mustQuery<HTMLDivElement>('#warnings')
@@ -630,6 +638,7 @@ let panScrollTop = 0
 let playgroundData: PlaygroundData | null = null
 let playgroundView: PlaygroundView = { scale: 1, offsetX: 0, offsetY: 0 }
 let playgroundHover: PlaygroundHover | null = null
+let playgroundComparison: PlaygroundComparison | null = null
 let pendingPlaygroundSource = ''
 let playgroundPanPointerId: number | null = null
 let playgroundPanStartX = 0
@@ -931,19 +940,35 @@ function computePlaygroundBounds(polylines: PlaygroundData['polylines']): Playgr
   }
 }
 
+function normalizePolylinesToOrigin(
+  polylines: PlaygroundData['polylines'],
+  bounds: PlaygroundBounds,
+): PlaygroundData['polylines'] {
+  return polylines.map((polyline) => ({
+    closed: polyline.closed,
+    points: polyline.points.map(([x, y]) => [x - bounds.minX, bounds.maxY - y] as [number, number]),
+  }))
+}
+
 function parsePlaygroundSnippet(snippet: string): PlaygroundData | null {
   const commands = parseSnippetToPathCommands(snippet)
-  const polylines = commandsToPolylines(commands).filter((polyline) => polyline.points.length >= 2)
-  if (!polylines.length) {
+  const sourcePolylines = commandsToPolylines(commands).filter((polyline) => polyline.points.length >= 2)
+  if (!sourcePolylines.length) {
     return null
   }
 
+  const sourceBounds = computePlaygroundBounds(sourcePolylines)
+  if (!sourceBounds) {
+    return null
+  }
+
+  const polylines = normalizePolylinesToOrigin(sourcePolylines, sourceBounds)
   const bounds = computePlaygroundBounds(polylines)
   if (!bounds) {
     return null
   }
 
-  return { polylines, bounds }
+  return { sourceBounds, polylines, bounds }
 }
 
 function playgroundBoundsToBBox(bounds: PlaygroundBounds): BBox {
@@ -974,7 +999,7 @@ function fitPlaygroundView(): void {
   playgroundView = {
     scale,
     offsetX: (width - playgroundData.bounds.width * scale) / 2 - playgroundData.bounds.minX * scale,
-    offsetY: (height - playgroundData.bounds.height * scale) / 2 - playgroundData.bounds.minY * scale,
+    offsetY: (height + playgroundData.bounds.height * scale) / 2 + playgroundData.bounds.minY * scale,
   }
   renderPlayground()
 }
@@ -982,14 +1007,14 @@ function fitPlaygroundView(): void {
 function screenToPlaygroundWorld(screenX: number, screenY: number): { x: number; y: number } {
   return {
     x: (screenX - playgroundView.offsetX) / playgroundView.scale,
-    y: (screenY - playgroundView.offsetY) / playgroundView.scale,
+    y: (playgroundView.offsetY - screenY) / playgroundView.scale,
   }
 }
 
 function worldToPlaygroundScreen(x: number, y: number): { x: number; y: number } {
   return {
     x: x * playgroundView.scale + playgroundView.offsetX,
-    y: y * playgroundView.scale + playgroundView.offsetY,
+    y: playgroundView.offsetY - y * playgroundView.scale,
   }
 }
 
@@ -1006,6 +1031,60 @@ function getPlaygroundStep(scale: number): number {
     }
   }
   return base * 10
+}
+
+function polylineDistance(
+  a: PlaygroundData['polylines'][number],
+  b: PlaygroundData['polylines'][number],
+  reversed = false,
+): number {
+  if (a.points.length !== b.points.length) {
+    return Number.POSITIVE_INFINITY
+  }
+  let maxDistance = 0
+  for (let index = 0; index < a.points.length; index += 1) {
+    const pointA = a.points[index]
+    const pointB = b.points[reversed ? b.points.length - 1 - index : index]
+    maxDistance = Math.max(maxDistance, Math.hypot(pointA[0] - pointB[0], pointA[1] - pointB[1]))
+  }
+  return maxDistance
+}
+
+function arePolylinesMatching(a: PlaygroundData['polylines'][number], b: PlaygroundData['polylines'][number]): boolean {
+  if (a.closed !== b.closed || a.points.length !== b.points.length) {
+    return false
+  }
+  const tolerance = 0.75
+  return Math.min(polylineDistance(a, b), polylineDistance(a, b, true)) <= tolerance
+}
+
+function comparePlaygroundData(base: PlaygroundData, candidate: PlaygroundData): PlaygroundComparison {
+  const matchedBaseIndexes = new Set<number>()
+  const matchedCandidateIndexes = new Set<number>()
+
+  for (let candidateIndex = 0; candidateIndex < candidate.polylines.length; candidateIndex += 1) {
+    const candidatePolyline = candidate.polylines[candidateIndex]
+    for (let baseIndex = 0; baseIndex < base.polylines.length; baseIndex += 1) {
+      if (matchedBaseIndexes.has(baseIndex)) {
+        continue
+      }
+      if (arePolylinesMatching(base.polylines[baseIndex], candidatePolyline)) {
+        matchedBaseIndexes.add(baseIndex)
+        matchedCandidateIndexes.add(candidateIndex)
+        break
+      }
+    }
+  }
+
+  return { candidate, matchedBaseIndexes, matchedCandidateIndexes }
+}
+
+function updateSourceCompareButton(): void {
+  const canCompare = Boolean(playgroundData && activeVectorSnifferSelection?.sourceCode)
+  sourceCompareBtn.hidden = !canCompare
+  sourceCompareBtn.disabled = !canCompare
+  sourceCompareBtn.classList.toggle('is-active', Boolean(playgroundComparison))
+  sourceCompareBtn.textContent = playgroundComparison ? 'Cancel Compare' : 'Compare'
 }
 
 function renderPlayground(): void {
@@ -1079,18 +1158,24 @@ function renderPlayground(): void {
   context.lineWidth = 1.5
   context.stroke()
 
-  if (playgroundData) {
+  const drawPolylines = (
+    polylines: PlaygroundData['polylines'],
+    colorForIndex: (index: number) => string,
+    alpha = 1,
+  ) => {
     context.save()
-    context.strokeStyle = '#34d399'
+    context.globalAlpha = alpha
     context.lineWidth = Math.max(1.5, Math.min(3, 2.2 / Math.sqrt(scale / 2)))
     context.lineJoin = 'round'
     context.lineCap = 'round'
 
-    for (const polyline of playgroundData.polylines) {
+    for (let polylineIndex = 0; polylineIndex < polylines.length; polylineIndex += 1) {
+      const polyline = polylines[polylineIndex]
       const first = polyline.points[0]
       if (!first) {
         continue
       }
+      context.strokeStyle = colorForIndex(polylineIndex)
       const start = worldToPlaygroundScreen(first[0], first[1])
       context.beginPath()
       context.moveTo(start.x, start.y)
@@ -1105,6 +1190,20 @@ function renderPlayground(): void {
       context.stroke()
     }
     context.restore()
+  }
+
+  if (playgroundData) {
+    drawPolylines(playgroundData.polylines, (index) =>
+      playgroundComparison?.matchedBaseIndexes.has(index) ? '#facc15' : '#34d399',
+    )
+  }
+
+  if (playgroundComparison) {
+    drawPolylines(
+      playgroundComparison.candidate.polylines,
+      (index) => (playgroundComparison?.matchedCandidateIndexes.has(index) ? '#facc15' : '#ef4444'),
+      0.95,
+    )
   }
 
   if (playgroundHover) {
@@ -1142,31 +1241,51 @@ function clearPlaygroundHover(): void {
 function refreshPlayground(autoFit = true): void {
   const nextData = parsePlaygroundSnippet(playgroundCode.value)
   playgroundData = nextData
+  playgroundComparison = null
   playgroundEmpty.hidden = Boolean(nextData)
   updateVectorMatchButton()
+  updateSourceCompareButton()
 
   if (!playgroundCode.value.trim()) {
     playgroundData = null
     playgroundEmpty.hidden = false
     setPlaygroundStatus('Paste vector path code to draw it on the whiteboard below.')
+    updateSourceCompareButton()
     renderPlayground()
     return
   }
 
   if (!nextData) {
     setPlaygroundStatus('Unable to parse vector commands. Use PDF path operators such as m, l, c, re, h.')
+    updateSourceCompareButton()
     renderPlayground()
     return
   }
 
   setPlaygroundStatus(
-    `Rendered ${nextData.polylines.length} path${nextData.polylines.length === 1 ? '' : 's'} with auto-scaled coordinates.`,
+    `Rendered ${nextData.polylines.length} path${nextData.polylines.length === 1 ? '' : 's'} aligned to the lower-left origin.`,
   )
   if (autoFit) {
     fitPlaygroundView()
   } else {
     renderPlayground()
   }
+}
+
+function clearPlayground(): void {
+  playgroundCode.value = ''
+  playgroundData = null
+  playgroundComparison = null
+  playgroundView = { scale: 1, offsetX: 0, offsetY: 0 }
+  playgroundEmpty.hidden = false
+  vectorMatchResults = []
+  vectorMatchResultsLabel = 'Results: None'
+  renderVectorMatchResultsSelect()
+  renderVectorMatchOverlays()
+  updateVectorMatchButton()
+  updateSourceCompareButton()
+  setPlaygroundStatus('Playground cleared. Select a shape and use Stash Shape to preview it here.')
+  renderPlayground()
 }
 
 function zoomPlaygroundAt(clientX: number, clientY: number, factor: number): void {
@@ -1177,7 +1296,7 @@ function zoomPlaygroundAt(clientX: number, clientY: number, factor: number): voi
   const nextScale = clamp(playgroundView.scale * factor, PLAYGROUND_MIN_SCALE, PLAYGROUND_MAX_SCALE)
   playgroundView.scale = nextScale
   playgroundView.offsetX = screenX - anchor.x * nextScale
-  playgroundView.offsetY = screenY - anchor.y * nextScale
+  playgroundView.offsetY = screenY + anchor.y * nextScale
   renderPlayground()
 }
 
@@ -1202,21 +1321,12 @@ function initPlayground(): void {
     }, 220)
   })
 
-  playgroundRenderBtn.addEventListener('click', () => {
-    refreshPlayground(true)
-  })
-
   playgroundFitBtn.addEventListener('click', () => {
     fitPlaygroundView()
   })
 
   playgroundResetBtn.addEventListener('click', () => {
-    playgroundView = { scale: 1, offsetX: 0, offsetY: 0 }
-    if (playgroundData) {
-      fitPlaygroundView()
-      return
-    }
-    renderPlayground()
+    clearPlayground()
   })
 
   playgroundBoard.addEventListener(
@@ -1317,6 +1427,7 @@ function renderReferenceChain(item: ReaderItem, pageData: PageData): void {
 
 function clearVectorSnifferSelection(): void {
   activeVectorSnifferSelection = null
+  playgroundComparison = null
   vectorMatchResults = []
   vectorMatchResultsLabel = 'Results: None'
   selectedVectorGroupItemIds = new Set()
@@ -1324,6 +1435,7 @@ function clearVectorSnifferSelection(): void {
   renderVectorMatchResultsSelect()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
+  updateSourceCompareButton()
   syncSelectionClasses()
 }
 
@@ -1333,9 +1445,13 @@ function setPendingPlaygroundSource(source: string): void {
 }
 
 function setVectorSnifferSelection(selection: VectorSnifferSelection | null, preserveMatches = false): void {
+  const previousSourceCode = activeVectorSnifferSelection?.sourceCode ?? ''
   activeVectorSnifferSelection = selection
   selectedVectorGroupItemIds = new Set(selection?.itemIds ?? [])
   setPendingPlaygroundSource(selection?.sourceCode ?? '')
+  if (!selection || selection.sourceCode !== previousSourceCode) {
+    playgroundComparison = null
+  }
   if (!preserveMatches) {
     vectorMatchResults = []
     vectorMatchResultsLabel = 'Results: None'
@@ -1343,6 +1459,7 @@ function setVectorSnifferSelection(selection: VectorSnifferSelection | null, pre
   renderVectorMatchResultsSelect()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
+  updateSourceCompareButton()
 
   if (!selection) {
     syncSelectionClasses()
@@ -1355,7 +1472,7 @@ function setVectorSnifferSelection(selection: VectorSnifferSelection | null, pre
   sourceCode.textContent = selection.sourceCode || 'The selected vector shape group is stored in memory for pdf_parser matching.'
   setPendingPlaygroundSource(selection.sourceCode)
   sourceComment.innerHTML =
-    '<div class="source-note">Selected source is ready to stash. Click Stash to Playground to preview and search this vector group.</div>'
+    '<div class="source-note">Selected source is ready to stash. Click Stash Shape in the playground toolbar to preview and search this vector group.</div>'
   warningsEl.innerHTML = ''
   referenceChain.innerHTML = ''
   renderMeta(selectionMeta, [
@@ -1369,12 +1486,14 @@ function setVectorSnifferSelection(selection: VectorSnifferSelection | null, pre
 
 function setSelection(item: ReaderItem | null, pageData: PageData | null): void {
   activeVectorSnifferSelection = null
+  playgroundComparison = null
   vectorMatchResults = []
   vectorMatchResultsLabel = 'Results: None'
   selectedVectorGroupItemIds = new Set()
   renderVectorMatchResultsSelect()
   renderVectorMatchOverlays()
   updateVectorMatchButton()
+  updateSourceCompareButton()
   activeSelectionId = item?.id ?? null
   selectionMeta.innerHTML = ''
   sourceComment.innerHTML = ''
@@ -1756,7 +1875,7 @@ async function selectVectorsInsideArea(pageData: PageData, area: BBox): Promise<
 
     const selectedItems = findVectorItemsInsideArea(pageData, area)
     const selectedSource = buildSelectionSourceCode(result.selected_shapes, selectedItems)
-    setStatus(`Selected ${result.selected_shape_count} vector shapes. Stash the source to Playground when ready.`)
+    setStatus(`Selected ${result.selected_shape_count} vector shapes. Use Stash Shape in the playground toolbar when ready.`)
     setVectorSnifferSelection({
       pageNumber: pageData.page_number,
       queryBBox: area,
@@ -2315,8 +2434,37 @@ sourceStashBtn.addEventListener('click', () => {
     return
   }
   loadPlaygroundCode(pendingPlaygroundSource)
-  setPlaygroundStatus('Stashed source into the playground. The preview is ready for search.')
+  setPlaygroundStatus('Stashed shape into the playground. The preview is ready for search or compare.')
   updateVectorMatchButton()
+  updateSourceCompareButton()
+})
+
+sourceCompareBtn.addEventListener('click', () => {
+  if (playgroundComparison) {
+    playgroundComparison = null
+    updateSourceCompareButton()
+    renderPlayground()
+    setPlaygroundStatus('Compare cleared. Playground preview restored.')
+    return
+  }
+
+  if (!playgroundData || !activeVectorSnifferSelection?.sourceCode) {
+    updateSourceCompareButton()
+    return
+  }
+
+  const candidate = parsePlaygroundSnippet(activeVectorSnifferSelection.sourceCode)
+  if (!candidate) {
+    setPlaygroundStatus('Unable to parse the selected vector group for compare.')
+    return
+  }
+
+  playgroundComparison = comparePlaygroundData(playgroundData, candidate)
+  updateSourceCompareButton()
+  renderPlayground()
+  const matched = playgroundComparison.matchedCandidateIndexes.size
+  const total = candidate.polylines.length
+  setPlaygroundStatus(`Compare: ${matched}/${total} selected path${total === 1 ? '' : 's'} matched at the aligned origin.`)
 })
 
 vectorMatchSearchBtn.addEventListener('click', async () => {
@@ -2328,7 +2476,7 @@ vectorMatchSearchBtn.addEventListener('click', async () => {
     vectorMatchSearchBtn.disabled = true
     const searchScope = globalSearchToggle.checked ? 'global' : 'current'
     const totalPages = searchScope === 'global' ? activeDocument.page_count : 1
-    const queryBBox = playgroundBoundsToBBox(playgroundData.bounds)
+    const queryBBox = playgroundBoundsToBBox(playgroundData.sourceBounds)
     vectorMatchResults = []
     vectorMatchResultsLabel = 'Results: None'
     renderVectorMatchOverlays()
